@@ -2,7 +2,9 @@ import { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import "./books.css";
+
+import "./list.css";
+import bookside from "./books/book-side.svg";
 
 import book1 from "./books/book1.jpg";
 import book2 from "./books/book2.jpg";
@@ -79,7 +81,15 @@ export function BOOKSLIST() {
           {myBooks.map((book, index) => {
             return (
               <div className="book">
-                <img src={`${book}`} alt={`livre ${index + 1}`} />
+                <div className="card-hover">
+                  <img
+                    className="cover"
+                    src={`${book}`}
+                    alt={`livre ${index + 1}`}
+                  />
+                  <img className="book-top" src={bookside} />
+                  <img className="book-side" src={bookside} />
+                </div>
               </div>
             );
           })}
