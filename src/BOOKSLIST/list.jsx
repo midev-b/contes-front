@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -6,32 +7,51 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./list.css";
 import bookside from "./book-side.svg";
 
-const myBooks = [
-  "/books/book1.jpg",
-  "/books/book2.jpg",
-  "/books/book3.jpg",
-  "/books/book4.jpg",
-  "/books/book5.jpg",
-  "/books/book6.jpg",
-  "/books/book7.jpg",
-  "/books/book8.jpg",
-  "/books/book9.jpg",
-  "/books/book10.jpg",
-  "/books/book11.jpg",
-  "/books/book12.jpg",
-  "/books/book13.jpg",
-  "/books/book14.jpg",
-  "/books/book15.jpg",
-  "/books/book16.jpg",
-  "/books/book17.jpg",
-  "/books/book18.jpg",
-  "/books/book19.jpg",
-  "/books/book20.jpg",
-  "/books/book21.jpg",
-  "/books/book22.jpg",
-];
+// const myBooks = [
+//   "/books/book1.jpg",
+//   "/books/book2.jpg",
+//   "/books/book3.jpg",
+//   "/books/book4.jpg",
+//   "/books/book5.jpg",
+//   "/books/book6.jpg",
+//   "/books/book7.jpg",
+//   "/books/book8.jpg",
+//   "/books/book9.jpg",
+//   "/books/book10.jpg",
+//   "/books/book11.jpg",
+//   "/books/book12.jpg",
+//   "/books/book13.jpg",
+//   "/books/book14.jpg",
+//   "/books/book15.jpg",
+//   "/books/book16.jpg",
+//   "/books/book17.jpg",
+//   "/books/book18.jpg",
+//   "/books/book19.jpg",
+//   "/books/book20.jpg",
+//   "/books/book21.jpg",
+//   "/books/book22.jpg",
+// ];
 
 export function BOOKSLIST() {
+  const [stories, setStories] = useState([]);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchStories = async () => {
+      try {
+        const response = await fetch("http://localhost:5001/api/stories");
+        if (!response.ok) {
+          throw new Error("Problème de chargement...");
+        }
+        const data = await response.json();
+        console.log(data);
+        setStories(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+    fetchStories();
+  }, []);
+
   return (
     <div className="global-container">
       <div className="middle-container">
@@ -56,13 +76,13 @@ export function BOOKSLIST() {
               d'aventures incroyables !
             </p>
           </div>
-          {myBooks.map((book, index) => {
+          {stories.map((book, index) => {
             return (
-              <div className="book">
+              <div key={index} className="book">
                 <div className="card-hover">
                   <img
                     className="cover"
-                    src={`${book}`}
+                    src={`${book.cover}`}
                     alt={`livre ${index + 1}`}
                   />
                   <img className="book-top" src={bookside} />
