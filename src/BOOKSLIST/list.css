@@ -91,6 +91,7 @@
   background-color: rgb(23, 35, 75);
   border-radius: 5px;
   position: relative;
+  /* overflow: hidden; */
 }
 .card-hover {
   display: flex;
@@ -144,4 +145,25 @@
 }
 .card-hover:hover {
   transform: rotateX(72deg) scaleX(0.6) scaleY(0.8);
+}
+/* BOOK-INFORMATIONS */
+.card-informations {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 160px;
+  height: 80px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: -80px;
+
+  border: 2px solid yellow;
+  z-index: 12;
+}
+.card-informations h3 {
+  font-size: 12px;
+}
+.card-informations p {
+  font-size: 12px;
 }

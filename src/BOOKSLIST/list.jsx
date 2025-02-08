@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import "./list.css";
-import bookside from "./book-side.svg";
+import { Book } from "./book";
 
 // const myBooks = [
 //   "/books/book1.jpg",
@@ -78,17 +78,13 @@ export function BOOKSLIST() {
           </div>
           {stories.map((book, index) => {
             return (
-              <div key={index} className="book">
-                <div className="card-hover">
-                  <img
-                    className="cover"
-                    src={`${book.cover}`}
-                    alt={`livre ${index + 1}`}
-                  />
-                  <img className="book-top" src={bookside} />
-                  <img className="book-side" src={bookside} />
-                </div>
-              </div>
+              <Book
+                key={index}
+                cover={book.cover}
+                title={book.title}
+                author={book.author}
+                rating={book.rating}
+              />
             );
           })}
         </div>
