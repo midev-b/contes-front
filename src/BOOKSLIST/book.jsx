@@ -14,6 +14,7 @@ export function Book({ cover, title, author, rating }) {
       <div className="card-informations">
         <h3>{title}</h3>
         <p>Auteur: {author}</p>
+
         <div className="stars">
           {[...Array(5)].map((_, index) => {
             return (

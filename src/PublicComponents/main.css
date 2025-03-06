@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+.main a {
+  color: #c3c9c7;
+
+  font-family: "Quicksand", serif;
+
+  letter-spacing: -1px;
+  font-weight: 800;
+  font-size: 16px;
+}
+.connexion {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.connexion p {
+  margin: 0 8px 0 8px;
+  color: #d3d5d6;
+}

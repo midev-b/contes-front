@@ -26,17 +26,25 @@
 }
 .header-actions {
   display: flex;
+  flex-direction: row;
+
   justify-content: space-around;
   padding-top: 20px;
 }
-.main {
+/* .main {
   display: flex;
   justify-content: space-between;
   width: 50%;
 }
 .main a {
-  color: #f7f8ed;
-}
+  color: #c3c9c7;
+
+  font-family: "Quicksand", serif;
+
+  letter-spacing: -1px;
+  font-weight: 800;
+  font-size: 16px;
+} */
 .bar-search {
   display: flex;
   flex-direction: row;
@@ -74,12 +82,31 @@
   grid-column: span 2;
   grid-row: span 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  border: 1px solid rgb(12, 11, 11);
+  align-items: center;
 }
 .text-intro p {
-  color: white;
+  color: rgb(178, 184, 184);
+
+  width: 90%;
+
+  font-family: "Quicksand", serif;
   padding: 10px;
+  margin-left: 10px;
+
+  font-weight: 600;
+  font-style: normal;
+  font-size: 17px;
+
+  line-height: 30px;
+
+  text-align: start;
+}
+.text-intro .img-logo {
+  margin-bottom: 20px;
+  width: 70%;
+  height: 20px;
 }
 
 .book {
@@ -91,7 +118,7 @@
   background-color: rgb(23, 35, 75);
   border-radius: 5px;
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .card-hover {
   display: flex;
@@ -117,7 +144,6 @@
   width: 126px;
   height: 130px;
 
-  border-left: 2px rgba(255, 255, 255, 0.74) solid;
   border-bottom: 2px rgba(187, 180, 180, 0.884) solid;
   border-radius: 3px 3px 3px 3px;
 
@@ -149,21 +175,43 @@
 /* BOOK-INFORMATIONS */
 .card-informations {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
 
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: 0 5px 0 5px;
   width: 160px;
-  height: 80px;
-  background-color: rgb(255, 255, 255);
+  height: 85px;
+  background-color: rgb(205, 242, 250);
   position: absolute;
-  bottom: -80px;
+  bottom: -100px;
 
-  border: 2px solid yellow;
+  border-radius: 5px;
   z-index: 12;
+
+  transition: transform 0.6s ease-in-out;
 }
-.card-informations h3 {
-  font-size: 12px;
+.card-informations .stars {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0 0px 10px 0px;
 }
+.card-informations h3,
 .card-informations p {
   font-size: 12px;
+
+  font-family: serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 20px;
+  color: rgb(0, 0, 0);
+}
+.book:hover .card-informations {
+  transform: translateY(-95px);
+
+  box-shadow: -13px 6px 17px 1px rgba(14, 12, 12, 0.75);
+  -webkit-box-shadow: -13px 6px 17px 1px rgba(34, 32, 32, 0.849);
+  -moz-box-shadow: -13px 6px 17px 1px rgb(53, 49, 49);
 }
