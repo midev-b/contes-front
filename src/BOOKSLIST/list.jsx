@@ -13,18 +13,24 @@ import logo from "/logos/logo.png";
 export function BookList() {
   const [stories, setStories] = useState([]);
   const [search, setSearch] = useState("");
+
   const [error, setError] = useState(null);
+
   useEffect(() => {
     const fetchStories = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5001/api/stories?search=${search}`
+          `http://localhost:5001/api/stories?search=${search}`,
+          { credentials: "include" }
         );
+
         if (!response.ok) {
           throw new Error("Problème de chargement...");
         }
+
         const data = await response.json();
-        console.log(data);
+        console.log("data endpoint", data.stories);
+
         setStories(data);
       } catch (err) {
         setError(err.message);
@@ -46,7 +52,7 @@ export function BookList() {
               onChange={(e) => setSearch(e.target.value)}
             />
             <div>
-              <FontAwesomeIcon icon={faSearch} size="0.5g" color="black" />
+              <FontAwesomeIcon icon={faSearch} color="black" />
             </div>
           </div>
         </header>
@@ -60,12 +66,9 @@ export function BookList() {
           </div>
           {stories.map((book, index) => {
             return (
-              <Link
-                key={index}
-                to={`/histoires/${book.title}`}
-                // className="book-link"
-              >
+              <Link key={index} to={`/histoires/${book.title}`}>
                 <Book
+                  mark={book.isLiked}
                   cover={book.cover}
                   title={book.title}
                   author={book.author}

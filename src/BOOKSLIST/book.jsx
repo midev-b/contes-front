@@ -1,10 +1,40 @@
 import bookside from "./book-side.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+
+import { faLock } from "@fortawesome/free-solid-svg-icons";
+
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./list.css";
-export function Book({ cover, title, author, rating }) {
+export function Book({ mark, cover, title, author, rating }) {
+  let icon = null;
+  if (mark === undefined) {
+    icon = <FontAwesomeIcon className="lock-icon" icon={faLock} size="100xl" />;
+  } else if (mark === false) {
+    icon = (
+      <FontAwesomeIcon
+        className="heart-unlike-icon"
+        icon={faHeart}
+        size="100xl"
+      />
+    );
+  } else if (mark === true) {
+    icon = (
+      <FontAwesomeIcon
+        className="heart-like-icon"
+        icon={faHeart}
+        size="100xl"
+      />
+    );
+  } else {
+    icon = null;
+  }
+
+  console.log({ icon });
+
   return (
     <div className="book">
+      <div className="icon">{icon}</div>
       <div className="card-hover">
         <img className="cover" src={cover} alt={`Livre: ${title}`} />
 

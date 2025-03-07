@@ -120,6 +120,29 @@
   position: relative;
   overflow: hidden;
 }
+.heart-like-icon {
+  position: absolute;
+  z-index: 9;
+  font-size: 14px;
+  color: rgb(212, 200, 26);
+}
+.heart-unlike-icon {
+  position: absolute;
+  z-index: 9;
+  font-size: 14px;
+  color: rgb(172, 167, 159);
+  top: 40px;
+  left: 20px;
+}
+.lock-icon {
+  font-size: 18px;
+  position: absolute;
+  z-index: 9;
+  top: 5px;
+  left: 5px;
+
+  color: rgba(150, 150, 36, 0.918);
+}
 .card-hover {
   display: flex;
   flex-direction: column;

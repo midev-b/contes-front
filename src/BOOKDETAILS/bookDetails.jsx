@@ -41,7 +41,7 @@ export function BookDetails() {
         }
 
         const data = await response.json();
-        setBook(data.story);
+        setBook(data);
         setIsLiked(data.liked);
         setRating(data.rating);
       } catch (err) {
@@ -97,7 +97,7 @@ export function BookDetails() {
 
   return (
     <div>
-      <FontAwesomeIcon icon={faHeart} color={isLiked ? "red" : "blue"} />
+      <FontAwesomeIcon icon={faHeart} color={isLiked ? "red" : "orange"} />
 
       <h3>
         <img src={book.cover} />
