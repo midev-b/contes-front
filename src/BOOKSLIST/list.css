@@ -124,15 +124,17 @@
   position: absolute;
   z-index: 9;
   font-size: 14px;
-  color: rgb(212, 200, 26);
+  color: rgb(235, 16, 16);
+  top: 5px;
+  left: 5px;
 }
 .heart-unlike-icon {
   position: absolute;
   z-index: 9;
   font-size: 14px;
   color: rgb(172, 167, 159);
-  top: 40px;
-  left: 20px;
+  top: 5px;
+  left: 5px;
 }
 .lock-icon {
   font-size: 18px;
