@@ -26,7 +26,7 @@ export function BookDetails() {
             method: "GET",
 
             headers: { "Content-Type": "application/json" },
-            credentials: "include", // Permet d'envoyer automatiquement le cookie HTTPOnly contenant le token
+            credentials: "include", //Permet d'envoyer automatiquement le cookie HTTPOnly contenant le token
           }
         );
 
