@@ -13,6 +13,7 @@ export function BookDetails() {
   const [book, setBook] = useState(null);
   const [error, setError] = useState(null);
   const [isLiked, setIsLiked] = useState(null);
+  const [isDisconnected, setIsDisconnected] = useState(null);
 
   const [rating, setRating] = useState(null);
 
@@ -32,7 +33,9 @@ export function BookDetails() {
 
         // Si l'utilisateur n'est pas authentifié (et le livre n'est pas gratuit), on redirige vers /login
         if (response.status === 401) {
-          navigate("/login");
+          setIsDisconnected(true);
+          setTimeout(navigate("/login"), 1500);
+
           return;
         }
 
@@ -97,7 +100,9 @@ export function BookDetails() {
 
   return (
     <div>
-      <FontAwesomeIcon icon={faHeart} color={isLiked ? "red" : "orange"} />
+      {isDisconnected === true && (
+        <FontAwesomeIcon icon={faHeart} color={isLiked ? "red" : "black"} />
+      )}
 
       <h3>
         <img src={book.cover} />
@@ -107,19 +112,20 @@ export function BookDetails() {
       <p>{book.description}</p>
       {/* Par exemple, on peut afficher ici d'autres informations du livre */}
       <p>Accès : {book.isPublic ? "Gratuit" : "Réservé aux membres"}</p>
-      <button onClick={toggleLike}>Ajouter aux favoris</button>
-      <div className="stars">
-        {[...Array(5)].map((_, index) => {
-          return (
-            <FontAwesomeIcon
-              onClick={() => submitRating(index + 1)}
-              key={index}
-              icon={faStar}
-              color={index + 1 <= rating ? "yellow" : "black"}
-            />
-          );
-        })}
-      </div>
+      {isDisconnected === true && (
+        <div className="stars">
+          {[...Array(5)].map((_, index) => {
+            return (
+              <FontAwesomeIcon
+                onClick={() => submitRating(index + 1)}
+                key={index}
+                icon={faStar}
+                color={index + 1 <= rating ? "yellow" : "black"}
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

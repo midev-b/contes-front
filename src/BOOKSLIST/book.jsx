@@ -8,7 +8,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./list.css";
 export function Book({ mark, cover, title, author, rating }) {
   let icon = null;
-  if (mark === undefined) {
+  if (mark === "lock") {
     icon = <FontAwesomeIcon className="lock-icon" icon={faLock} size="100xl" />;
   } else if (mark === false) {
     icon = (
