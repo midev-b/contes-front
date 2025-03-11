@@ -9,7 +9,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export function BookDetails() {
   const { title } = useParams();
-  const navigate = useNavigate();
+
   const [book, setBook] = useState(null);
   const [error, setError] = useState(null);
   const [isLiked, setIsLiked] = useState(null);
@@ -31,14 +31,6 @@ export function BookDetails() {
           }
         );
 
-        // Si l'utilisateur n'est pas authentifié (et le livre n'est pas gratuit), on redirige vers /login
-        if (response.status === 401) {
-          setIsDisconnected(true);
-          setTimeout(navigate("/login"), 1500);
-
-          return;
-        }
-
         if (!response.ok) {
           throw new Error("Erreur lors du chargement des détails du livre.");
         }
@@ -47,13 +39,15 @@ export function BookDetails() {
         setBook(data);
         setIsLiked(data.liked);
         setRating(data.rating);
+        setIsDisconnected(data.isDisconnected);
       } catch (err) {
         setError(err.message);
       }
     };
 
     fetchBookDetails();
-  }, [title]);
+    console.log(isDisconnected);
+  }, [title, isDisconnected]);
   //////////////////
   const toggleLike = async () => {
     try {
@@ -100,7 +94,7 @@ export function BookDetails() {
 
   return (
     <div>
-      {isDisconnected === true && (
+      {isDisconnected === false && (
         <FontAwesomeIcon icon={faHeart} color={isLiked ? "red" : "black"} />
       )}
 
@@ -112,19 +106,24 @@ export function BookDetails() {
       <p>{book.description}</p>
       {/* Par exemple, on peut afficher ici d'autres informations du livre */}
       <p>Accès : {book.isPublic ? "Gratuit" : "Réservé aux membres"}</p>
-      {isDisconnected === true && (
-        <div className="stars">
-          {[...Array(5)].map((_, index) => {
-            return (
-              <FontAwesomeIcon
-                onClick={() => submitRating(index + 1)}
-                key={index}
-                icon={faStar}
-                color={index + 1 <= rating ? "yellow" : "black"}
-              />
-            );
-          })}
-        </div>
+      {isDisconnected === false && (
+        <>
+          <button onClick={toggleLike}>
+            {isLiked ? "Retirer des favoris" : "Ajouter aux favoris"}
+          </button>
+          <div className="stars">
+            {[...Array(5)].map((_, index) => {
+              return (
+                <FontAwesomeIcon
+                  onClick={() => submitRating(index + 1)}
+                  key={index}
+                  icon={faStar}
+                  color={index + 1 <= rating ? "yellow" : "black"}
+                />
+              );
+            })}
+          </div>
+        </>
       )}
     </div>
   );
