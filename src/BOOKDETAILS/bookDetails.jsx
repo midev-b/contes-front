@@ -2,6 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+import { Main } from "../PublicComponents/main.jsx";
+import "./bookDetails.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
@@ -94,6 +97,7 @@ export function BookDetails() {
 
   return (
     <div>
+      {/* <Main /> */}
       {isDisconnected === false && (
         <FontAwesomeIcon icon={faHeart} color={isLiked ? "red" : "black"} />
       )}
@@ -102,7 +106,7 @@ export function BookDetails() {
         <img src={book.cover} />
       </h3>
 
-      <h2>Détails du livre : {book.title}</h2>
+      <h2>{book.title}</h2>
       <p>{book.description}</p>
       {/* Par exemple, on peut afficher ici d'autres informations du livre */}
       <p>Accès : {book.isPublic ? "Gratuit" : "Réservé aux membres"}</p>

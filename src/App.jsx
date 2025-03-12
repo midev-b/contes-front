@@ -6,7 +6,7 @@ import { BookList } from "./BOOKSLIST/list.jsx";
 import { BookDetails } from "./BOOKDETAILS/bookDetails.jsx";
 import { Register } from "./INSCRIPTION/register.jsx";
 import { Login } from "./CONNEXION/login.jsx";
-import { Main } from "./PublicComponents/main.jsx";
+// import { Main } from "./PublicComponents/main.jsx";
 
 function App() {
   return (

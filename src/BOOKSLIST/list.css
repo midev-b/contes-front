@@ -171,7 +171,9 @@
 
   border-bottom: 2px rgba(187, 180, 180, 0.884) solid;
   border-radius: 3px 3px 3px 3px;
-
+  box-shadow: 9px 6px 12px -6px rgba(96, 91, 102, 0.75);
+  -webkit-box-shadow: 9px 6px 12px -6px rgba(116, 109, 122, 0.75);
+  -moz-box-shadow: 9px 6px 12px -6px rgba(96, 89, 104, 0.75);
   z-index: 5;
   transform: translateZ(28.5px);
 }
