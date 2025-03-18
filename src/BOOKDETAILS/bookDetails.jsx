@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 import { Main } from "../PublicComponents/main.jsx";
 import "./bookDetails.css";
+import bookTop from "/books/top-book.jpg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -95,40 +96,76 @@ export function BookDetails() {
   if (error) return <div>{error}</div>;
   if (!book) return <div>Chargement...</div>;
 
+  // return (
+  //   <div className="book-details">
+  //     <Main className="main" />
+  //     <div className="global-container">
+  //       <div className="book-container">
+  //         {isDisconnected === false && (
+  //           <FontAwesomeIcon icon={faHeart} color={isLiked ? "red" : "black"} />
+  //         )}
+
+  //         <h3>
+  //           <img src={book.cover} />
+  //         </h3>
+
+  //         <h2>{book.title}</h2>
+  //         <p>{book.description}</p>
+  //         {/* Par exemple, on peut afficher ici d'autres informations du livre */}
+  //         <p>Accès : {book.isPublic ? "Gratuit" : "Réservé aux membres"}</p>
+  //         {isDisconnected === false && (
+  //           <>
+  //             <button onClick={toggleLike}>
+  //               {isLiked ? "Retirer des favoris" : "Ajouter aux favoris"}
+  //             </button>
+  //             <div className="stars">
+  //               {[...Array(5)].map((_, index) => {
+  //                 return (
+  //                   <FontAwesomeIcon
+  //                     onClick={() => submitRating(index + 1)}
+  //                     key={index}
+  //                     icon={faStar}
+  //                     color={index + 1 <= rating ? "yellow" : "black"}
+  //                   />
+  //                 );
+  //               })}
+  //             </div>
+  //           </>
+  //         )}
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
   return (
-    <div>
-      {/* <Main /> */}
-      {isDisconnected === false && (
-        <FontAwesomeIcon icon={faHeart} color={isLiked ? "red" : "black"} />
-      )}
-
-      <h3>
-        <img src={book.cover} />
-      </h3>
-
-      <h2>{book.title}</h2>
-      <p>{book.description}</p>
-      {/* Par exemple, on peut afficher ici d'autres informations du livre */}
-      <p>Accès : {book.isPublic ? "Gratuit" : "Réservé aux membres"}</p>
-      {isDisconnected === false && (
-        <>
-          <button onClick={toggleLike}>
-            {isLiked ? "Retirer des favoris" : "Ajouter aux favoris"}
-          </button>
-          <div className="stars">
-            {[...Array(5)].map((_, index) => {
-              return (
-                <FontAwesomeIcon
-                  onClick={() => submitRating(index + 1)}
-                  key={index}
-                  icon={faStar}
-                  color={index + 1 <= rating ? "yellow" : "black"}
-                />
-              );
-            })}
+    <div className="book-details">
+      <div className="global-container">
+        {/* Partie principale (Gauche + Droite) */}
+        <Main className="main"></Main>
+        <div className="content-container">
+          {/* Partie gauche */}
+          <div className="left-container">
+            <div className="book-container">
+              <div className="cover-container">
+                <img src={book.cover} alt={book.title} className="book-cover" />
+                <img src={bookTop} className="bottom-book" />
+              </div>
+              <div className="button-group">
+                <button className="read-btn">Lire</button>
+                <button className="listen-btn">Écouter</button>
+              </div>
+            </div>
           </div>
-        </>
-      )}
+
+          {/* Partie droite */}
+          <div className="right-container">
+            <h1 className="book-title">{book.title}</h1>
+            <p className="book-author">Auteur : {book.author}</p>
+          </div>
+        </div>
+
+        {/* Description en bas */}
+        <p className="book-description">{book.description}</p>
+      </div>
     </div>
   );
 }
