@@ -136,6 +136,7 @@ export function BookDetails() {
   //     </div>
   //   </div>
   // );
+  console.log(book.pages[0].imag);
   return (
     <div className="book-details">
       <div className="global-container">
