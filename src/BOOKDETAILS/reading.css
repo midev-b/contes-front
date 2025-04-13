@@ -1,0 +1,118 @@
+.reading {
+  background-image: url("/backgrounds/pastel-background2.png");
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reading .middle-container {
+  width: 60%;
+  height: 80%;
+  padding: 20px;
+  background: #e0e2e2;
+  border-radius: 5px;
+  box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  border-left: #f3f5f769 20px solid;
+  border-top: 20px solid rgba(243, 245, 247, 0.404);
+  gap: 20px;
+}
+
+.reading .main {
+  position: absolute;
+  top: -10px;
+  width: 80%;
+  padding-bottom: 20px;
+  justify-content: space-evenly;
+}
+
+.reading .book {
+  width: 60%;
+  height: 120%;
+  position: relative;
+
+  margin-left: 300px;
+  border-radius: 15px;
+}
+
+.reading .pages {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+  transform-origin: left;
+  border-radius: 15px;
+}
+
+.reading .front-page,
+.reading .back-page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  background-color: white;
+
+  border-radius: 15px;
+  border: #293333;
+  display: flex;
+  justify-content: center;
+}
+
+.reading .back-page {
+  transform: rotateY(-180deg);
+}
+
+.reading .flip {
+  transform: rotateY(180deg);
+}
+
+.reading .front-page img,
+.reading .back-page img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  border: 1px solid gray;
+}
+
+.reading .front-page button,
+.reading .back-page button {
+  position: absolute;
+  top: 20px;
+  background-color: rgba(150, 150, 255, 0.3);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.reading .front-page button {
+  right: 10px;
+}
+.reading .back-page button {
+  left: 10px;
+}
+
+.reading .front-page p,
+.reading .back-page p {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 2;
+  font-family: "Inder";
+  font-size: 16px;
+  width: 90%;
+  padding: 4px;
+  font-weight: bolder;
+  text-align: left;
+  background-color: rgba(242, 242, 234, 0.203);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}

@@ -1,6 +1,9 @@
 // BookDetails.js
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom";
+
+import { useParams } from "react-router-dom";
 
 import { Main } from "../PublicComponents/main.jsx";
 import "./bookDetails.css";
@@ -146,12 +149,41 @@ export function BookDetails() {
           {/* Partie gauche */}
           <div className="left-container">
             <div className="book-container">
+              {isDisconnected === false && (
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  color={isLiked ? "red" : "black"}
+                />
+              )}
               <div className="cover-container">
                 <img src={book.cover} alt={book.title} className="book-cover" />
                 <img src={bookTop} className="bottom-book" />
               </div>
+
+              {isDisconnected === false && (
+                <>
+                  <button onClick={toggleLike}>
+                    {isLiked ? "Retirer des favoris" : "Ajouter aux favoris"}
+                  </button>
+                  <div className="stars">
+                    {[...Array(5)].map((_, index) => {
+                      return (
+                        <FontAwesomeIcon
+                          onClick={() => submitRating(index + 1)}
+                          key={index}
+                          icon={faStar}
+                          color={index + 1 <= rating ? "yellow" : "black"}
+                        />
+                      );
+                    })}
+                  </div>
+                </>
+              )}
               <div className="button-group">
-                <button className="read-btn">Lire</button>
+                <Link to={`/lecture/${title}`}>
+                  <button className="read-btn">Lire</button>
+                </Link>
+
                 <button className="listen-btn">Écouter</button>
               </div>
             </div>
