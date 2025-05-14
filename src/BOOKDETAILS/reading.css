@@ -20,6 +20,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   position: relative;
   border-left: #f3f5f769 20px solid;
   border-top: 20px solid rgba(243, 245, 247, 0.404);
@@ -34,13 +35,23 @@
   justify-content: space-evenly;
 }
 
-.reading .book {
-  width: 60%;
-  height: 120%;
-  position: relative;
+.reading .main a {
+  color: #200972;
 
-  margin-left: 300px;
-  border-radius: 15px;
+  font-family: "Quicksand", serif;
+
+  letter-spacing: 0.2px;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.reading .book {
+  width: 50%;
+  height: 90%;
+  position: relative;
+  top: 5%;
+
+  border-radius: 12px;
 }
 
 .reading .pages {
@@ -51,6 +62,9 @@
   transition: transform 1s ease-in-out;
   transform-origin: left;
   border-radius: 15px;
+  box-shadow: -7px 2px 43px -74px rgba(179, 174, 174, 0.89);
+  -webkit-box-shadow: -7px 2px 43px -74px rgba(204, 194, 194, 0.89);
+  -moz-box-shadow: -7px 2px 43px -74px rgba(231, 222, 222, 0.89);
 }
 
 .reading .front-page,
@@ -65,10 +79,18 @@
   border: #293333;
   display: flex;
   justify-content: center;
+
+  box-shadow: inset 5px 0 8px rgba(0, 0, 0, 0.1);
+
+  box-shadow: -7px 2px 43px -74px rgba(179, 174, 174, 0.89);
+  -webkit-box-shadow: -7px 2px 43px -74px rgba(204, 194, 194, 0.89);
+  -moz-box-shadow: -7px 2px 43px -74px rgba(231, 222, 222, 0.89);
 }
 
 .reading .back-page {
   transform: rotateY(-180deg);
+
+  box-shadow: inset -5px 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .reading .flip {
@@ -80,14 +102,14 @@
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  border: 1px solid gray;
+  border: 0.5px solid rgb(227, 228, 206);
 }
 
 .reading .front-page button,
 .reading .back-page button {
   position: absolute;
   top: 20px;
-  background-color: rgba(150, 150, 255, 0.3);
+  background-color: rgba(196, 183, 10, 0.699);
   padding: 4px 10px;
   border-radius: 6px;
   border: none;
@@ -106,13 +128,55 @@
   bottom: 10px;
   left: 10px;
   z-index: 2;
-  font-family: "Inder";
-  font-size: 16px;
+
+  font-family: "Quicksand", serif;
+  font-size: 15px;
   width: 90%;
   padding: 4px;
   font-weight: bolder;
   text-align: left;
-  background-color: rgba(242, 242, 234, 0.203);
+  background-color: rgba(242, 242, 234, 0.452);
 
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); */
+}
+.reading .front-page .full-text,
+.reading .back-page .full-text {
+  height: 80%;
+  width: 90%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  font-size: 16px;
+  text-align: justify;
+  background-color: rgba(255, 255, 255, 0);
+  line-height: 1.8;
+}
+.reading .book-title {
+  font-size: 30px;
+  width: 50%;
+
+  position: absolute;
+  top: 40%;
+  left: 0%;
+  display: flex;
+  justify-content: center;
+}
+.reading .title {
+  font-size: 30px;
+
+  font-family: "Charm", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: #43415ec4;
+}
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(190px);
+  }
+}
+.reading .book {
+  animation: slideRight 1s ease-in-out forwards;
 }

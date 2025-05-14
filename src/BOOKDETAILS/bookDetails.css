@@ -83,8 +83,9 @@
 .book-details .book-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
-  gap: 30px;
+  gap: 10px;
 }
 .book-details .cover-container {
   position: relative;
@@ -146,4 +147,14 @@
   font-weight: 400;
   font-style: normal;
 }
-/*  */
+.book-details .heart-icon {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  z-index: 88;
+}
+.book-details .btn-heart {
+  width: 200px;
+}

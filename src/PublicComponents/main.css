@@ -1,26 +1,69 @@
+/* #2C3E50  // Bleu crépuscule
+#C8BFE7  // Lavande douce
+#B2E0D2  // Menthe givrée
+#F5B5AC  // Corail tendre
+#FDF6EC  // Crème lunaire
+#D6EAE3  // Givre
+#A5C4B0  // Vert mousse
+#DFA2B2  // Rose poudré */
+
 .main {
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  width: 70%;
 }
+
 .main a {
-  color: #c3c9c7;
-
+  color: #413a0be3;
   font-family: "Quicksand", serif;
-
   letter-spacing: -1px;
   font-weight: 800;
   font-size: 14px;
+  text-decoration: none;
 }
+
+.nav-item:hover {
+  background-color: #b6a9df;
+}
+
 .connexion {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
+
 .connexion p {
   margin: 0 8px 0 8px;
-  color: #6c7ca3;
 
   font-size: 14px;
   font-family: "Quicksand", serif;
+}
+
+.login-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-item {
+  background-color: #bab0e2;
+  padding: 6px;
+  border-radius: 10px;
+  margin-right: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav-item:hover {
+  background-color: #b6a9df;
+}
+
+.nav-item a {
+  color: #413a0be3;
+  font-family: "Quicksand", serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
 }

@@ -1,64 +1,3 @@
-// import React, { useEffect, useState } from "react";
-
-// import { useParams } from "react-router-dom";
-
-// import { Main } from "../PublicComponents/main.jsx";
-// import "./reading.css";
-// function stringToHTML(htmlString) {
-//   return { __html: htmlString };
-// }
-
-// export function ReadingBook() {
-//   const { title } = useParams(); // On récupère le titre de l’URL
-//   const [book, setBook] = useState(null);
-
-//   useEffect(() => {
-//     const fetchBook = async () => {
-//       try {
-//         const response = await fetch(
-//           `http://localhost:5001/api/stories/${title}`
-//         );
-//         const data = await response.json();
-//         setBook(data);
-//         console.log(data);
-//       } catch (error) {
-//         console.error("Erreur lors du chargement du livre :", error);
-//       }
-//     };
-
-//     fetchBook();
-//   }, [title]);
-
-//   if (!book) return <div>Chargement...</div>;
-
-//   return (
-//     <div className=" reading global-container">
-//       <div className="middle-container">
-//         <Main className="main"></Main>
-//         <div className="book">
-//           {book.pages.map((page, index) => {
-//             return (
-//               <div key={index} className="pages">
-//                 <div style={{ zIndex: index }} className="front-page">
-//                   {page[0]?.text && (
-//                     <p dangerouslySetInnerHTML={stringToHTML(page[0].text)}></p>
-//                   )}
-//                   {page[0]?.imag && <img src={page[0].imag} alt="Page image" />}
-//                 </div>
-//                 <div className="back-page">
-//                   {page[1]?.text && (
-//                     <p dangerouslySetInnerHTML={stringToHTML(page[1].text)}></p>
-//                   )}
-//                   {page[1]?.imag && <img src={page[1].imag} alt="Page image" />}
-//                 </div>
-//               </div>
-//             );
-//           })}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Main } from "../PublicComponents/main.jsx";
@@ -151,6 +90,9 @@ export function ReadingBook() {
     <div className="reading global-container">
       <div className="middle-container">
         <Main className="main" />
+        <div className="book-title">
+          <h1 className="title">{book.title}</h1>
+        </div>
         <div className="book">
           {book.pages.map((page, index) => (
             <div
@@ -160,14 +102,20 @@ export function ReadingBook() {
             >
               <div className="front-page">
                 {page[0]?.text && (
-                  <p dangerouslySetInnerHTML={stringToHTML(page[0].text)}></p>
+                  <p
+                    className={!page[0]?.imag ? "full-text" : ""}
+                    dangerouslySetInnerHTML={stringToHTML(page[0].text)}
+                  ></p>
                 )}
                 {page[0]?.imag && <img src={page[0].imag} alt="Page image" />}
                 <button onClick={handleNext}>Suivante</button>
               </div>
               <div className="back-page">
                 {page[1]?.text && (
-                  <p dangerouslySetInnerHTML={stringToHTML(page[1].text)}></p>
+                  <p
+                    className={!page[1]?.imag ? "full-text" : ""}
+                    dangerouslySetInnerHTML={stringToHTML(page[1].text)}
+                  ></p>
                 )}
                 {page[1]?.imag && <img src={page[1].imag} alt="Page image" />}
                 <button onClick={handlePrevious}>Précédente</button>

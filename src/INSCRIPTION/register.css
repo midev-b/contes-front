@@ -1,0 +1,136 @@
+/* register.css */
+.register-container {
+  background-image: url("/backgrounds/pastel-background2.png");
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-container .middle-container {
+  position: relative;
+  background-color: rgb(18, 29, 61);
+  background-position: center;
+  background-size: 100% 100%;
+  border-radius: 12px;
+  width: 60%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  border-radius: 15px;
+  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
+}
+
+/* .register-container .middle-container .main {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+} */
+
+.register-container .main a {
+  color: rgb(234, 235, 245);
+}
+
+.register-container .info-container {
+  position: relative;
+  width: 100%;
+
+  height: 100%;
+  border: 1px solid rgb(33, 36, 77);
+  left: -40px;
+  top: 20px;
+
+  background-color: rgb(213, 214, 216);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  font-family: "Georgia", serif;
+  color: #2f2f2f;
+  z-index: 2;
+}
+
+.register-container h2 {
+  text-align: center;
+  color: #3a4c5c;
+  margin-bottom: 20px;
+}
+
+.register-container .info-container div {
+  margin-bottom: 15px;
+}
+
+.register-container label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #405466;
+}
+
+.register-container input[type="text"],
+.register-container input[type="email"],
+.register-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cdd7d6;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  font-size: 14px;
+}
+
+.register-container button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #3a5a80;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Georgia", serif;
+}
+
+.register-container button[type="submit"]:hover {
+  background-color: #2f4968;
+}
+
+.register-container p {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 15px;
+}
+/* images */
+.register-container .bird {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  top: -50px;
+  right: -40px;
+}
+.register-container .grass1 {
+  position: absolute;
+  width: 60px;
+  height: 400px;
+  right: 10px;
+  bottom: -10px;
+  z-index: 3;
+}
+.register-container .grass2 {
+  position: absolute;
+  width: 50px;
+  height: 300px;
+  left: -40px;
+  bottom: -18px;
+  z-index: 3;
+}

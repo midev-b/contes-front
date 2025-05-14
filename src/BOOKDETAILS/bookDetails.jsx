@@ -149,20 +149,21 @@ export function BookDetails() {
           {/* Partie gauche */}
           <div className="left-container">
             <div className="book-container">
-              {isDisconnected === false && (
-                <FontAwesomeIcon
-                  icon={faHeart}
-                  color={isLiked ? "red" : "black"}
-                />
-              )}
               <div className="cover-container">
+                {isDisconnected === false && (
+                  <FontAwesomeIcon
+                    icon={faHeart}
+                    color={isLiked ? "red" : "black"}
+                    className="heart-icon"
+                  />
+                )}
                 <img src={book.cover} alt={book.title} className="book-cover" />
                 <img src={bookTop} className="bottom-book" />
               </div>
 
               {isDisconnected === false && (
                 <>
-                  <button onClick={toggleLike}>
+                  <button className="btn-heart" onClick={toggleLike}>
                     {isLiked ? "Retirer des favoris" : "Ajouter aux favoris"}
                   </button>
                   <div className="stars">
@@ -173,6 +174,7 @@ export function BookDetails() {
                           key={index}
                           icon={faStar}
                           color={index + 1 <= rating ? "yellow" : "black"}
+                          className="start-icon"
                         />
                       );
                     })}
