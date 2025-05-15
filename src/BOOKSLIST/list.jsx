@@ -53,13 +53,13 @@ export function BookList() {
                 onChange={(e) => setSearch(e.target.value)}
               />
               <div>
-                <FontAwesomeIcon icon={faSearch} color="black" />
+                <FontAwesomeIcon icon={faSearch} color="#d3c3ce" />
               </div>
             </div>
           </header>
           <div className="books-container">
             <div className="text-intro">
-              <img className="img-logo" src={logo} alt="pattes et plume" />
+              <h2> Pattes & Plume </h2>
               <p>
                 Clique sur un conte et plonge dans un monde magique rempli
                 d'aventures incroyables!{" "}

@@ -9,77 +9,84 @@
   justify-content: center;
   align-items: center;
 }
+
 .home .main {
   width: 80%;
-
-  color: yellow;
-}
-.home .main a {
-  color: rgb(65, 75, 133);
 }
 
 .home .middle-container {
-  width: 60%;
-  height: 80%;
-  background-image: url("/accueil/accueil.jpg");
+  width: 65%;
+  height: 84%;
+  background-image: url("/accueil/accueil.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
-
-  /* Ajout de flexbox pour organiser le contenu interne */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  overflow-y: auto;
 }
 
-/* Section d’intro */
+/* Message d'intro */
 .home .intro-message {
   text-align: center;
-  padding: 20px;
-  border-radius: 16px;
+  padding: 15px;
+  border-radius: 10px;
   width: 60%;
+  background-color: rgba(248, 246, 227, 0.363);
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
 }
 
 .home .intro-message h1 {
   font-size: 1.5rem;
-  color: #2f4866;
-  margin-bottom: 20px;
-
+  color: #484a74;
+  margin-bottom: 10px;
   font-family: "Charm", cursive;
+  margin-bottom: 10px;
 }
 
 .home .intro-text p {
-  font-size: 1rem;
-  color: #221b38;
-  line-height: 1.6;
-  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #425380;
+  line-height: 1.4;
+  margin-top: 10px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+}
 
-  font-family: "Sansita", sans-serif;
-  box-shadow: #2f4866;
+/* Titre "Contes les plus populaires" */
+.home .books-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.home .books-title-container h3 {
+  font-family: cursive; /* police élégante */
+  font-size: 1.1rem;
+  color: #3d4569;
+  /* background-color: #bba890; */
+  padding: 6px 14px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Conteneur des livres */
 .home .books-container {
   display: flex;
-
   justify-content: center;
   gap: 24px;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 12px;
 }
-.home .books-title-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-/* Carte d’un livre */
+
+/* Livre */
 .home .book {
   width: 170px;
   height: 165px;
@@ -91,7 +98,6 @@
   width: 100%;
   height: 100%;
   border-radius: 12px;
-
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 

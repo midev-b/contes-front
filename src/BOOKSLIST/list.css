@@ -25,7 +25,25 @@
   -webkit-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
 }
+/* Scrollbar personnalisée pour .book-list .middle-container */
+.book-list .middle-container {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #ad90bb transparent;
+}
 
+/* Pour Chrome, Edge, Safari */
+.book-list .middle-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.book-list .middle-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.book-list .middle-container::-webkit-scrollbar-thumb {
+  background-color: #d3c3ce;
+  border-radius: 10px;
+}
 .book-list .header-actions {
   display: flex;
   flex-direction: row;
@@ -33,37 +51,39 @@
   justify-content: space-around;
   padding-top: 20px;
 }
-
-.book-list .main a {
-  color: #f5eccd;
-
-  font-family: "Quicksand", serif;
-
-  letter-spacing: -1px;
-  font-weight: 600;
-  font-size: 14px;
-}
 .book-list .bar-search {
   display: flex;
-  flex-direction: row;
-  width: 25%;
-}
-.book-list .bar-search div {
-  width: 10%;
-  height: auto;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: rgb(247, 222, 1);
-  border-radius: 0 5px 5px 0;
+  width: 30%;
+  border-bottom: 2px solid #d6b5d5;
+  padding-bottom: 4px;
+  position: relative;
 }
+
 .book-list .bar-search input {
-  width: 85%;
-  border: 5px solid rgb(247, 211, 11);
-  height: 25px;
-  padding: 10px;
-  border-radius: 5px 0 0 5px;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.9rem;
+  padding: 5px 30px 5px 5px;
+  background-color: transparent;
+  color: #d3c3ce;
 }
+
+.book-list .bar-search input::placeholder {
+  color: #d3c3ce;
+  font-family: cursive;
+}
+
+.book-list .bar-search .search-icon {
+  position: absolute;
+  right: 5px;
+  font-size: 1rem;
+  color: #d3c3ce;
+  cursor: pointer;
+}
+
 .book-list .books-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -83,28 +103,34 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  /* background-color: rgb(18, 29, 61);
+  border-radius: 12px; */
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 .book-list .text-intro p {
   color: rgb(178, 184, 184);
 
   width: 90%;
 
-  font-family: "Quicksand", serif;
+  font-family: cursive;
   padding: 10px;
   margin-left: 10px;
 
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
-  font-size: 17px;
+  font-size: 16.5px;
 
   line-height: 30px;
 
   text-align: start;
 }
-.book-list .text-intro .img-logo {
-  margin-bottom: 20px;
-  width: 70%;
-  height: 20px;
+.book-list .text-intro h2 {
+  font-size: 2rem;
+  color: #e0c5e0;
+  margin-bottom: 10px;
+  font-family: "Charm", cursive;
 }
 
 .book-list .book {
@@ -122,7 +148,7 @@
   position: absolute;
   z-index: 9;
   font-size: 14px;
-  color: rgb(235, 16, 16);
+  color: rgb(228, 41, 41);
   top: 5px;
   left: 5px;
 }
@@ -141,7 +167,7 @@
   top: 5px;
   left: 5px;
 
-  color: rgba(134, 134, 129, 0.918);
+  color: rgba(194, 194, 183, 0.918);
 }
 .book-list .card-hover {
   display: flex;
@@ -208,7 +234,7 @@
   padding: 0 5px 0 5px;
   width: 160px;
   height: 85px;
-  background-color: rgb(205, 242, 250);
+  background-color: rgb(255, 255, 255);
   position: absolute;
   bottom: -100px;
 
@@ -226,13 +252,12 @@
 }
 .book-list .card-informations h3,
 .book-list .card-informations p {
-  font-size: 14px;
+  font-size: 12px;
 
-  font-family: "Charm";
+  font-family: cursive;
   font-weight: 500;
-  font-style: normal;
-  line-height: 20px;
-  color: rgb(8, 9, 49);
+
+  color: rgb(0, 1, 10);
 }
 .book-list .book:hover .card-informations {
   transform: translateY(-95px);

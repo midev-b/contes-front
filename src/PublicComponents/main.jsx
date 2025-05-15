@@ -70,7 +70,7 @@ export function Main() {
         {isAuthenticated ? (
           <>
             <div className="nav-item" onClick={handleLogout}>
-              Se déconnecter
+              <a>Se déconnecter</a>
             </div>
             <div className="nav-item">
               <Link to="/dashboard" className="welcome-message">

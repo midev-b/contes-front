@@ -1,29 +1,36 @@
-/* #2C3E50  // Bleu crépuscule
-#C8BFE7  // Lavande douce
-#B2E0D2  // Menthe givrée
-#F5B5AC  // Corail tendre
-#FDF6EC  // Crème lunaire
-#D6EAE3  // Givre
-#A5C4B0  // Vert mousse
-#DFA2B2  // Rose poudré */
-
 .main {
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  width: 60%;
 }
 
 .main a {
-  color: #413a0be3;
-  font-family: "Quicksand", serif;
-  letter-spacing: -1px;
-  font-weight: 800;
+  /* color: #4a3f2c; */
+  font-family: cursive;
+
+  font-weight: 600;
   font-size: 14px;
   text-decoration: none;
+
+  color: #fcfcfd;
+}
+
+.nav-item {
+  background-color: #d3c3ce;
+  padding: 4px 4px;
+  border-radius: 10px;
+  margin-right: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 4px 8px;
 }
 
 .nav-item:hover {
-  background-color: #b6a9df;
+  background-color: #daaaf1;
+}
+.nav-item:hover a {
+  font-size: 15px;
 }
 
 .connexion {
@@ -35,35 +42,12 @@
 
 .connexion p {
   margin: 0 8px 0 8px;
-
   font-size: 14px;
-  font-family: "Quicksand", serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .login-register {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.nav-item {
-  background-color: #bab0e2;
-  padding: 6px;
-  border-radius: 10px;
-  margin-right: 8px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.nav-item:hover {
-  background-color: #b6a9df;
-}
-
-.nav-item a {
-  color: #413a0be3;
-  font-family: "Quicksand", serif;
-  font-weight: 700;
-  font-size: 13px;
-  text-decoration: none;
 }

@@ -30,14 +30,6 @@
   -moz-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
 }
 
-/* .register-container .middle-container .main {
-  width: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-} */
-
 .register-container .main a {
   color: rgb(234, 235, 245);
 }
@@ -47,11 +39,11 @@
   width: 100%;
 
   height: 100%;
-  border: 1px solid rgb(33, 36, 77);
-  left: -40px;
+
+  left: -45px;
   top: 20px;
 
-  background-color: rgb(213, 214, 216);
+  background-color: rgba(236, 237, 241, 0.952);
   border-radius: 20px;
   padding: 30px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);

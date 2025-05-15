@@ -35,7 +35,7 @@ export function HomePage() {
       <div className="middle-container">
         <Main className="main" />
         <div className="intro-message">
-          <h1>Bienvenue dans l’univers de Pattes et Plume</h1>
+          <h1>Bienvenue dans l’univers de Pattes & Plume</h1>
           <div className="intro-text">
             <p>
               Prêt(e) pour une aventure dans le monde des animaux ? Chaque livre
