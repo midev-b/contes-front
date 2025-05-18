@@ -16,23 +16,30 @@
 }
 
 .nav-item {
-  background-color: #d3c3ce;
+  background-color: #6176a3c4;
   padding: 4px 4px;
   border-radius: 10px;
   margin-right: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  padding: 4px 8px;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .nav-item:hover {
-  background-color: #daaaf1;
+  background-color: #2f347c;
+  transform: scale(1.1);
 }
-.nav-item:hover a {
-  font-size: 15px;
+.nav-item a {
+  padding: 4px 8px;
 }
-
+.nav-item .user-name {
+  position: absolute;
+  right: 2px;
+  border-radius: 50% 50%;
+}
 .connexion {
   display: flex;
   flex-direction: row;
@@ -44,6 +51,8 @@
   margin: 0 8px 0 8px;
   font-size: 14px;
   font-family: "Quicksand", sans-serif;
+  color: rgb(47, 114, 131);
+  font-weight: 600;
 }
 
 .login-register {

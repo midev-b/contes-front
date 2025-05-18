@@ -20,6 +20,7 @@ export function Main() {
         if (response.ok) {
           const data = await response.json();
           if (data.authenticated) {
+            console.log(data);
             setIsAuthenticated(true);
             setUserName(data.name);
           }
@@ -54,7 +55,9 @@ export function Main() {
       console.error("Erreur lors de la requête de déconnexion:", error);
     }
   };
-
+  const getInitialsLetters = () => {
+    return userName.slice(0, 2).toUpperCase();
+  };
   return (
     <nav className="main">
       <div className="nav-item">
@@ -72,9 +75,9 @@ export function Main() {
             <div className="nav-item" onClick={handleLogout}>
               <a>Se déconnecter</a>
             </div>
-            <div className="nav-item">
+            <div className="nav-item user-name">
               <Link to="/dashboard" className="welcome-message">
-                {userName}
+                {getInitialsLetters()}
               </Link>
             </div>
           </>

@@ -53,7 +53,6 @@ export function BookDetails() {
     };
 
     fetchBookDetails();
-    console.log(isDisconnected);
   }, [title, isDisconnected]);
   //////////////////
   const toggleLike = async () => {
@@ -99,47 +98,6 @@ export function BookDetails() {
   if (error) return <div>{error}</div>;
   if (!book) return <div>Chargement...</div>;
 
-  // return (
-  //   <div className="book-details">
-  //     <Main className="main" />
-  //     <div className="global-container">
-  //       <div className="book-container">
-  //         {isDisconnected === false && (
-  //           <FontAwesomeIcon icon={faHeart} color={isLiked ? "red" : "black"} />
-  //         )}
-
-  //         <h3>
-  //           <img src={book.cover} />
-  //         </h3>
-
-  //         <h2>{book.title}</h2>
-  //         <p>{book.description}</p>
-  //         {/* Par exemple, on peut afficher ici d'autres informations du livre */}
-  //         <p>Accès : {book.isPublic ? "Gratuit" : "Réservé aux membres"}</p>
-  //         {isDisconnected === false && (
-  //           <>
-  //             <button onClick={toggleLike}>
-  //               {isLiked ? "Retirer des favoris" : "Ajouter aux favoris"}
-  //             </button>
-  //             <div className="stars">
-  //               {[...Array(5)].map((_, index) => {
-  //                 return (
-  //                   <FontAwesomeIcon
-  //                     onClick={() => submitRating(index + 1)}
-  //                     key={index}
-  //                     icon={faStar}
-  //                     color={index + 1 <= rating ? "yellow" : "black"}
-  //                   />
-  //                 );
-  //               })}
-  //             </div>
-  //           </>
-  //         )}
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
-  console.log(book.pages[0].imag);
   return (
     <div className="book-details">
       <div className="global-container">
@@ -169,24 +127,23 @@ export function BookDetails() {
                   <div className="stars">
                     {[...Array(5)].map((_, index) => {
                       return (
-                        <FontAwesomeIcon
-                          onClick={() => submitRating(index + 1)}
-                          key={index}
-                          icon={faStar}
-                          color={index + 1 <= rating ? "yellow" : "black"}
-                          className="start-icon"
-                        />
+                        <div className="stars-icon">
+                          <FontAwesomeIcon
+                            onClick={() => submitRating(index + 1)}
+                            key={index}
+                            icon={faStar}
+                            color={index + 1 <= rating ? "yellow" : "black"}
+                          />
+                        </div>
                       );
                     })}
                   </div>
                 </>
               )}
-              <div className="button-group">
+              <div className="button-container">
                 <Link to={`/lecture/${title}`}>
                   <button className="read-btn">Lire</button>
                 </Link>
-
-                <button className="listen-btn">Écouter</button>
               </div>
             </div>
           </div>

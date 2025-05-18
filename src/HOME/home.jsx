@@ -22,7 +22,6 @@ export function HomePage() {
 
         const data = await response.json();
         setTopBooks(data);
-        console.log(data);
       } catch (err) {
         setError(err.message);
       }

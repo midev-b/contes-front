@@ -17,7 +17,8 @@
   align-items: center;
 }
 .book-list .middle-container {
-  width: 70%;
+  position: relative;
+  width: 72%;
   height: 90%;
   background-color: rgb(14, 6, 36);
   border-radius: 10px;
@@ -25,10 +26,19 @@
   -webkit-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
 }
+.book-list .main {
+  width: 60%;
+}
+.book-list .main .user-name {
+  position: absolute;
+  right: 2px;
+  border-radius: 50% 50%;
+  padding: 5px;
+}
 /* Scrollbar personnalisée pour .book-list .middle-container */
 .book-list .middle-container {
   scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #ad90bb transparent;
+  scrollbar-color: #828cad transparent;
 }
 
 /* Pour Chrome, Edge, Safari */
@@ -54,10 +64,11 @@
 .book-list .bar-search {
   display: flex;
   align-items: center;
-  width: 30%;
-  border-bottom: 2px solid #d6b5d5;
+  width: 20%;
+  border-bottom: 2px solid #776ca5;
   padding-bottom: 4px;
   position: relative;
+  right: 30px;
 }
 
 .book-list .bar-search input {
@@ -68,11 +79,11 @@
   font-size: 0.9rem;
   padding: 5px 30px 5px 5px;
   background-color: transparent;
-  color: #d3c3ce;
+  color: #685496;
 }
 
 .book-list .bar-search input::placeholder {
-  color: #d3c3ce;
+  color: #566492;
   font-family: cursive;
 }
 
@@ -80,7 +91,7 @@
   position: absolute;
   right: 5px;
   font-size: 1rem;
-  color: #d3c3ce;
+
   cursor: pointer;
 }
 
@@ -128,7 +139,7 @@
 }
 .book-list .text-intro h2 {
   font-size: 2rem;
-  color: #e0c5e0;
+  color: #869be2;
   margin-bottom: 10px;
   font-family: "Charm", cursive;
 }

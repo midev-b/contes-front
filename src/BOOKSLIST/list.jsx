@@ -29,7 +29,6 @@ export function BookList() {
         }
 
         const data = await response.json();
-        console.log("data endpoint", data.stories);
 
         setStories(data);
       } catch (err) {

@@ -15,6 +15,7 @@
 }
 
 .home .middle-container {
+  position: relative;
   width: 65%;
   height: 84%;
   background-image: url("/accueil/accueil.png");
@@ -29,22 +30,30 @@
   justify-content: space-between;
   padding: 20px;
 }
-
+.home .middle-container .main {
+  width: 60%;
+}
+.home .main .user-name {
+  position: absolute;
+  right: 5px;
+  border-radius: 50% 50%;
+  padding: 5px;
+}
 /* Message d'intro */
 .home .intro-message {
   text-align: center;
   padding: 15px;
   border-radius: 10px;
   width: 60%;
-  background-color: rgba(248, 246, 227, 0.363);
+  background-color: rgba(230, 233, 238, 0.562);
 
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(191, 193, 194, 0.568);
   margin-top: 15px;
 }
 
 .home .intro-message h1 {
   font-size: 1.5rem;
-  color: #484a74;
+  color: #576894;
   margin-bottom: 10px;
   font-family: "Charm", cursive;
   margin-bottom: 10px;
@@ -70,11 +79,11 @@
 .home .books-title-container h3 {
   font-family: cursive; /* police élégante */
   font-size: 1.1rem;
-  color: #3d4569;
+  color: #565e83;
   /* background-color: #bba890; */
   padding: 6px 14px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(148, 151, 153, 0.568);
 }
 
 /* Conteneur des livres */

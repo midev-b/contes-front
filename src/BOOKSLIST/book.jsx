@@ -30,8 +30,6 @@ export function Book({ mark, cover, title, author, rating }) {
     icon = null;
   }
 
-  console.log({ icon });
-
   return (
     <div className="book">
       <div className="icon">{icon}</div>

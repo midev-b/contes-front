@@ -29,7 +29,18 @@
   -webkit-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
 }
-
+.register-container .main .user-name {
+  position: absolute;
+  right: 2px;
+  border-radius: 50% 50%;
+  padding: 5px;
+}
+.register-container .main {
+  margin-top: 5px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+}
 .register-container .main a {
   color: rgb(234, 235, 245);
 }
@@ -41,7 +52,7 @@
   height: 100%;
 
   left: -45px;
-  top: 20px;
+  top: 30px;
 
   background-color: rgba(236, 237, 241, 0.952);
   border-radius: 20px;
@@ -56,10 +67,6 @@
   text-align: center;
   color: #3a4c5c;
   margin-bottom: 20px;
-}
-
-.register-container .info-container div {
-  margin-bottom: 15px;
 }
 
 .register-container label {
@@ -105,8 +112,8 @@
 /* images */
 .register-container .bird {
   position: absolute;
-  width: 90px;
-  height: 90px;
+  width: 88px;
+  height: 88px;
   top: -50px;
   right: -40px;
 }
@@ -115,14 +122,14 @@
   width: 60px;
   height: 400px;
   right: 10px;
-  bottom: -10px;
+  bottom: -8px;
   z-index: 3;
 }
 .register-container .grass2 {
   position: absolute;
   width: 50px;
-  height: 300px;
-  left: -40px;
+  height: 350px;
+  left: -45px;
   bottom: -18px;
   z-index: 3;
 }

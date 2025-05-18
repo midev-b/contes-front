@@ -16,10 +16,10 @@
 
 .book-details .global-container {
   width: 60%;
-  height: 80%;
+  height: 85%;
   margin: auto;
   padding: 20px;
-  background: #f2f7f7;
+  background: #e4e4dc;
   border-radius: 5px;
   box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: space-evenly;
 
-  border-left: #fcfcfcef 20px solid;
+  border-left: #fcfcfc 20px solid;
   border-top: 20px solid rgba(250, 251, 252, 0.938);
   gap: 20px;
   position: relative;
@@ -117,9 +117,14 @@
 .book-details .main {
   position: absolute;
   top: -10px;
-  justify-content: space-evenly;
-  width: 80%;
+
+  width: 70%;
   padding-bottom: 20px;
+}
+.book-details .main .user-name {
+  position: absolute;
+  right: -200px;
+  border-radius: 50% 50%;
 }
 
 .book-details h1 {
@@ -143,6 +148,32 @@
   height: 25px;
   z-index: 88;
 }
-.book-details .btn-heart {
-  width: 200px;
+.book-details .stars-icon {
+  width: 80%;
+  border: 1px solid red;
+}
+.book-details button {
+  margin-top: 10px;
+  padding: 10px 10px;
+  border: none;
+  width: 80%;
+  background-color: #556ca1;
+  color: #ffffff;
+  font-family: "Spinnaker", sans-serif;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book-details button:hover {
+  background-color: #2e3d5c;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.book-details button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
