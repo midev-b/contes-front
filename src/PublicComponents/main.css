@@ -49,10 +49,10 @@
 
 .connexion p {
   margin: 0 8px 0 8px;
-  font-size: 14px;
+  font-size: 16px;
   font-family: "Quicksand", sans-serif;
-  color: rgb(47, 114, 131);
-  font-weight: 600;
+  color: rgb(63, 155, 179);
+  font-weight: 700;
 }
 
 .login-register {

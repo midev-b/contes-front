@@ -1,20 +1,21 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import "./list.css";
 import { Book } from "./book";
 import { Main } from "../PublicComponents/main";
-import logo from "/logos/logo.png";
+import owlIcon from "/toast/owl.png";
 
 export function BookList() {
   const [stories, setStories] = useState([]);
   const [search, setSearch] = useState("");
-
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchStories = async () => {
@@ -29,7 +30,6 @@ export function BookList() {
         }
 
         const data = await response.json();
-
         setStories(data);
       } catch (err) {
         setError(err.message);
@@ -37,6 +37,26 @@ export function BookList() {
     };
     fetchStories();
   }, [search]);
+
+  const handleClick = (book) => {
+    console.log(stories);
+    if (book.isPublic) {
+      navigate(`/histoires/${book.title}`);
+    } else {
+      toast.info("Réservé aux membres abonnés, abonne-toi pour y accéder.", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: true,
+        closeButton: true,
+        icon: <img src={owlIcon} alt="hibou" className="toast-owl-icon" />,
+        className: "custom-toast",
+      });
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
+    }
+  };
 
   return (
     <div className="book-list">
@@ -56,27 +76,27 @@ export function BookList() {
               </div>
             </div>
           </header>
+
           <div className="books-container">
             <div className="text-intro">
-              <h2> Pattes & Plume </h2>
+              <h2>Pattes & Plume</h2>
               <p>
                 Clique sur un conte et plonge dans un monde magique rempli
-                d'aventures incroyables!{" "}
+                d'aventures incroyables!
               </p>
             </div>
-            {stories.map((book, index) => {
-              return (
-                <Link key={index} to={`/histoires/${book.title}`}>
-                  <Book
-                    mark={book.isLiked}
-                    cover={book.cover}
-                    title={book.title}
-                    author={book.author}
-                    rating={book.rating}
-                  />
-                </Link>
-              );
-            })}
+
+            {stories.map((book, index) => (
+              <div key={index} onClick={() => handleClick(book)}>
+                <Book
+                  mark={book.isLiked}
+                  cover={book.cover}
+                  title={book.title}
+                  author={book.author}
+                  rating={book.rating}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

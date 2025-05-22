@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./register.css";
 import bird from "/register/bird.png";
 import grass1 from "/register/grass1.png";
 import grass2 from "/register/grass2.png";
 
 import { Main } from "../PublicComponents/main.jsx";
+
 export function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -84,8 +85,15 @@ export function Register() {
             <button type="submit">S'inscrire</button>
           </form>
 
-          {message && <p style={{ color: "green" }}>{message}</p>}
-          {error && <p style={{ color: "red" }}>{error}</p>}
+          {message && <p className="register-message">{message}</p>}
+          {error && <p className="error-message">{error}</p>}
+
+          <p className="switch-login">
+            Tu as déjà un compte ?{" "}
+            <Link to="/login" className="login-link">
+              Connecte-toi ici
+            </Link>
+          </p>
         </div>
       </div>
     </div>

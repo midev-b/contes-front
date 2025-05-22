@@ -5,9 +5,16 @@ import { Link } from "react-router-dom";
 import { Main } from "../PublicComponents/main.jsx";
 import "./home.css";
 
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import owlIcon from "/toast/owl.png";
+
 export function HomePage() {
   const [topBooks, setTopBooks] = useState([]);
   const [error, setError] = useState(null);
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const fetchTopBooks = async () => {
@@ -29,10 +36,32 @@ export function HomePage() {
 
     fetchTopBooks();
   }, []);
+
+  const navigate = useNavigate();
+  const handleClick = (book) => {
+    if (book.isPublic) {
+      navigate(`/histoires/${book.title}`);
+    } else {
+      toast.info("Réservé aux membres abonnés, abonne-toi pour y accéder.", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: true,
+        closeButton: true,
+        icon: <img src={owlIcon} alt="hibou" className="toast-owl-icon" />,
+        className: "custom-toast",
+      });
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
+    }
+  };
+
   return (
     <div className=" home global-container">
       <div className="middle-container">
         <Main className="main" />
+
         <div className="intro-message">
           <h1>Bienvenue dans l’univers de Pattes & Plume</h1>
           <div className="intro-text">
@@ -40,7 +69,7 @@ export function HomePage() {
               Prêt(e) pour une aventure dans le monde des animaux ? Chaque livre
               te raconte une histoire pleine de rires, de courage et de
               surprises. Viens tourner les pages, un univers merveilleux
-              t’attend{" "}
+              t’attend!{" "}
             </p>
           </div>
         </div>
@@ -48,11 +77,13 @@ export function HomePage() {
           <h3>Contes les plus populaires en ce moment</h3>
           <div className="books-container">
             {topBooks.map((book, index) => (
-              <Link key={index} to={`/histoires/${book.title}`}>
-                <div className="book">
-                  <img src={book.cover} alt={book.title} />
-                </div>
-              </Link>
+              <div
+                key={index}
+                className="book "
+                onClick={() => handleClick(book)}
+              >
+                <img src={book.cover} alt={book.title} />
+              </div>
             ))}
           </div>
         </div>

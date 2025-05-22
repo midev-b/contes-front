@@ -148,9 +148,16 @@
   height: 25px;
   z-index: 88;
 }
-.book-details .stars-icon {
+.stars-container {
   width: 80%;
-  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.book-details .star-icon {
+  width: 25px;
+  height: 25px;
 }
 .book-details button {
   margin-top: 10px;

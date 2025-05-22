@@ -124,19 +124,20 @@ export function BookDetails() {
                   <button className="btn-heart" onClick={toggleLike}>
                     {isLiked ? "Retirer des favoris" : "Ajouter aux favoris"}
                   </button>
-                  <div className="stars">
-                    {[...Array(5)].map((_, index) => {
-                      return (
-                        <div className="stars-icon">
+                  <div className="stars-container">
+                    <div className="stars">
+                      {[...Array(5)].map((_, index) => {
+                        return (
                           <FontAwesomeIcon
                             onClick={() => submitRating(index + 1)}
                             key={index}
                             icon={faStar}
                             color={index + 1 <= rating ? "yellow" : "black"}
+                            className="star-icon"
                           />
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
                 </>
               )}

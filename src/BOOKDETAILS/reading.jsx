@@ -3,6 +3,10 @@ import { useParams } from "react-router-dom";
 import { Main } from "../PublicComponents/main.jsx";
 import "./reading.css";
 
+import grass1 from "/register/grass1.png";
+import prevButton from "/reading/prev.png";
+import nextButton from "/reading/next.png";
+
 function stringToHTML(htmlString) {
   return { __html: htmlString };
 }
@@ -89,6 +93,7 @@ export function ReadingBook() {
   return (
     <div className="reading global-container">
       <div className="middle-container">
+        <img className="grass1" src={grass1} alt="herbe" />
         <Main className="main" />
         <div className="book-title">
           <h1 className="title">{book.title}</h1>
@@ -101,6 +106,12 @@ export function ReadingBook() {
               style={{ zIndex: zIndexes[index] }}
             >
               <div className="front-page">
+                <img
+                  onClick={handleNext}
+                  className="next"
+                  src={nextButton}
+                  alt="page suivante"
+                />
                 {page[0]?.text && (
                   <p
                     className={!page[0]?.imag ? "full-text" : ""}
@@ -108,9 +119,15 @@ export function ReadingBook() {
                   ></p>
                 )}
                 {page[0]?.imag && <img src={page[0].imag} alt="Page image" />}
-                <button onClick={handleNext}>Suivante</button>
+                {/* <button onClick={handleNext}>Suivante</button> */}
               </div>
               <div className="back-page">
+                <img
+                  onClick={handlePrevious}
+                  className="back"
+                  src={prevButton}
+                  alt="page précédente"
+                />
                 {page[1]?.text && (
                   <p
                     className={!page[1]?.imag ? "full-text" : ""}
@@ -118,7 +135,7 @@ export function ReadingBook() {
                   ></p>
                 )}
                 {page[1]?.imag && <img src={page[1].imag} alt="Page image" />}
-                <button onClick={handlePrevious}>Précédente</button>
+                {/* <button onClick={handlePrevious}>Précédente</button> */}
               </div>
             </div>
           ))}

@@ -79,11 +79,11 @@
   font-size: 0.9rem;
   padding: 5px 30px 5px 5px;
   background-color: transparent;
-  color: #685496;
+  color: #eae8f0;
 }
 
 .book-list .bar-search input::placeholder {
-  color: #566492;
+  color: #b9c7f5;
   font-family: cursive;
 }
 
@@ -139,7 +139,7 @@
 }
 .book-list .text-intro h2 {
   font-size: 2rem;
-  color: #869be2;
+  color: #adb9be;
   margin-bottom: 10px;
   font-family: "Charm", cursive;
 }
@@ -154,6 +154,9 @@
   border-radius: 5px;
   position: relative;
   overflow: hidden;
+}
+.book-list .cover {
+  cursor: pointer;
 }
 .book-list .heart-like-icon {
   position: absolute;
@@ -276,4 +279,36 @@
   box-shadow: -13px 6px 17px 1px rgba(14, 12, 12, 0.75);
   -webkit-box-shadow: -13px 6px 17px 1px rgba(34, 32, 32, 0.849);
   -moz-box-shadow: -13px 6px 17px 1px rgb(53, 49, 49);
+}
+
+/* Style du toast */
+.custom-toast {
+  height: 140px;
+  background-color: #ffffff;
+  color: #0e0d41;
+
+  font-size: 16px;
+  font-family: cursive;
+
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 10px;
+}
+@keyframes owl-flap {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.toast-owl-icon {
+  width: 60px;
+  height: 60px;
+
+  animation: owl-flap 1.5s;
 }

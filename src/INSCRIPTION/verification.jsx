@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "./verification.css";
+import birdMessage from "/verification/bird-message.gif";
 
 export function VerifyEmailPage() {
   const { token } = useParams();
@@ -26,11 +28,21 @@ export function VerifyEmailPage() {
 
     verifyEmail();
   }, [token]);
-
   return (
-    <div>
-      <h1>Vérification Email</h1>
-      <p>{message}</p>
+    <div className="verification">
+      <div className="verification-container">
+        <div className="bird-container">
+          <img
+            className="bird-message"
+            src={birdMessage}
+            alt="oiseau portant une lettre"
+          />
+        </div>
+        <div className="text-container">
+          <h3>Vérification Email</h3>
+          <p>{message}</p>
+        </div>
+      </div>
     </div>
   );
 }
