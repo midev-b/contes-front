@@ -15,6 +15,8 @@ import "react-toastify/dist/ReactToastify.css";
 // 👉 Import du conteneur Toast
 import { ToastContainer } from "react-toastify";
 
+const isAuthenticated = false;
+
 function App() {
   return (
     <BrowserRouter>
