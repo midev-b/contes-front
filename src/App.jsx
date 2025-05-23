@@ -8,8 +8,6 @@ import { Register } from "./INSCRIPTION/register.jsx";
 import { VerifyEmailPage } from "./INSCRIPTION/verification.jsx";
 import { Login } from "./CONNEXION/login.jsx";
 // import { Dashboard } from "./DASHBOARD/dashboard.jsx";
-import { Main } from "./PublicComponents/main.jsx";
-
 // 👉 Ajout du style Toastify
 import "react-toastify/dist/ReactToastify.css";
 // 👉 Import du conteneur Toast
@@ -19,7 +17,6 @@ function App() {
   return (
     <BrowserRouter>
       <ToastContainer />
-      <Main />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/histoires" element={<BookList />} />
