@@ -15,23 +15,15 @@ import "react-toastify/dist/ReactToastify.css";
 // 👉 Import du conteneur Toast
 import { ToastContainer } from "react-toastify";
 
-const isAuthenticated = false;
-
 function App() {
   return (
     <BrowserRouter>
       <ToastContainer />
       <Main />
       <Routes>
-        <Route
-          path="/"
-          element={<HomePage isAuthenticated={isAuthenticated} />}
-        />
+        <Route path="/" element={<HomePage />} />
         <Route path="/histoires" element={<BookList />} />
-        <Route
-          path="/histoires/:title"
-          element={<BookDetails isAuthenticated={isAuthenticated} />}
-        />
+        <Route path="/histoires/:title" element={<BookDetails />} />
         <Route path="/lecture/:title" element={<ReadingBook />} />
         {/* <Route path="/games" element={<Games />} /> */}
         <Route path="/register" element={<Register />} />
