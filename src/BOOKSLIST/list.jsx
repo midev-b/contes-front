@@ -10,11 +10,14 @@ import { Book } from "./book";
 import { Main } from "../PublicComponents/main";
 import owlIcon from "/toast/owl.png";
 
+import { useContext } from "react";
+import { AuthContext } from "../App";
 export function BookList() {
   const [stories, setStories] = useState([]);
   const [search, setSearch] = useState("");
   const [error, setError] = useState(null);
 
+  const { isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,7 +43,7 @@ export function BookList() {
 
   const handleClick = (book) => {
     console.log(stories);
-    if (book.isPublic) {
+    if (book.isPublic || isAuthenticated) {
       navigate(`/histoires/${book.title}`);
     } else {
       toast.info("Réservé aux membres abonnés, abonne-toi pour y accéder.", {

@@ -11,10 +11,12 @@ import "react-toastify/dist/ReactToastify.css";
 
 import owlIcon from "/toast/owl.png";
 
+import { useContext } from "react";
+import { AuthContext } from "../App";
 export function HomePage() {
   const [topBooks, setTopBooks] = useState([]);
   const [error, setError] = useState(null);
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isAuthenticated } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchTopBooks = async () => {
@@ -39,7 +41,8 @@ export function HomePage() {
 
   const navigate = useNavigate();
   const handleClick = (book) => {
-    if (book.isPublic) {
+    if (book.isPublic || isAuthenticated === true) {
+      console.log(isAuthenticated);
       navigate(`/histoires/${book.title}`);
     } else {
       toast.info("Réservé aux membres abonnés, abonne-toi pour y accéder.", {

@@ -107,7 +107,9 @@
   width: 100%;
   height: 100%;
   border-radius: 12px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: -4px 9px 35px 0px rgba(102, 101, 101, 0.54);
+  -webkit-box-shadow: -4px 9px 35px 0px rgba(92, 90, 90, 0.54);
+  -moz-box-shadow: -4px 9px 35px 0px rgba(97, 94, 94, 0.54);
 }
 
 .home .book:hover {

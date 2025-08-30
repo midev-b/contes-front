@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./main.css";
+import { useContext } from "react";
+import { AuthContext } from "../App";
 
 export function Main() {
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
