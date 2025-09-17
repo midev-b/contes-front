@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-
+import "./quizGame.css";
+import fox2 from "/GAMES/riddles/fox2.png";
 export function QuizPage() {
   const [getQuizQuestions, setGetQuizQuestions] = useState([]);
   const [error, setError] = useState();
@@ -54,29 +55,34 @@ export function QuizPage() {
   };
 
   return (
-    <div>
-      <h3>QUIZ</h3>
+    <div className="quiz-global-container">
+      <div className="quiz-middle-container">
+        <h3>QUIZ</h3>
+        <img src={fox2} alt="renard" />
 
-      {message && <div className="message">{message}</div>}
-      {error && <div style={{ color: "red" }}>{error}</div>}
+        {message && <div className="message">{message}</div>}
+        {error && <div style={{ color: "red" }}>{error}</div>}
 
-      {getQuizQuestions.length > 0 ? (
-        <div className="questions-container">
-          <h4>{getQuizQuestions[currentIndex].questionText}</h4>
+        {getQuizQuestions.length > 0 ? (
+          <div className="questions-container">
+            <h4>{getQuizQuestions[currentIndex].questionText}</h4>
 
-          {getQuizQuestions[currentIndex].options.map((option, i) => (
-            <div
-              key={i}
-              className={`option ${selectedOptionIndex === i ? addClass : ""}`}
-              onClick={() => handleAnswerClick(option.isCorrect, i)}
-            >
-              {option.text}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div>Chargement...</div>
-      )}
+            {getQuizQuestions[currentIndex].options.map((option, i) => (
+              <div
+                key={i}
+                className={`option ${
+                  selectedOptionIndex === i ? addClass : ""
+                }`}
+                onClick={() => handleAnswerClick(option.isCorrect, i)}
+              >
+                {option.text}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div>Chargement...</div>
+        )}
+      </div>
     </div>
   );
 }

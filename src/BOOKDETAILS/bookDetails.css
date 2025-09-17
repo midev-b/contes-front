@@ -19,7 +19,8 @@
   height: 85%;
   margin: auto;
   padding: 20px;
-  background: #e4e4dc;
+
+  background-image: url("/backgrounds/grey-background.jpg");
   border-radius: 5px;
   box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
@@ -28,8 +29,8 @@
   flex-direction: column;
   justify-content: space-evenly;
 
-  border-left: #fcfcfc 20px solid;
-  border-top: 20px solid rgba(250, 251, 252, 0.938);
+  border-left: #100f24 20px solid;
+  border-top: 20px solid rgba(11, 23, 36, 0.986);
   gap: 20px;
   position: relative;
 }
@@ -54,17 +55,18 @@
 
   height: 50%;
   width: 70%;
-  background: rgba(2, 7, 26, 0.945);
+  background: rgba(255, 255, 255, 0.945);
   padding: 20px;
   border-radius: 5px;
+  border: 1px solid black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: justify;
-  color: #bfc2c9;
+  color: #0f141f;
   z-index: 10;
   display: flex;
   align-items: center;
-  border-bottom: #7d7e8021 30px solid;
-  border-right: #272f4d44 20px solid;
+  /* border-bottom: #111827 30px solid;
+  border-right: #070d24ee 20px solid; */
   padding-left: 60px;
   box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);

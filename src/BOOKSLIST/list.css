@@ -20,7 +20,7 @@
   position: relative;
   width: 72%;
   height: 90%;
-  background-color: rgb(14, 6, 36);
+  background-image: url("/backgrounds/dark-background.jpg");
   border-radius: 10px;
   box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
@@ -150,7 +150,7 @@
   height: 200px;
   display: flex;
 
-  background-color: rgb(18, 29, 61);
+  background-color: rgb(14, 22, 46);
   border-radius: 5px;
   position: relative;
   overflow: hidden;
@@ -194,7 +194,7 @@
   width: 100%;
   height: 100%;
 
-  background-color: rgb(18, 29, 61);
+  background-color: rgb(16, 23, 44);
   top: 0;
   left: 0;
   z-index: 4;

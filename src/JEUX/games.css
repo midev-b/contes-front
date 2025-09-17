@@ -15,7 +15,7 @@
   height: 80%;
   border-radius: 12px;
   box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
-  background-image: url("/GAMES/games/background-game.jpg");
+  background-image: url("/backgrounds/dark-background.jpg");
   background-size: cover;
   background-position: center;
   padding: 20px;
@@ -32,18 +32,19 @@
 .games-container .card {
   width: 200px;
   height: 250px;
-  background-color: rgb(245, 239, 213);
+  background-color: rgb(224, 242, 247);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
+  border: 2px solid rgb(125, 180, 216);
 
   /* Effets */
   transform-origin: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: rgb(19, 25, 59);
+  color: rgb(13, 24, 88);
 }
 
 .games-container .card:hover {
@@ -63,7 +64,7 @@
 }
 
 .games-container .games-text p {
-  color: white;
+  color: rgb(232, 244, 248);
   font-size: 1.3rem;
 
   font-family: "Quicksand", sans-serif;
@@ -91,7 +92,7 @@
 }
 @keyframes float-random {
   0% {
-    transform: translate(0px, 0px) rotate(0deg);
+    transform: translate(8px, -10px) rotate(3deg);
   }
   25% {
     transform: translate(10px, -15px) rotate(3deg);
@@ -103,6 +104,6 @@
     transform: translate(12px, -10px) rotate(2deg);
   }
   100% {
-    transform: translate(0px, 0px) rotate(1deg);
+    transform: translate(8px, -10px) rotate(3deg);
   }
 }

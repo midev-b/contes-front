@@ -1,0 +1,121 @@
+/* Conteneur global */
+.quiz-global-container {
+  background-image: url("/backgrounds/pastel-background2.png");
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Conteneur principal */
+.quiz-global-container .quiz-middle-container {
+  width: 70%;
+  height: 80%;
+  max-width: 1200px;
+  border-radius: 16px;
+  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
+  background-image: url("/backgrounds/grey-background.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.quiz-global-container .quiz-middle-container img {
+  width: 160px;
+  height: auto;
+}
+
+/* Titre principal */
+.quiz-global-container h3 {
+  font-size: 32px;
+  font-weight: bold;
+  /* margin-bottom: 25px; */
+  color: #1565c0;
+  text-shadow: 1px 1px 0px #fff;
+}
+
+/* Zone de question */
+.quiz-global-container .questions-container {
+  width: 100%;
+  background: #0c0b30cc; /* léger transparent */
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+
+  /* Grid pour options 2x2 */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  justify-items: stretch;
+}
+
+/* Question */
+.quiz-global-container .questions-container h4 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: hsl(195, 20%, 96%);
+  font-weight: 600;
+  grid-column: span 2; /* la question prend toute la largeur de la grille */
+  text-align: center;
+}
+
+/* Options de réponse */
+.quiz-global-container .option {
+  background: #fdfaf0ec;
+  border: 2px solid #325c66;
+  border-radius: 16px;
+  padding: 14px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Survol */
+.quiz-global-container .option:hover {
+  background: #e1f5fe;
+  border-color: #81d4fa;
+  transform: scale(1.03);
+}
+
+/* Bonne réponse */
+.quiz-global-container .correctAnswer {
+  background-color: #a5d6a7 !important;
+  border-color: #66bb6a !important;
+  color: #1b5e20;
+  font-weight: bold;
+  box-shadow: 0px 2px 10px rgba(76, 175, 80, 0.4);
+}
+
+/* Mauvaise réponse */
+.quiz-global-container .incorrectAnswer {
+  background-color: #ef9a9a !important;
+  border-color: #e57373 !important;
+  color: #b71c1c;
+  font-weight: bold;
+  box-shadow: 0px 2px 10px rgba(244, 67, 54, 0.4);
+}
+
+/* Message feedback */
+.quiz-global-container .message {
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #232a3e;
+  padding: 8px;
+  border-radius: 14px;
+  background: #f3f1ed;
+  border: 2px solid #162946;
+  text-align: center;
+  grid-column: span 2; /* message prend toute la largeur */
+}
