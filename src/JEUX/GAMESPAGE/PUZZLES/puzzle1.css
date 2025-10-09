@@ -10,43 +10,31 @@
   align-items: center;
 }
 
-/* Conteneur principal */
 .puzzle1-container .middle-container {
   width: 70%;
   height: 85%;
-
+  max-width: 1200px;
   border-radius: 12px;
   box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
   background-color: rgb(219, 219, 211);
   background-size: cover;
   background-position: center;
-  padding: 20px;
-  box-sizing: border-box;
-
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.game-container {
+.puzzle1-container .image-and-puzzle-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 50px;
-  grid-row-gap: 20px;
-
-  width: 80%;
-  height: 90%;
-  border: 1px solid rgb(17, 0, 255);
-  margin: 0 auto;
+  grid-template-columns: 1fr 3fr;
 }
 
-.left-side {
-  grid-area: 1 / 1 / 4 / 3;
-  border: 1px solid red;
-}
-.img-reference {
+.puzzle1-container .image-and-puzzle-container .img-reference img {
   width: 100%;
-  height: 100%;
+}
+
+.puzzle1-container .puzzle-zone {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  justify-content: end;
 }

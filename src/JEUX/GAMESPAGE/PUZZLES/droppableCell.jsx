@@ -18,7 +18,7 @@ export function DroppableCell({ id, children, width = 100, height = 100 }) {
     width,
     height,
     border: isOver ? "3px dashed green" : "2px dashed #aaa",
-    borderRadius: "12px",
+    borderRadius: "5px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
