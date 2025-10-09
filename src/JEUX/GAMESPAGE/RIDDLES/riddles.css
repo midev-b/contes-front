@@ -13,11 +13,11 @@
 /* Conteneur principal */
 .riddles-container .middle-container {
   width: 70%;
-  height: 80%;
+  height: 85%;
   max-width: 1200px;
   border-radius: 12px;
   box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
-  background-image: url("/backgrounds/grey-background.jpg");
+  background-color: rgb(219, 219, 211);
   background-size: cover;
   background-position: center;
   padding: 20px;
@@ -25,33 +25,32 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start; /* évite les grands espaces en bas */
 }
 
 /* Bloc trophée */
 .riddles-container .trophy {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem; /* réduit un peu */
 }
 
 .riddles-container h3 {
   margin-bottom: 0.3rem;
   margin-top: 0.7rem;
-  font-size: 1.06rem;
-  color: rgb(7, 7, 61);
+  font-size: 1rem; /* texte réduit */
+  color: #1a237e; /* bleu foncé */
 }
 
 .riddles-container .trophy-text p {
   margin: 0.3rem 0;
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.4;
+  font-size: 0.95rem;
+  color: #12073a;
+  line-height: 1.3;
 }
 
 .riddles-container .owl-icon {
-  width: 75px; /* trophée plus grand */
-  margin-top: 0.8rem;
-
+  width: 70px;
+  margin-top: 0.5rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -59,69 +58,79 @@
 /* Conteneur des cartes */
 .riddles-container .riddles-cards-container {
   display: flex;
-  gap: 25px;
+  gap: 20px;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin-top: 0.8rem; /* espace réduit avec le haut */
+  flex-wrap: wrap; /* empêche que ça dépasse */
 }
 
 /* Carte jeu */
 .riddles-container .card {
-  background: #fcffff8c;
+  background: #ffffffef;
   border-radius: 14px;
-  border: 1px solid rgba(117, 144, 145, 0.685);
-  padding: 12px;
-  width: 340px; /* plus large */
-  height: 200px; /* plus haute */
+  border: 3px solid rgba(240, 239, 245, 0.979);
+  width: 230px;
+  height: 300px; /* plus compacte */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-
+  flex-direction: column;
+  overflow: hidden;
   transition: transform 0.2s ease;
 
-  box-shadow: -10px 10px 22px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 8px 16px rgba(25, 25, 26, 0.329);
 }
 
 .riddles-container .card:hover {
-  transform: scale(1.02); /* petit effet au survol */
+  transform: scale(1.02);
 }
 
-/* Colonne image + sous-titre */
-.riddles-container .game-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 80px;
+/* Image en haut prend toute la largeur */
+.riddles-container .game-img-container {
+  width: 100%;
+  height: 60%; /* image occupe plus de place */
 }
 
 .riddles-container .game-img {
-  width: 70px; /* image plus grande */
-  height: 70px;
-  object-fit: contain;
+  width: 100%; /* prend toute la largeur */
+  height: 100%; /* prend toute la hauteur */
+  object-fit: cover; /* recadrage intelligent */
+  border-radius: 0px 0px 10px 10px;
 }
 
-.riddles-container .game-subtitle {
-  font-size: 11px;
-  margin-top: 4px;
-  color: #444;
+/* Bloc blanc avec texte */
+.riddles-container .game-content {
+  background: rgba(243, 245, 245, 0.938);
+  color: #04072e; /* bleu foncé */
+  padding: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
 }
 
-/* Texte à droite */
-.riddles-container .game-text {
-  font-size: 14px;
-  color: #222;
-  line-height: 1.4;
-  /* margin-left: 4px;14px; */
-  flex: 1;
+.riddles-container .game-content h3 {
+  margin: 4px 0;
+  font-size: 1rem; /* réduit */
 }
-.riddles-container .game-column button {
-  width: 200px;
-  height: 40px;
-  margin-top: 1rem;
-  background-color: rgb(10, 17, 48);
+
+.riddles-container .game-content .game-text {
+  font-size: 0.8rem; /* réduit */
+  line-height: 1.2;
+}
+
+.riddles-container .game-content button {
+  width: 100%;
+  height: 32px; /* plus petit */
+  margin-top: 6px;
+  background-color: #1a237e;
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem; /* réduit */
+}
+
+.riddles-container .game-content button:hover {
+  background-color: #283593;
 }

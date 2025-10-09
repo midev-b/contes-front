@@ -15,13 +15,16 @@
 }
 
 .book-details .global-container {
-  width: 60%;
+  width: 65%;
   height: 85%;
   margin: auto;
   padding: 20px;
 
-  background-image: url("/backgrounds/grey-background.jpg");
-  border-radius: 5px;
+  /* background-image: url("/backgrounds/grey-background.jpg"); */
+
+  background-color: rgb(219, 219, 211);
+
+  border-radius: 15px;
   box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
@@ -29,8 +32,8 @@
   flex-direction: column;
   justify-content: space-evenly;
 
-  border-left: #100f24 20px solid;
-  border-top: 20px solid rgba(11, 23, 36, 0.986);
+  border-left: #1b323daf 2px solid;
+  border-top: 2px solid rgba(26, 45, 65, 0.527);
   gap: 20px;
   position: relative;
 }

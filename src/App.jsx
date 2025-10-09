@@ -11,6 +11,8 @@ import { GamesPage } from "./JEUX/games.jsx";
 import { RiddlesPage } from "./JEUX/GAMESPAGE/RIDDLES/riddles.jsx";
 import { QuizPage } from "./JEUX/GAMESPAGE/RIDDLES/quizGame.jsx";
 import { ShadowPage } from "./JEUX/GAMESPAGE/RIDDLES/shadowGame.jsx";
+import { PuzzlesPage } from "./JEUX/GAMESPAGE/PUZZLES/puzzles.jsx";
+import { Puzzle1Page } from "./JEUX/GAMESPAGE/PUZZLES/puzzle1.jsx";
 // import { Dashboard } from "./DASHBOARD/dashboard.jsx";
 // 👉 Ajout du style Toastify
 import "react-toastify/dist/ReactToastify.css";
@@ -34,9 +36,12 @@ function App() {
           <Route path="/jeux/enigmes" element={<RiddlesPage />} />
           <Route path="/jeux/enigmes/quiz" element={<QuizPage />} />
           <Route path="/jeux/enigmes/ombres" element={<ShadowPage />} />
+          <Route path="/jeux/puzzles" element={<PuzzlesPage />} />
+          <Route path="jeux/puzzles/puzzle1" element={<Puzzle1Page />} />
           <Route path="/register" element={<Register />} />
           <Route path="/verify/:token" element={<VerifyEmailPage />} />
           <Route path="/login" element={<Login />} />
+
           {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         </Routes>
       </AuthContext.Provider>
