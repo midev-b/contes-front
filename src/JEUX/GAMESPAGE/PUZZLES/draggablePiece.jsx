@@ -1,17 +1,21 @@
 import { useDraggable } from "@dnd-kit/core";
 
 export function DraggablePiece({ id, src }) {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
+  const { attributes, listeners, setNodeRef, transform, isDragging } =
+    useDraggable({ id });
+
+  const translate = transform
+    ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
+    : undefined;
 
   const style = {
-    transform: transform
-      ? `translate3d(${transform.x}px, ${transform.y}px, 0) scale(1.05)` // 5% zoom
-      : undefined,
-    width: "100px",
-    height: "100px",
+    transform: translate,
+    // width: "100px",
+    // height: "100px",
     transition: "transform 0.1s",
     margin: "5px",
     cursor: "grab",
+    touchAction: "none",
   };
 
   return (
@@ -22,6 +26,7 @@ export function DraggablePiece({ id, src }) {
       style={style}
       src={src}
       alt={id}
+      draggable={false}
     />
   );
 }

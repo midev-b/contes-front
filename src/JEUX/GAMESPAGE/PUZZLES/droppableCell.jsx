@@ -1,15 +1,7 @@
 import React from "react";
 import { useDroppable } from "@dnd-kit/core";
 
-/**
- * DroppableZone
- * Props :
- *  - id : identifiant unique (obligatoire)
- *  - children : élément(s) à afficher à l’intérieur (facultatif)
- *  - expectedId : si tu veux valider qu’une pièce spécifique tombe ici
- *  - width / height : dimensions
- */
-export function DroppableCell({ id, children, width = 100, height = 100 }) {
+export function DroppableCell({ id, children, width, height }) {
   // Hook qui rend la zone "droppable"
   const { isOver, setNodeRef, active } = useDroppable({ id });
 
@@ -17,7 +9,7 @@ export function DroppableCell({ id, children, width = 100, height = 100 }) {
   const style = {
     width,
     height,
-    border: isOver ? "3px dashed green" : "2px dashed #aaa",
+    border: isOver ? "1px dashed green" : "2px solid #aaa0",
     borderRadius: "5px",
     display: "flex",
     justifyContent: "center",

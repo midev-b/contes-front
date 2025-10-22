@@ -16,7 +16,7 @@ export function DroppableImage({ id, src }) {
 
   return (
     <div ref={setNodeRef} style={style}>
-      <img src={src} alt="shadow" width="100" />
+      <img src={src} alt="shadow" />
     </div>
   );
 }

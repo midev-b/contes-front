@@ -10,31 +10,108 @@
   align-items: center;
 }
 
+/* Middle Container */
 .puzzle1-container .middle-container {
-  width: 70%;
-  height: 85%;
-  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: 90%;
+  background-color: rgb(219, 219, 211);
   border-radius: 12px;
   box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
-  background-color: rgb(219, 219, 211);
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 20px;
 }
 
-.puzzle1-container .image-and-puzzle-container {
+/* Game Container : grille principale */
+.puzzle1-container .game-container {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 80%;
+  height: 80%;
 }
 
-.puzzle1-container .image-and-puzzle-container .img-reference img {
-  width: 100%;
+/* Partie gauche */
+.puzzle1-container .left-section {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: center;
+  justify-items: start;
+  justify-content: start;
 }
 
+.puzzle1-container .img-reference img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  grid-column-start: 1;
+  border: 2px solid white;
+}
+
+/* 6 pièces sous l’image (2 lignes de 3) */
+.puzzle1-container .pieces-under-img {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(2, 100px);
+  gap: 10px;
+  justify-content: center;
+  border-radius: 10px;
+  column-gap: 30px;
+}
+
+/* Partie droite */
+.puzzle1-container .right-section {
+  display: grid;
+  grid-template-rows: auto auto;
+  align-items: start;
+  justify-items: start;
+  gap: 10px;
+}
+
+/* Zone du puzzle */
 .puzzle1-container .puzzle-zone {
   display: grid;
-  grid-template-columns: 100px 100px 100px;
-  justify-content: end;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 3px;
+  justify-content: center;
+  border: 2px solid rgb(219, 139, 20);
+  border-radius: 15px;
+}
+.puzzle1-container .completed-puzzle {
+  transform: scale(1.1);
+}
+.completed-puzzle {
+  transform: scale(1.1);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  box-shadow: 0 0 10px 10px rgba(255, 223, 0, 0.6);
+  border-radius: 12px;
+  animation: shine 2s infinite alternate;
+}
+
+@keyframes shine {
+  0% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(1.3);
+  }
+}
+
+/* 3 pièces sous la grille (1 ligne) */
+.puzzle1-container .pieces-under-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  justify-content: center;
+}
+
+.puzzle1-container .pieces-under-img img,
+.puzzle1-container .pieces-under-grid img {
+  width: 100px;
+  height: 100px;
+  cursor: grab;
+  border-radius: 10px;
+  color: rgba(206, 210, 214, 0.705);
 }

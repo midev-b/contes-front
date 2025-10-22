@@ -1,0 +1,126 @@
+.puzzle2-container {
+  background-image: url("/backgrounds/pastel-background2.png");
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Middle Container */
+.puzzle2-container .middle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  height: 90%;
+  background-color: rgb(219, 219, 211);
+  border-radius: 12px;
+  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+/* Game Container : grille principale */
+.puzzle2-container .game-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 80%;
+  height: 80%;
+}
+
+/* Partie gauche */
+.puzzle2-container .left-section {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: center;
+  justify-items: start;
+  justify-content: start;
+}
+
+.puzzle2-container .img-reference img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  grid-column-start: 1;
+  border: 2px solid white;
+}
+
+/* 8 pièces sous l’image (2 lignes de 4) */
+.puzzle2-container .pieces-under-img {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(2, 80px);
+  gap: 10px;
+  justify-content: center;
+  border-radius: 10px;
+  column-gap: 20px;
+}
+
+/* Partie droite */
+.puzzle2-container .right-section {
+  display: grid;
+  grid-template-rows: auto auto;
+  align-items: start;
+  justify-items: start;
+  gap: 10px;
+}
+
+/* Zone du puzzle (4x4 = 16 pièces) */
+.puzzle2-container .puzzle-zone {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(4, 80px);
+  gap: 3px;
+  justify-content: center;
+  border: 2px solid rgb(129, 20, 219);
+  border-radius: 15px;
+}
+.puzzle2-container .puzzle-zone img {
+  width: 80px !important;
+  height: 80px !important;
+}
+/* Effet puzzle complété */
+.puzzle2-container .completed-puzzle {
+  transform: scale(1.1);
+}
+
+.completed-puzzle {
+  transform: scale(1.1);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  box-shadow: 0 0 10px 10px rgba(255, 223, 0, 0.6);
+  border-radius: 12px;
+  animation: shine 2s infinite alternate;
+}
+
+@keyframes shine {
+  0% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(1.3);
+  }
+}
+
+/* 8 pièces sous la grille (2 lignes de 4) */
+.puzzle2-container .pieces-under-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(2, 80px);
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Style des pièces draggable */
+.puzzle2-container .pieces-under-img img,
+.puzzle2-container .pieces-under-grid img {
+  width: 80px;
+  height: 80px;
+  cursor: grab;
+  gap: 20px;
+  border-radius: 10px;
+  color: rgba(206, 210, 214, 0.705);
+}
