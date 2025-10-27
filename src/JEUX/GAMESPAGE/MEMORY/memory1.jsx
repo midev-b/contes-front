@@ -36,12 +36,13 @@ export function Memory1Page() {
           setIsDisabled(false);
 
           setVerifyCards([]);
-        }, 4000);
+        }, 1000);
       } else {
+        setIsDisabled(true);
         setTimeout(() => {
-          setIsDisabled(true);
+          setIsDisabled(false);
           setVerifyCards([]);
-        }, 4000);
+        }, 1000);
       }
     }
   }, [verifyCards]);
@@ -61,7 +62,7 @@ export function Memory1Page() {
   useEffect(() => {
     const fetchMemoryCards = async () => {
       try {
-        const response = await fetch("http://localhost:5001/api/memory");
+        const response = await fetch("http://localhost:5001/api/memory1");
         const data = await response.json();
         setMemory(shuffleCard(data[0].memo));
       } catch (err) {

@@ -1,0 +1,34 @@
+.memory2-container {
+  background-image: url("/backgrounds/pastel-background2.png");
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Conteneur principal */
+.memory2-container .middle-container {
+  width: 70%;
+  height: 85%;
+  max-width: 1200px;
+  border-radius: 12px;
+  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
+  background-image: url("/GAMES/memory/memory2/sea.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.questions-bubbles {
+  display: flex;
+  flex-direction: row;
+  border: red solid 3px;
+}
