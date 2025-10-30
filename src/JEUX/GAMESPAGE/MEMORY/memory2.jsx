@@ -11,36 +11,37 @@ export function Memory2Page() {
   const [answers, setAnswers] = useState([]);
   const [bubbleClass, setBubbleClass] = useState();
   useEffect(() => {
-    // JE T EXPLIQUE RPIDEMENT ICI C EST LE USEEFFECT QUI PERME D AFFICHER LES BULLES ? celle a retenir pis celles a cliquer
     if (memoBubbles.length === 0) return;
-    setDisplayBubbles(memoBubbles[currentIndex].cards); // A RETENIR
-    setDisplayBubblesNew(memoBubbles[currentIndex].cards); //  UNE COPIE CAR LE PREMIER DOIT DISPARAITRE EET CELUI CA SERT A COMPARER
+    setDisplayBubbles(memoBubbles[currentIndex].cards);
+    setDisplayBubblesNew(memoBubbles[currentIndex].cards);
 
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setDisplayBubbles([]);
-      setQuestionsBubbles(memoBubbles[currentIndex].questionsCards); // CELI OU L ENFANT FOIT LIQUER
-    }, 6000);
+      setQuestionsBubbles(memoBubbles[currentIndex].questionsCards);
+    }, memoBubbles[currentIndex].time);
+
+    return () => clearTimeout(timer);
   }, [currentIndex, memoBubbles]);
+  const handleBubbles = (bubbleId) => {
+    const present = displayBubblesNew.find((el) => el.id === bubbleId);
 
-  const handleBubbles = (index) => {
-    questionsBubbles.map((question, i) => {
-      const exists = displayBubblesNew.filter((el) => el.id === question.id);
-      // console.log(exists, "AAAAAAAA");
+    if (present) {
+      setAnswers((prev) => {
+        const newAnswers = [...prev, present];
+        console.log(newAnswers, "aa");
+        if (newAnswers.length === displayBubblesNew.length) {
+          setTimeout(() => {
+            setCurrentIndex(currentIndex + 1);
+            setDisplayBubblesNew([]);
+            setDisplayBubbles([]);
+            setAnswers([]);
+            console.log(newAnswers, "bb");
 
-      if (index === i && exists) {
-        // console.log("EXIST", exists);
-        setBubbleClass("invisible");
-        setAnswers((prevAnswers) => {
-          return [...prevAnswers, exists];
-        });
-      }
-    });
-    console.log(answers);
-    if (answers.length === displayBubblesNew.length) {
-      setCurrentIndex(currentIndex + 1);
-      setDisplayBubblesNew([]);
-      setDisplayBubbles([]);
-      setAnswers([]);
+            return [];
+          }, 1000);
+        }
+        return newAnswers;
+      });
     }
   };
 
@@ -62,27 +63,61 @@ export function Memory2Page() {
     <div className="memory2-container">
       <div className="middle-container">
         <div className="game-container">
-          {displayBubbles.map((bubble, index) => {
-            return (
-              <div key={index} className={`bubble ${index}`}>
-                <img src={bubble.src} />
-              </div>
-            );
-          })}
-          {questionsBubbles.map((bubble, index) => {
-            return (
-              <div key={index}>
-                <div
-                  className="questions-bubbles"
-                  onClick={() => {
-                    handleBubbles(index);
+          <div className="background-bubbles-container">
+            <div className="background-bubbles">
+              {Array.from({ length: 10 }).map((_, i) => (
+                <img
+                  key={i}
+                  src="/GAMES/memory/memory2/bubble.png"
+                  className={`decor-bubble size-${i % 5}`}
+                  alt="bulle décorative"
+                  style={{
+                    animationDuration: `${5 + Math.random() * 10}s`,
+                    animationDelay: `${Math.random() * 5}s`,
                   }}
-                >
-                  <img src={bubble.src} />
-                </div>
+                />
+              ))}
+            </div>
+          </div>
+          <div className="display-bubbles-container">
+            <div className="display-bubbles-flex">
+              {displayBubbles.length > 0 &&
+                displayBubbles.map((bubble, index) => {
+                  const delay = (Math.random() * 2) / 2;
+
+                  const duration = memoBubbles[currentIndex].time / 1000;
+
+                  return (
+                    <div
+                      key={index}
+                      className={`bubble bubble-anim size-${index % 3}`}
+                      style={{
+                        animationDuration: `${duration - index / 2}s`,
+                        animationDelay: `${delay}s`,
+                      }}
+                    >
+                      <img src={bubble.src} />
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+          {displayBubbles.length === 0 && (
+            <div className="questions-bubbles-container">
+              <div className="questions-bubbles">
+                <p>Clique sur les animaux que tu as vus</p>
+                {questionsBubbles.map((bubble, index) => (
+                  <div
+                    key={index}
+                    className="question-bubble"
+                    onClick={() => handleBubbles(bubble.id)}
+                  >
+                    <img src={bubble.src} alt={`bubble-${index}`} />
+                  </div>
+                ))}
               </div>
-            );
-          })}
+            </div>
+          )}
         </div>
       </div>
     </div>

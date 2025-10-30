@@ -27,8 +27,180 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-.questions-bubbles {
+.memory2-container .game-container {
+  position: relative;
+  border: 2px solid black;
+  width: 100%;
+  height: 100%;
+}
+
+.memory2-container .middle-container .background-bubbles-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.memory2-container .middle-container .background-bubbles {
+  display: flex;
+  justify-content: space-around;
+}
+.memory2-container .middle-container .decor-bubble.size-1 {
+  width: 20px;
+  height: 20px;
+}
+.memory2-container .middle-container .decor-bubble.size-2 {
+  width: 30px;
+  height: 30px;
+}
+.memory2-container .middle-container .decor-bubble.size-3 {
+  width: 25px;
+  height: 25px;
+}
+.memory2-container .middle-container .decor-bubble.size-4 {
+  width: 50px;
+  height: 50px;
+}
+
+.memory2-container .middle-container .decor-bubble.size-0 {
+  width: 40px;
+  height: 40px;
+}
+.memory2-container .middle-container .decor-bubble.size-5 {
+  width: 35px;
+  height: 35px;
+}
+
+.memory2-container .display-bubbles-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.memory2-container .display-bubbles-flex {
   display: flex;
   flex-direction: row;
-  border: red solid 3px;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+}
+
+.memory2-container .size-0 img {
+  width: 80px;
+  height: 80px;
+}
+
+.memory2-container .size-1 img {
+  width: 100px;
+  height: 100px;
+}
+
+.memory2-container .size-2 img {
+  width: 120px;
+  height: 120px;
+}
+
+.memory2-container .bubble-anim {
+  animation-name: float;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  will-change: transform, opacity;
+}
+.memory2-container .bubble-anim {
+  animation: float ease-in-out forwards;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-450px) scale(0.8);
+    opacity: 0;
+  }
+}
+/* deuxieme partie */
+.memory2-container .questions-bubbles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  justify-items: center;
+  align-items: center;
+
+  width: 450px;
+  height: 280px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+
+  -webkit-box-shadow: 1px 5px 26px -6px rgba(83, 85, 111, 1);
+  -moz-box-shadow: 1px 5px 26px -6px rgba(83, 85, 111, 1);
+  box-shadow: 1px 5px 26px -6px rgba(83, 85, 111, 1);
+
+  animation: floatContainer 2s ease-in-out infinite;
+}
+.memory2-container .questions-bubbles .question-bubble {
+  width: 80px;
+  height: 80px;
+}
+.memory2-container .questions-bubbles .question-bubble img {
+  width: 100%;
+  height: 100%;
+}
+
+.memory2-container .questions-bubbles p {
+  text-align: center;
+  grid-column: 1/-1;
+  padding: 10px;
+  color: rgb(9, 9, 78);
+  font-family: "Charm";
+  font-weight: 700;
+}
+
+.memory2-container .questions-bubbles-container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes floatContainer {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.bubbles-container-anim {
+  animation: floatContainer 4s ease-in-out infinite;
+}
+.decor-bubble {
+  animation: rise infinite linear;
+}
+@keyframes rise {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-450px); /* monte au-dessus du cadre */
+    opacity: 0;
+  }
 }
