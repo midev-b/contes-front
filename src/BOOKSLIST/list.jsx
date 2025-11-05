@@ -9,6 +9,13 @@ import "./list.css";
 import { Book } from "./book";
 import { Main } from "../PublicComponents/main";
 import owlIcon from "/toast/owl.png";
+import grass1 from "/backgrounds/grass1.png";
+
+import grass2 from "/backgrounds/grass2.png";
+
+import grass3 from "/backgrounds/grass3.png";
+
+import grass4 from "/backgrounds/grass1.png";
 
 import { useContext } from "react";
 import { AuthContext } from "../App";
@@ -63,6 +70,18 @@ export function BookList() {
 
   return (
     <div className="book-list">
+      <img src={grass1} alt="herbe gauche" className="grass grass-left" />
+      <img src={grass2} alt="herbe droite" className="grass grass-right" />
+      <img
+        src={grass3}
+        alt="herbe bas gauche"
+        className="grass grass-bottom-left"
+      />
+      <img
+        src={grass4}
+        alt="herbe bas droite"
+        className="grass grass-bottom-right"
+      />
       <div className="global-container">
         <div className="middle-container">
           <header className="header-actions">

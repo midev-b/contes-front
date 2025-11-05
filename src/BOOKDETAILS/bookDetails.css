@@ -14,15 +14,15 @@
   align-items: center;
 }
 
-.book-details .global-container {
+.book-details .middle-container {
   width: 65%;
   height: 85%;
   margin: auto;
   padding: 20px;
 
-  /* background-image: url("/backgrounds/grey-background.jpg"); */
+  background-image: url("/backgrounds/middle-background.jpg");
 
-  background-color: rgb(219, 219, 211);
+  /* background-color: rgb(219, 219, 211); */
 
   border-radius: 15px;
   box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);

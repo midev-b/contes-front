@@ -100,7 +100,7 @@ export function BookDetails() {
 
   return (
     <div className="book-details">
-      <div className="global-container">
+      <div className="middle-container">
         {/* Partie principale (Gauche + Droite) */}
         <Main className="main"></Main>
         <div className="content-container">

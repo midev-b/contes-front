@@ -15,9 +15,8 @@
   height: 80%;
   padding: 20px;
 
-  /* background-image: url("/backgrounds/grey-background.jpg"); */
+  background-image: url("/backgrounds/middle-background.jpg");
 
-  background-color: rgb(219, 219, 211);
   border-radius: 5px;
   box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
   display: flex;

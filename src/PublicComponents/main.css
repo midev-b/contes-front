@@ -1,62 +1,80 @@
-.main {
+.main-nav {
   display: flex;
-  justify-content: space-between;
-  width: 60%;
-}
-
-.main a {
-  /* color: #4a3f2c; */
-  font-family: cursive;
-
-  font-weight: 600;
-  font-size: 14px;
-  text-decoration: none;
-
-  color: #fcfcfd;
-}
-
-.nav-item {
-  background-color: #6176a3c4;
-  padding: 4px 4px;
-  border-radius: 10px;
-  margin-right: 8px;
-  font-size: 16px;
-  cursor: pointer;
-
-  transition: all 0.3s ease;
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-.nav-item:hover {
-  background-color: #2f347c;
-  transform: scale(1.1);
-}
-.nav-item a {
-  padding: 4px 8px;
-}
-.nav-item .user-name {
-  position: absolute;
-  right: 2px;
-  border-radius: 50% 50%;
-}
-.connexion {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
+  width: 70%;
 }
 
-.connexion p {
-  margin: 0 8px 0 8px;
-  font-size: 16px;
-  font-family: "Quicksand", sans-serif;
-  color: rgb(63, 155, 179);
+/* 🔸 Boutons du menu */
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 120px;
+  height: 40px;
+  background-image: url("/main/button-background.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #4b3e2b;
+  font-weight: 500;
+  border: 1.5px solid #8d8a71; /* 🌿 bordure vert sauge */
+  transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+}
+
+.menu-btn img {
+  width: 22px;
+  height: 22px;
+}
+
+.menu-btn span {
+  font-size: 13px;
+}
+
+/* 🌿 Hover vert sauge */
+.menu-btn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  background-color: #dce3d1; /* fond vert sauge clair */
+  box-shadow: 0 6px 16px rgba(87, 103, 85, 0.3);
+  border-color: #a4b68e;
+  color: #3d4b36;
+}
+
+.menu-btn:hover span {
+  color: #3d4b36;
+}
+
+/* 🔸 Bouton du profil */
+.profile-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px solid #63503b; /* 🌿 bordure vert sauge */
+  background: #e8e0d5;
+  color: #4b3e2b;
+  transition: transform 0.25s ease, background-color 0.25s ease,
+    box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.profile-btn span {
+  font-size: 15px;
   font-weight: 700;
 }
 
-.login-register {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* 🌿 Hover vert sauge */
+.profile-btn:hover {
+  background-color: #dce3d1;
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(87, 103, 85, 0.3);
+  border-color: #a4b68e;
+  color: #3d4b36;
 }

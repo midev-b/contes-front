@@ -25,7 +25,7 @@ export function Memory2Page() {
   const handleBubbles = (bubbleId) => {
     const present = displayBubblesNew.find((el) => el.id === bubbleId);
 
-    if (present) {
+    if (present && !answers.includes(present)) {
       setAnswers((prev) => {
         const newAnswers = [...prev, present];
         console.log(newAnswers, "aa");
@@ -65,7 +65,7 @@ export function Memory2Page() {
         <div className="game-container">
           <div className="background-bubbles-container">
             <div className="background-bubbles">
-              {Array.from({ length: 10 }).map((_, i) => (
+              {Array.from({ length: 20 }).map((_, i) => (
                 <img
                   key={i}
                   src="/GAMES/memory/memory2/bubble.png"

@@ -1,12 +1,57 @@
+:root {
+  --brown-dark: #d8d5bc;
+  --brown-medium: #cdbfa7;
+  --brown-light: #5c422b;
+  --text-brown: #6b5842;
+  --placeholder-brown: #cdbfa7;
+  --scrollbar-brown: #584c25;
+  --sage-light: #dce3d1;
+  --sage-medium: #b8c5a0;
+}
+
+/* ==========================
+   RESET GLOBAL
+========================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ==========================
+   CONTENEUR PRINCIPAL
+========================== */
+.book-list {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.book-list .grass-left {
+  position: absolute;
+  top: 100px;
+  height: 200px;
+  right: 50px;
+}
+.book-list .grass-bottom-left {
+  position: absolute;
+  top: 350px;
+  height: 200px;
+  right: 50px;
+}
+.book-list .grass-right {
+  position: absolute;
+  top: 100px;
+  height: 180px;
+  left: 50px;
+}
+.book-list .grass-bottom-right {
+  position: absolute;
+  top: 400px;
+  height: 200px;
+  left: 50px;
+}
 .book-list .global-container {
-  background-image: url("/backgrounds/pastel-background2.png");
-  /* background-color: #c8c6ba; */
+  background-image: url("/backgrounds/pastel-background.jpg");
   width: 100vw;
   height: 100vh;
   background-position: center;
@@ -16,284 +61,282 @@
   justify-content: center;
   align-items: center;
 }
+
 .book-list .middle-container {
   position: relative;
-  width: 72%;
+  width: 76%;
   height: 90%;
-  background-image: url("/backgrounds/dark-background.jpg");
+  background-color: #f9eeda;
   border-radius: 10px;
-  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
-}
-.book-list .main {
-  width: 60%;
-}
-.book-list .main .user-name {
-  position: absolute;
-  right: 2px;
-  border-radius: 50% 50%;
-  padding: 5px;
-}
-/* Scrollbar personnalisée pour .book-list .middle-container */
-.book-list .middle-container {
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: #828cad transparent;
+  box-shadow: -7px 0px 15px -9px rgba(0, 0, 0, 0.76);
+  overflow: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sage-medium) transparent; /* 🌿 teinte sauge */
 }
 
-/* Pour Chrome, Edge, Safari */
+/* Scrollbar (Chrome / Edge / Safari) */
 .book-list .middle-container::-webkit-scrollbar {
   width: 6px;
 }
-
 .book-list .middle-container::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .book-list .middle-container::-webkit-scrollbar-thumb {
-  background-color: #d3c3ce;
+  background-color: var(--sage-medium); /* 🌿 */
   border-radius: 10px;
 }
+
+/* ==========================
+   HEADER + RECHERCHE
+========================== */
 .book-list .header-actions {
   display: flex;
   flex-direction: row;
-
   justify-content: space-around;
+  align-items: center;
   padding-top: 20px;
+  margin-bottom: 25px;
 }
+
 .book-list .bar-search {
   display: flex;
   align-items: center;
-  width: 20%;
-  border-bottom: 2px solid #776ca5;
+  width: 22%;
+  border-bottom: 2px solid var(--sage-medium); /* 🌿 bord sauge clair */
   padding-bottom: 4px;
   position: relative;
-  right: 30px;
+  right: 10px; /* ✅ léger décalage */
 }
 
 .book-list .bar-search input {
   width: 100%;
   border: none;
   outline: none;
-  font-family: "Quicksand", sans-serif;
-  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif; /* ✅ police simple et unique */
+  font-size: 0.95rem;
   padding: 5px 30px 5px 5px;
   background-color: transparent;
-  color: #eae8f0;
+  color: var(--text-brown);
 }
 
 .book-list .bar-search input::placeholder {
-  color: #b9c7f5;
-  font-family: cursive;
+  color: var(--placeholder-brown);
 }
 
 .book-list .bar-search .search-icon {
   position: absolute;
-  right: 5px;
+  right: 6px;
+  top: 2px; /* ✅ petit décalage */
   font-size: 1rem;
-
   cursor: pointer;
+  color: #4a3f35; /* ✅ plus foncé */
 }
 
-.book-list .books-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  justify-items: center;
-
-  height: 80%;
-
-  margin-top: 40px;
-  gap: 10px;
-
-  overflow-y: scroll;
-}
+/* ==========================
+   TEXTE D’INTRODUCTION
+========================== */
 .book-list .text-intro {
   grid-column: span 2;
-  grid-row: span 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* background-color: rgb(18, 29, 61);
-  border-radius: 12px; */
-
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-.book-list .text-intro p {
-  color: rgb(178, 184, 184);
 
-  width: 90%;
-
-  font-family: cursive;
-  padding: 10px;
-  margin-left: 10px;
-
-  font-weight: 500;
-  font-style: normal;
-  font-size: 16.5px;
-
-  line-height: 30px;
-
-  text-align: start;
-}
 .book-list .text-intro h2 {
   font-size: 2rem;
-  color: #adb9be;
-  margin-bottom: 10px;
-  font-family: "Charm", cursive;
+  background: linear-gradient(
+    to right,
+    var(--text-brown) 50%,
+    var(--sage-medium) 50%
+  ); /* 🌿 moité marron moité sauge */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Poppins", sans-serif; /* ✅ police simple */
+  margin-bottom: 4px; /* rapproché du paragraphe */
 }
 
+.book-list .text-intro p {
+  color: var(--text-brown);
+  width: 90%;
+  font-family: "Poppins", sans-serif;
+  padding: 5px;
+  font-weight: 400;
+  font-size: 16.5px;
+  line-height: 25px;
+  text-align: start;
+}
+
+/* ==========================
+   CONTENEUR DES LIVRES
+========================== */
+.book-list .books-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  height: 80%;
+  margin-top: 25px;
+  gap: 25px;
+  overflow-y: scroll;
+}
+
+/* ==========================
+   LIVRES (inchangés)
+========================== */
 .book-list .book {
   grid-column: span 1;
-  width: 160px;
-  height: 200px;
+  width: 152px;
+  height: 168px;
   display: flex;
-
-  background-color: rgb(14, 22, 46);
-  border-radius: 5px;
+  justify-content: center;
+  background-color: var(--brown-dark);
+  border-radius: 10px;
   position: relative;
   overflow: hidden;
+}
+.book-list .book:hover {
+  overflow: visible;
 }
 .book-list .cover {
   cursor: pointer;
 }
+
 .book-list .heart-like-icon {
   position: absolute;
   z-index: 9;
   font-size: 14px;
-  color: rgb(228, 41, 41);
-  top: 5px;
-  left: 5px;
+  color: rgb(200, 30, 30);
+  top: 3px; /* ✅ petit décalage */
+  left: 5px; /* ✅ espace gauche */
 }
+
 .book-list .heart-unlike-icon {
   position: absolute;
   z-index: 9;
   font-size: 14px;
-  color: rgb(172, 167, 159);
-  top: 5px;
+  color: rgb(120, 110, 100);
+  top: 3px;
   left: 5px;
 }
+
 .book-list .lock-icon {
   font-size: 18px;
   position: absolute;
   z-index: 9;
-  top: 5px;
+  top: 3px;
   left: 5px;
-
-  color: rgba(194, 194, 183, 0.918);
+  color: rgba(90, 80, 65, 0.8); /* ✅ plus foncé et naturel */
 }
+
 .book-list .card-hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: absolute;
-
   border-radius: 5px;
   width: 100%;
   height: 100%;
-
-  background-color: rgb(16, 23, 44);
+  background-color: var(--brown-dark);
   top: 0;
   left: 0;
   z-index: 4;
   transform-origin: 50% 60%;
-
   transform-style: preserve-3d;
   transition: transform 0.6s ease-in-out;
 }
+
 .book-list .book .cover {
   position: absolute;
   width: 126px;
   height: 130px;
-
   border-bottom: 2px rgba(187, 180, 180, 0.884) solid;
-  border-radius: 3px 3px 3px 3px;
-  box-shadow: 9px 6px 12px -6px rgba(53, 48, 59, 0.75);
-  -webkit-box-shadow: 9px 6px 12px -6px rgba(45, 41, 49, 0.75);
-  -moz-box-shadow: 9px 6px 12px -6px rgba(49, 43, 56, 0.75);
+  border-radius: 7px;
+  box-shadow: 9px 6px 12px -6px rgba(45, 41, 49, 0.75);
   z-index: 5;
   transform: translateZ(28.5px);
 }
+
 .book-list .book .book-top {
   position: absolute;
   top: 24px;
-
   width: 168px;
   height: 35px;
   transform: rotateY(0.6);
 }
+
 .book-list .book .book-side {
   position: absolute;
   bottom: 33px;
-
   width: 170px;
   height: 35px;
   transform: translateY(-15px) translateX(0px) translateZ(15px) rotateX(100deg)
     scaleY(0.4);
-
   z-index: 1;
 }
+
 .book-list .card-hover:hover {
   transform: rotateX(72deg) scaleX(0.6) scaleY(0.8);
 }
-/* BOOK-INFORMATIONS */
+
+/* ==========================
+   INFOS LIVRE (pop-up)
+========================== */
 .book-list .card-informations {
   display: flex;
   flex-direction: column;
-
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-around;
-  padding: 0 5px 0 5px;
-  width: 160px;
-  height: 85px;
-  background-color: rgb(255, 255, 255);
+  padding: 5px;
+  width: 110%;
+  height: 82px;
+  background-color: #f8eacd;
+  border: px var(--brown-light) solid;
   position: absolute;
   bottom: -100px;
-
-  border-radius: 5px;
+  border-radius: 4px;
   z-index: 12;
-
-  transition: transform 0.6s ease-in-out;
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
 }
+
 .book-list .card-informations .stars {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 0 0px 10px 0px;
 }
+
 .book-list .card-informations h3,
 .book-list .card-informations p {
   font-size: 12px;
-
-  font-family: cursive;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
-
   color: rgb(0, 1, 10);
 }
+
 .book-list .book:hover .card-informations {
   transform: translateY(-95px);
-
-  box-shadow: -13px 6px 17px 1px rgba(14, 12, 12, 0.75);
-  -webkit-box-shadow: -13px 6px 17px 1px rgba(34, 32, 32, 0.849);
-  -moz-box-shadow: -13px 6px 17px 1px rgb(53, 49, 49);
+  box-shadow: 3px 4px 11px 0px rgba(177, 179, 159, 0.75);
+  -webkit-box-shadow: 3px 4px 11px 0px rgba(204, 214, 181, 0.75);
+  -moz-box-shadow: 3px 4px 11px 0px rgba(229, 235, 180, 0.75);
+  opacity: 1;
 }
 
-/* Style du toast */
+/* ==========================
+   TOAST / ANIMATION OWL
+========================== */
 .custom-toast {
   height: 140px;
   background-color: #ffffff;
   color: #0e0d41;
-
   font-size: 16px;
-  font-family: cursive;
-
+  font-family: "Poppins", sans-serif;
   display: grid;
   grid-template-columns: 50px 1fr;
   gap: 10px;
 }
+
 @keyframes owl-flap {
   0% {
     transform: scale(1);
@@ -309,6 +352,5 @@
 .toast-owl-icon {
   width: 60px;
   height: 60px;
-
   animation: owl-flap 1.5s;
 }
