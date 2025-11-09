@@ -11,6 +11,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 import owlIcon from "/toast/owl.png";
 
+import grass1 from "/backgrounds/grass1.png";
+import grass2 from "/backgrounds/grass2.png";
+import grass3 from "/backgrounds/grass3.png";
+import grass4 from "/backgrounds/grass1.png";
+import homeImg from "/accueil/home-img.png";
 import { useContext } from "react";
 import { AuthContext } from "../App";
 export function HomePage() {
@@ -62,32 +67,46 @@ export function HomePage() {
 
   return (
     <div className=" home global-container">
-      <div className="middle-container">
-        <Main className="main" />
+      <img src={grass1} alt="herbe gauche" className="grass grass-left" />
+      <img src={grass2} alt="herbe droite" className="grass grass-right" />
+      <img
+        src={grass3}
+        alt="herbe bas gauche"
+        className="grass grass-bottom-left"
+      />
+      <img
+        src={grass4}
+        alt="herbe bas droite"
+        className="grass grass-bottom-right"
+      />
 
-        <div className="intro-message">
-          <h1>Bienvenue dans l’univers de Pattes & Plume</h1>
-          <div className="intro-text">
-            <p>
-              Prêt(e) pour une aventure dans le monde des animaux ? Chaque livre
-              te raconte une histoire pleine de rires, de courage et de
-              surprises. Viens tourner les pages, un univers merveilleux
-              t’attend!{" "}
-            </p>
-          </div>
+      <div className="middle-container">
+        <div className="main-flex">
+          <Main className="main" />
         </div>
-        <div className="books-title-container">
-          <h3>Contes les plus populaires en ce moment</h3>
-          <div className="books-container">
-            {topBooks.map((book, index) => (
-              <div
-                key={index}
-                className="book "
-                onClick={() => handleClick(book)}
-              >
-                <img src={book.cover} alt={book.title} />
+        <div className="content-container">
+          <div className="content-container-flex">
+            <div className="intro-message">
+              <p>Bienvenue dans l’univers de</p>
+              <div className="title-img">
+                <h1>Pattes & Plume</h1>
+                <img src={homeImg} alt="lecture des animaux" />
               </div>
-            ))}
+            </div>
+            <div className="books-title-container">
+              <h3>Contes les plus populaires en ce moment</h3>
+              <div className="books-container">
+                {topBooks.map((book, index) => (
+                  <div
+                    key={index}
+                    className="book "
+                    onClick={() => handleClick(book)}
+                  >
+                    <img src={book.cover} alt={book.title} />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

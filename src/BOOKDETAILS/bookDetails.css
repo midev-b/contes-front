@@ -1,191 +1,222 @@
-/* 🎨 Conteneur principal */
+:root {
+  --dark-green: #637f52;
+  --light-green: #d8d5bc;
+  --dark-brown: #5c422b;
+  --text-brown: #6b5842;
+  --medium-green: #b4c29c;
+  --light-brown: #f9eeda;
+  --red: #b63131;
+  --yellow: #ddbe6c;
+}
 
-.book-details {
-  background-image: url("/backgrounds/pastel-background2.png");
+.book-detail {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
 
+/* 🌿 Fond général */
+.book-details .global-container {
+  background-image: url("/backgrounds/pastel-background.jpg");
   width: 100vw;
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
-
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.book-details .middle-container {
-  width: 65%;
-  height: 85%;
-  margin: auto;
-  padding: 20px;
-
-  background-image: url("/backgrounds/middle-background.jpg");
-
-  /* background-color: rgb(219, 219, 211); */
-
-  border-radius: 15px;
-  box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-
-  border-left: #1b323daf 2px solid;
-  border-top: 2px solid rgba(26, 45, 65, 0.527);
-  gap: 20px;
-  position: relative;
-}
-
-/* 📚 Partie gauche et droite */
-.book-details .content-container {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-/* 📖 Description  */
-
-.book-details .book-description {
-  font-size: 16px;
-  font-family: "Spinnaker", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+/* 🌱 Décors */
+.book-details .grass-left {
   position: absolute;
-  top: 265px;
-  left: 260px;
-
-  height: 50%;
-  width: 70%;
-  background: rgba(255, 255, 255, 0.945);
-  padding: 20px;
-  border-radius: 5px;
-  border: 1px solid black;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: justify;
-  color: #0f141f;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  /* border-bottom: #111827 30px solid;
-  border-right: #070d24ee 20px solid; */
-  padding-left: 60px;
-  box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
+  top: 100px;
+  height: 200px;
+  right: 50px;
+}
+.book-details .grass-bottom-left {
+  position: absolute;
+  top: 350px;
+  height: 200px;
+  right: 50px;
+}
+.book-details .grass-right {
+  position: absolute;
+  top: 100px;
+  height: 180px;
+  left: 50px;
+}
+.book-details .grass-bottom-right {
+  position: absolute;
+  top: 400px;
+  height: 200px;
+  left: 50px;
 }
 
-/* 📘 Partie droite */
-.book-details .right-container {
-  width: 50%;
+/* 📘 Bloc principal */
+.book-details .middle-container {
+  position: relative;
+  width: 70%;
+  height: 90%;
+  background-color: var(--light-brown);
+  border-radius: 10px;
+  box-shadow: -7px 0px 15px -9px rgba(100, 89, 65, 0.76);
+  -moz-box-shadow: -10px 16px 31px -6px rgba(61, 49, 30, 0.75);
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.book-details .main-nav {
+  padding-top: 20px;
+}
+.book-details .content-container {
+  /* padding-top: 50px; */
+  margin-top: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  width: 80%;
+  height: 80%;
+}
+
+/* 📚 Partie gauche */
+.book-details .left-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 70px;
+  align-items: center;
+  gap: 15px;
+  border-radius: 20px;
+  height: 90%;
+
+  background-color: #f5e8cf;
+  padding: 20px;
+  padding-top: 30px;
+  -webkit-box-shadow: 3px 9px 38px -4px rgba(150, 129, 98, 0.8);
+  -moz-box-shadow: 3px 9px 38px -4px rgba(150, 129, 98, 0.8);
+  box-shadow: 3px 9px 38px -4px rgba(150, 129, 98, 0.8);
 }
 .book-details .book-container {
+  height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-
-  gap: 10px;
+  gap: 20px;
 }
 .book-details .cover-container {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.book-details .bottom-book {
-  position: absolute;
-  /* z-index: 24; */
-  bottom: -7px;
-  left: 2px;
-  width: 240px;
-  height: 40px;
+  width: 250px;
 }
 
 .book-details .book-cover {
-  width: 250px;
+  width: 100%;
   height: 250px;
-  position: relative;
-  z-index: 23;
-  border-radius: 5px 10px 10px 5px;
-  box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(99, 67, 31, 0.3);
 }
 
-.book-details .main {
-  position: absolute;
-  top: -10px;
-
-  width: 70%;
-  padding-bottom: 20px;
-}
-.book-details .main .user-name {
-  position: absolute;
-  right: -200px;
-  border-radius: 50% 50%;
-}
-
-.book-details h1 {
-  font-size: 40px;
-
-  font-family: "Charm", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-.book-details .book-author {
-  font-size: 22px;
-  font-family: "Cookie", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
 .book-details .heart-icon {
   position: absolute;
-  top: -5px;
-  left: -5px;
-  width: 25px;
-  height: 25px;
-  z-index: 88;
-}
-.stars-container {
-  width: 80%;
-  display: flex;
-  justify-content: center;
+  top: -20px;
+  left: -10px;
+  font-size: 22px;
   cursor: pointer;
+}
+
+/* ⭐ Étoiles */
+.book-details .stars {
+  display: flex;
+  font-size: 23px;
+  /* gap: 5px; */
 }
 
 .book-details .star-icon {
-  width: 25px;
-  height: 25px;
-}
-.book-details button {
-  margin-top: 10px;
-  padding: 10px 10px;
-  border: none;
-  width: 80%;
-  background-color: #556ca1;
-  color: #ffffff;
-  font-family: "Spinnaker", sans-serif;
-  font-size: 16px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  transition: all 0.3s ease;
+
+  transition: transform 0.2s ease;
 }
 
-.book-details button:hover {
-  background-color: #2e3d5c;
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+.book-details .star-icon:hover {
+  transform: scale(1.2);
 }
 
-.book-details button:active {
-  transform: scale(0.98);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+/* 📘 Bouton lire */
+.book-details .book-container .button-container {
+  width: 100%;
+}
+.book-details .book-container .stars {
+  width: 70%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-between;
+}
+.book-details .read-btn {
+  background-color: var(--dark-green);
+  color: rgb(238, 227, 211);
+  border: none;
+
+  font-size: 20px;
+  border-radius: 8px;
+  padding: 8px 20px;
+  letter-spacing: 3px;
+
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  -webkit-box-shadow: -3px 13px 15px -14px rgba(107, 130, 101, 1);
+  -moz-box-shadow: -3px 13px 15px -14px rgba(107, 130, 101, 1);
+  box-shadow: -3px 13px 15px -14px rgba(107, 130, 101, 1);
+  transition: background 0.3s ease;
+}
+
+.book-details .read-btn:hover {
+  background-color: #4f6842;
+}
+
+/* 📖 Partie droite */
+.book-details .right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 45%;
+
+  height: 70%;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.book-details .book-title {
+  color: #637f52;
+  font-size: 2.3rem;
+  font-weight: 600;
+  /* margin-bottom: 10px; */
+}
+
+.book-details .book-author {
+  color: #6d5e47;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.book-details .book-description {
+  color: #504937;
+  font-size: 1, 2rem;
+  line-height: 1.5;
+  padding: 20px;
+  border-radius: 20px;
+  font-weight: 500;
+  background-color: #f8f4e9;
+  -webkit-box-shadow: 1px 3px 34px -13px rgba(150, 129, 98, 0.8);
+  -moz-box-shadow: 1px 3px 34px -13px rgba(150, 129, 98, 0.8);
+  box-shadow: 1px 3px 34px -13px rgba(150, 129, 98, 0.8);
 }

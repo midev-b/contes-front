@@ -49,7 +49,7 @@ export function Book({ mark, cover, title, author, rating }) {
               <FontAwesomeIcon
                 key={index}
                 icon={faStar}
-                color={index < rating ? "yellow" : "black"}
+                color={index < rating ? "#ddbe6c" : "#637f52"}
               />
             );
           })}

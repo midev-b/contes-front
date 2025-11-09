@@ -80,7 +80,7 @@ export function Main() {
 
       {isAuthenticated ? (
         <>
-          <Link className="menu-btn" onClick={handleLogout}>
+          <Link className="menu-btn deconnexion" onClick={handleLogout}>
             <img src={exit} alt="Déconnexion" />
             <span>Déconnexion</span>
           </Link>
@@ -91,11 +91,11 @@ export function Main() {
         </>
       ) : (
         <>
-          <Link className="menu-btn" to="/register">
-            <img src={connexion} alt="Inscription" />
+          <Link className="menu-btn inscription" to="/register">
+            <img src={connexion} alt="inscription" />
             <span>Inscription</span>
           </Link>
-          <Link className="menu-btn" to="/login">
+          <Link className="menu-btn connexion " to="/login">
             <img src={connexion} alt="Connexion" />
             <span>Connexion</span>
           </Link>

@@ -94,7 +94,7 @@ export function BookList() {
                 onChange={(e) => setSearch(e.target.value)}
               />
               <div>
-                <FontAwesomeIcon icon={faSearch} color="#d3c3ce" />
+                <FontAwesomeIcon icon={faSearch} color="#b4c29c" />
               </div>
             </div>
           </header>
