@@ -15,6 +15,7 @@ import grass1 from "/backgrounds/grass1.png";
 import grass2 from "/backgrounds/grass2.png";
 import grass3 from "/backgrounds/grass3.png";
 import grass4 from "/backgrounds/grass1.png";
+
 import homeImg from "/accueil/home-img.png";
 import { useContext } from "react";
 import { AuthContext } from "../App";
@@ -84,28 +85,27 @@ export function HomePage() {
         <div className="main-flex">
           <Main className="main" />
         </div>
-        <div className="content-container">
-          <div className="content-container-flex">
-            <div className="intro-message">
-              <p>Bienvenue dans l’univers de</p>
-              <div className="title-img">
-                <h1>Pattes & Plume</h1>
-                <img src={homeImg} alt="lecture des animaux" />
-              </div>
-            </div>
-            <div className="books-title-container">
-              <h3>Contes les plus populaires en ce moment</h3>
-              <div className="books-container">
-                {topBooks.map((book, index) => (
-                  <div
-                    key={index}
-                    className="book "
-                    onClick={() => handleClick(book)}
-                  >
-                    <img src={book.cover} alt={book.title} />
-                  </div>
-                ))}
-              </div>
+
+        <div className="content-container-flex">
+          <div className="intro-message">
+            <p>Bienvenue dans l’univers de</p>
+
+            <h1>Pattes & Plume</h1>
+
+            <img src={homeImg} alt="lecture des animaux" />
+          </div>
+          <div className="books-title-container">
+            <h3>Contes les plus populaires en ce moment:</h3>
+            <div className="books-container">
+              {topBooks.map((book, index) => (
+                <div
+                  key={index}
+                  className="book "
+                  onClick={() => handleClick(book)}
+                >
+                  <img src={book.cover} alt={book.title} />
+                </div>
+              ))}
             </div>
           </div>
         </div>

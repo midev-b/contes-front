@@ -50,12 +50,11 @@
   left: 50px;
 }
 .book-list .global-container {
-  background-image: url("/backgrounds/pastel-background.jpg");
+  /* background-image: url("/backgrounds/pastel-background.jpg"); */
+  background-color: #f3e4d6;
   width: 100vw;
   height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,8 +65,11 @@
   width: 76%;
   height: 90%;
   background-color: var(--light-brown);
-  border-radius: 10px;
-  box-shadow: -7px 0px 15px -9px rgba(128, 108, 84, 0.76);
+
+  border-radius: 18px;
+  -webkit-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
   overflow: hidden;
   scrollbar-width: thin;
   scrollbar-color: var(--light-green) transparent;

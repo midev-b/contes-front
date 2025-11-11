@@ -17,12 +17,11 @@
 
 /* 🌿 Fond général */
 .book-details .global-container {
-  background-image: url("/backgrounds/pastel-background.jpg");
+  /* background-image: url("/backgrounds/pastel-background.jpg"); */
+  background-color: #f3e4d6;
   width: 100vw;
   height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,9 +59,10 @@
   width: 70%;
   height: 90%;
   background-color: var(--light-brown);
-  border-radius: 10px;
-  box-shadow: -7px 0px 15px -9px rgba(100, 89, 65, 0.76);
-  -moz-box-shadow: -10px 16px 31px -6px rgba(61, 49, 30, 0.75);
+  border-radius: 18px;
+  -webkit-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
   /* display: flex;
   justify-content: center;
   align-items: center; */
@@ -78,9 +78,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 60px;
   width: 80%;
   height: 80%;
@@ -118,7 +117,7 @@
 .book-details .book-cover {
   width: 100%;
   height: 250px;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 4px 10px rgba(99, 67, 31, 0.3);
 }
 
