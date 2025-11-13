@@ -10,6 +10,8 @@ import grass1 from "/backgrounds/grass1.png";
 import grass2 from "/backgrounds/grass2.png";
 import grass3 from "/backgrounds/grass3.png";
 import grass4 from "/backgrounds/grass1.png";
+import grass5 from "/reading/grass5.png";
+import bookIcone from "/reading/book-icone.png";
 
 function stringToHTML(htmlString) {
   return { __html: htmlString };
@@ -21,7 +23,6 @@ export function ReadingBook() {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [flipStates, setFlipStates] = useState([]);
   const [zIndexes, setZIndexes] = useState([]);
-  const [openClass, setOpenClass] = useState("");
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -55,10 +56,7 @@ export function ReadingBook() {
     fetchBook();
   }, [title]);
 
-  const handleNext = (idx) => {
-    if (idx === 0 || idx === book.pages.length - 1) {
-      setOpenClass("open-book");
-    }
+  const handleNext = () => {
     if (currentIndex < book.pages.length - 1) {
       const newIndex = currentIndex + 1;
       setCurrentIndex(newIndex);
@@ -78,9 +76,6 @@ export function ReadingBook() {
   };
 
   const handlePrevious = () => {
-    if (currentIndex === 0 || currentIndex === book.pages.length - 1) {
-      setOpenClass("open-book");
-    }
     if (currentIndex >= 0) {
       const newIndex = currentIndex;
       setFlipStates((prev) =>
@@ -117,56 +112,69 @@ export function ReadingBook() {
           className="grass grass-bottom-right"
         />
         <div className="middle-container">
+          <img className="grass" src={grass5} alt="herbe" />
           <Main className="main" />
           <div className="content-container">
-            <div className="book-title">
-              <h1 className="title">{book.title}</h1>
-            </div>
-            <div className={`book ${openClass}`}>
-              {book.pages.map((page, index) => (
-                <div
-                  key={index}
-                  className={`pages ${flipStates[index] ? "flip" : ""}`}
-                  style={{ zIndex: zIndexes[index] }}
-                >
-                  <div className="front-page">
-                    <img
-                      onClick={() => handleNext(index)}
-                      className="next"
-                      src={nextButton}
-                      alt="page suivante"
-                    />
-                    {page[0]?.text && (
-                      <p
-                        className={!page[0]?.imag ? "full-text" : ""}
-                        dangerouslySetInnerHTML={stringToHTML(page[0].text)}
-                      ></p>
-                    )}
-                    {page[0]?.imag && (
-                      <img src={page[0].imag} alt="Page image" />
-                    )}
-                    {/* <button onClick={handleNext}>Suivante</button> */}
-                  </div>
-                  <div className="back-page">
-                    <img
-                      onClick={() => handlePrevious(index)}
-                      className="back"
-                      src={prevButton}
-                      alt="page précédente"
-                    />
-                    {page[1]?.text && (
-                      <p
-                        className={!page[1]?.imag ? "full-text" : ""}
-                        dangerouslySetInnerHTML={stringToHTML(page[1].text)}
-                      ></p>
-                    )}
-                    {page[1]?.imag && (
-                      <img src={page[1].imag} alt="Page image" />
-                    )}
-                    {/* <button onClick={handlePrevious}>Précédente</button> */}
-                  </div>
+            <div className="book-information">
+              <div className="book-title-name">
+                <h2 className="name-app"> Pattes & Plume </h2>
+                <h1 className="title">{book.title}</h1>
+              </div>
+              <div className="book-container">
+                <div className="book">
+                  {book.pages.map((page, index) => (
+                    <div
+                      key={index}
+                      className={`pages ${flipStates[index] ? "flip" : ""}`}
+                      style={{ zIndex: zIndexes[index] }}
+                    >
+                      <div className="front-page">
+                        <img
+                          onClick={() => handleNext()}
+                          className="next"
+                          src={nextButton}
+                          alt="page suivante"
+                        />
+                        {page[0]?.text && (
+                          <p
+                            className={!page[0]?.imag ? "full-text" : ""}
+                            dangerouslySetInnerHTML={stringToHTML(page[0].text)}
+                          ></p>
+                        )}
+                        {page[0]?.imag && (
+                          <img src={page[0].imag} alt="Page image" />
+                        )}
+                        {/* <button onClick={handleNext}>Suivante</button> */}
+                      </div>
+                      <div className="back-page">
+                        <img
+                          onClick={() => handlePrevious()}
+                          className="back"
+                          src={prevButton}
+                          alt="page précédente"
+                        />
+                        {page[1]?.text && (
+                          <p
+                            className={!page[1]?.imag ? "full-text" : ""}
+                            dangerouslySetInnerHTML={stringToHTML(page[1].text)}
+                          ></p>
+                        )}
+                        {page[1]?.imag && (
+                          <img src={page[1].imag} alt="Page image" />
+                        )}
+                        {/* <button onClick={handlePrevious}>Précédente</button> */}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+            </div>
+            <div className="reading-message">
+              <img src={bookIcone} alt="icone-livre" />
+              <p>
+                {" "}
+                Une nouvelle aventure vous attend… découvrez le héros du jour..
+              </p>
             </div>
           </div>
         </div>
