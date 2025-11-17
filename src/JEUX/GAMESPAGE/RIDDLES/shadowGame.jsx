@@ -2,10 +2,14 @@ import { Main } from "../../../PublicComponents/main";
 import { DndContext } from "@dnd-kit/core";
 import { DraggableImage } from "./draggableImg";
 import { DroppableImage } from "./droppableImg";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./shadowGame.css";
 
+import { AuthContext } from "../../../App";
+import { sendGameCompletion } from "../../../utils/completedGame.js";
+
 export function ShadowPage() {
+  const { isAuthenticated } = useContext(AuthContext);
   const [levels, setLevels] = useState([]); // contient tous les niveaux
   const [currentIndex, setCurrentIndex] = useState(0); // index du niveau en cours
   const [matched, setMatched] = useState({}); // ombres validées
@@ -47,6 +51,8 @@ export function ShadowPage() {
           setMatched({}); // reset matched
         } else {
           setMessage("🏆 Jeu terminé !");
+
+          sendGameCompletion("Enigme", "shadow", isAuthenticated);
         }
       }, 1500);
     } else {

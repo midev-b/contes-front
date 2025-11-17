@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+
 import "./quizGame.css";
 import fox2 from "/GAMES/riddles/quiz/fox2.png";
 import { AuthContext } from "../../../App";
 import { sendGameCompletion } from "../../../utils/completedGame.js";
 
 export function QuizPage() {
-  const { gameName } = useParams();
   const { isAuthenticated } = useContext(AuthContext);
 
   const [getQuizQuestions, setGetQuizQuestions] = useState([]);
@@ -49,7 +48,7 @@ export function QuizPage() {
 
         if (nextIndex >= getQuizQuestions.length) {
           setMessage("Félicitations! Quiz terminé!");
-          sendGameCompletion(gameName, isAuthenticated); // envoie la complétion au backend
+          sendGameCompletion("Enigme", "quiz", isAuthenticated);
         } else {
           setCurrentIndex(nextIndex);
           setMessage("");
@@ -81,8 +80,8 @@ export function QuizPage() {
         <div className={`message ${message === "" ? "" : "message--visible"}`}>
           <p>{message}</p>
         </div>
-
-        {error && <div style={{ color: "red" }}>{error}</div>}
+        {/* 
+        {error && <div style={{ color: "red" }}>{error}</div>} */}
 
         {getQuizQuestions.length > 0 ? (
           <div className="questions-container">

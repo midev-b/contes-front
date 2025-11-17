@@ -1,4 +1,8 @@
-export const sendGameCompletion = async (gameName, isAuthenticated) => {
+export const sendGameCompletion = async (
+  categoryName,
+  gameName,
+  isAuthenticated
+) => {
   if (!isAuthenticated) return;
 
   try {
@@ -6,13 +10,17 @@ export const sendGameCompletion = async (gameName, isAuthenticated) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
-      body: JSON.stringify({ gameName: gameName, completed: true }),
+      body: JSON.stringify({
+        categoryName: categoryName,
+        gameName: gameName,
+
+        completed: true,
+      }),
     });
 
-    if (!response.ok)
+    if (!response.ok) {
       throw new Error("Impossible d'enregistrer la progression");
-
-    console.log(`${gameName} complété !`);
+    }
   } catch (err) {
     console.error(err);
   }

@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./memory2.css";
 
+import { AuthContext } from "../../../App";
+import { sendGameCompletion } from "../../../utils/completedGame.js";
 export function Memory2Page() {
+  const { isAuthenticated } = useContext(AuthContext);
   const [memoBubbles, setMemoBubbles] = useState([]);
   const [displayBubbles, setDisplayBubbles] = useState([]);
   const [displayBubblesNew, setDisplayBubblesNew] = useState([]);
@@ -22,6 +25,7 @@ export function Memory2Page() {
 
     return () => clearTimeout(timer);
   }, [currentIndex, memoBubbles]);
+
   const handleBubbles = (bubbleId) => {
     const present = displayBubblesNew.find((el) => el.id === bubbleId);
 
@@ -31,6 +35,9 @@ export function Memory2Page() {
         console.log(newAnswers, "aa");
         if (newAnswers.length === displayBubblesNew.length) {
           setTimeout(() => {
+            if (currentIndex === memoBubbles.length - 1) {
+              sendGameCompletion("Memoire", "jeu de bulles", isAuthenticated);
+            }
             setCurrentIndex(currentIndex + 1);
             setDisplayBubblesNew([]);
             setDisplayBubbles([]);

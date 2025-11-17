@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { DndContext } from "@dnd-kit/core";
 import { DraggablePiece } from "./draggablePiece";
 import { DroppableCell } from "./droppableCell";
-import "./puzzle2.css"; // ✅ ton fichier de styles spécifiques
+import "./puzzle2.css";
+
+import { AuthContext } from "../../../App";
+import { sendGameCompletion } from "../../../utils/completedGame.js";
 
 export function Puzzle2Page() {
+  const { isAuthenticated } = useContext(AuthContext);
   const [puzzle, setPuzzle] = useState(null);
   const [placedPieces, setPlacedPieces] = useState({});
   const [message, setMessage] = useState("");
@@ -36,6 +40,7 @@ export function Puzzle2Page() {
         if (Object.keys(newPlaced).length === puzzle.pieces.length) {
           setAddclass("completed-puzzle");
           setMessage("Bravo 🎉");
+          sendGameCompletion("Puzzles", "puzzle2", isAuthenticated);
         }
 
         return newPlaced;

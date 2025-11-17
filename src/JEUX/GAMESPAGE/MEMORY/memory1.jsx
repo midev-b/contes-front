@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./memory1.css";
 
+import { AuthContext } from "../../../App";
+import { sendGameCompletion } from "../../../utils/completedGame.js";
 export function Memory1Page() {
+  const { isAuthenticated } = useContext(AuthContext);
   const [memory, setMemory] = useState([]);
 
   const [verifyCards, setVerifyCards] = useState([]);
@@ -16,6 +19,18 @@ export function Memory1Page() {
     return shuffled;
   };
   useEffect(() => {
+    if (memory.length > 0) {
+      const flippedCount = memory.filter((card) => card.isFlipped).length;
+
+      console.log("Cartes retournées :", flippedCount);
+
+      // Si toutes les cartes sont retournées
+      if (flippedCount === memory.length) {
+        console.log("🎉 Jeu terminé !");
+        sendGameCompletion("Memoire", "jeu de cartes", isAuthenticated);
+      }
+    }
+
     if (verifyCards.length === 2) {
       if (verifyCards[0].id !== verifyCards[1].id) {
         setIsDisabled(true);

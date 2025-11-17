@@ -10,6 +10,10 @@
   align-items: center;
 }
 
+.riddles-container .content-container {
+  margin-top: 25px;
+}
+
 /* Conteneur principal */
 .riddles-container .middle-container {
   width: 70%;
@@ -25,57 +29,87 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* évite les grands espaces en bas */
+  justify-content: flex-start;
 }
 
 /* Bloc trophée */
 .riddles-container .trophy {
-  text-align: center;
-  margin-bottom: 1rem; /* réduit un peu */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .riddles-container h3 {
   margin-bottom: 0.3rem;
   margin-top: 0.7rem;
-  font-size: 1rem; /* texte réduit */
-  color: #1a237e; /* bleu foncé */
+  font-size: 1rem;
+  color: #1a237e;
 }
 
-.riddles-container .trophy-text p {
+.riddles-container .trophy p {
   margin: 0.3rem 0;
   font-size: 0.95rem;
   color: #12073a;
   line-height: 1.3;
 }
 
-.riddles-container .owl-icon {
+.riddles-container .trophy img {
   width: 70px;
   margin-top: 0.5rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* Conteneur des cartes */
+/* Alignement row pour le p + image */
+.riddles-container .trophy-name-img {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.riddles-container .trophy-name-img p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #12073a;
+}
+
+/* Trophée doré / gris */
+.riddles-container .gold-trophy,
+.riddles-container .gray-trophy {
+  width: 50px;
+  height: 50px;
+}
+
+.riddles-container .gold-trophy {
+  filter: drop-shadow(0px 0px 4px gold);
+}
+
+.riddles-container .gray-trophy {
+  filter: grayscale(100%);
+  opacity: 0.7;
+}
+
+/* Cartes */
 .riddles-container .riddles-cards-container {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin-top: 0.8rem; /* espace réduit avec le haut */
-  flex-wrap: wrap; /* empêche que ça dépasse */
+  margin-top: 0.8rem;
+  flex-wrap: wrap;
 }
 
-/* Carte jeu */
 .riddles-container .card {
   background: #ffffffef;
   border-radius: 14px;
   border: 3px solid rgba(240, 239, 245, 0.979);
   width: 230px;
-  height: 300px; /* plus compacte */
+  height: 300px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   transition: transform 0.2s ease;
-
   box-shadow: 0px 8px 16px rgba(25, 25, 26, 0.329);
 }
 
@@ -83,23 +117,23 @@
   transform: scale(1.02);
 }
 
-/* Image en haut prend toute la largeur */
+/* Image */
 .riddles-container .game-img-container {
   width: 100%;
-  height: 60%; /* image occupe plus de place */
+  height: 60%;
 }
 
 .riddles-container .game-img {
-  width: 100%; /* prend toute la largeur */
-  height: 100%; /* prend toute la hauteur */
-  object-fit: cover; /* recadrage intelligent */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 0px 0px 10px 10px;
 }
 
-/* Bloc blanc avec texte */
+/* Texte carte */
 .riddles-container .game-content {
   background: rgba(243, 245, 245, 0.938);
-  color: #04072e; /* bleu foncé */
+  color: #04072e;
   padding: 8px;
   flex: 1;
   display: flex;
@@ -111,24 +145,24 @@
 
 .riddles-container .game-content h3 {
   margin: 4px 0;
-  font-size: 1rem; /* réduit */
+  font-size: 1rem;
 }
 
 .riddles-container .game-content .game-text {
-  font-size: 0.8rem; /* réduit */
+  font-size: 0.8rem;
   line-height: 1.2;
 }
 
 .riddles-container .game-content button {
   width: 100%;
-  height: 32px; /* plus petit */
+  height: 32px;
   margin-top: 6px;
   background-color: #1a237e;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.85rem; /* réduit */
+  font-size: 0.85rem;
 }
 
 .riddles-container .game-content button:hover {

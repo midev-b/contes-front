@@ -9,6 +9,9 @@
   justify-content: center;
   align-items: center;
 }
+.puzzles-container .content-container {
+  margin-top: 25px;
+}
 
 /* Conteneur principal */
 .puzzles-container .middle-container {
@@ -30,8 +33,10 @@
 
 /* Bloc trophée */
 .puzzles-container .trophy {
-  text-align: center;
-  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .puzzles-container h3 {
@@ -41,7 +46,7 @@
   color: #1a237e;
 }
 
-.puzzles-container .trophy-text p {
+.puzzles-container .trophy p {
   margin: 0.3rem 0;
   font-size: 0.95rem;
   color: #12073a;
@@ -132,4 +137,35 @@
 
 .puzzles-container .game-content button:hover {
   background-color: #283593;
+}
+/* Alignement row pour le p + image */
+.puzzles-container .trophy-name-img {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.puzzles-container .trophy-name-img p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #12073a;
+}
+
+/* Ajustement de l’image trophée */
+.puzzles-container .gold-trophy,
+.puzzles-container .gray-trophy {
+  width: 50px;
+  height: 50px;
+}
+
+/* Optionnel : un effet animé si connecté */
+.gold-trophy {
+  filter: drop-shadow(0px 0px 4px gold);
+}
+.gray-trophy {
+  filter: grayscale(100%);
+  opacity: 0.7;
 }
