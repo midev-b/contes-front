@@ -7,6 +7,11 @@ import "./puzzle1.css";
 import { AuthContext } from "../../../App";
 import { sendGameCompletion } from "../../../utils/completedGame.js";
 
+import grass1 from "/backgrounds/grass1.png";
+import grass2 from "/backgrounds/grass2.png";
+import grass3 from "/backgrounds/grass3.png";
+import grass4 from "/backgrounds/grass1.png";
+
 export function Puzzle1Page() {
   const { isAuthenticated } = useContext(AuthContext);
   const [puzzle, setPuzzle] = useState(null);
@@ -41,7 +46,7 @@ export function Puzzle1Page() {
         if (Object.keys(newPlaced).length === puzzle.pieces.length) {
           setAddclass("completed-puzzle");
           setMessage("Bravo 🎉");
-          sendGameCompletion("Puzzles", "puzzle2", isAuthenticated);
+          sendGameCompletion("Puzzles", "puzzle1", isAuthenticated);
         }
 
         return newPlaced;
@@ -57,6 +62,18 @@ export function Puzzle1Page() {
 
   return (
     <div className="puzzle1-container">
+      <img src={grass1} alt="herbe gauche" className="grass grass-left" />
+      <img src={grass2} alt="herbe droite" className="grass grass-right" />
+      <img
+        src={grass3}
+        alt="herbe bas gauche"
+        className="grass grass-bottom-left"
+      />
+      <img
+        src={grass4}
+        alt="herbe bas droite"
+        className="grass grass-bottom-right"
+      />
       <DndContext onDragEnd={handleDragEnd}>
         <div className="middle-container">
           <div className="message">{message}</div>

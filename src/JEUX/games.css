@@ -1,7 +1,51 @@
+:root {
+  --dark-green: #637f52;
+  --light-green: #d8d5bc;
+  --dark-brown: #5c422b;
+  --text-brown: #6b5842;
+  --medium-green: #b4c29c;
+  --light-brown: #f9eeda;
+  --red: #b63131;
+  --yellow: #ddbe6c;
+}
+
 .games-container {
-  background-image: url("/backgrounds/pastel-background2.png");
   width: 100vw;
   height: 100vh;
+  position: relative;
+  background-color: #f3e4d6;
+
+  font-family: "Poppins", sans-serif;
+}
+/* 🌱 Décors */
+.games-container .grass-left {
+  position: absolute;
+  top: 100px;
+  height: 200px;
+  right: 50px;
+}
+.games-container .grass-bottom-left {
+  position: absolute;
+  top: 350px;
+  height: 200px;
+  right: 50px;
+}
+.games-container .grass-right {
+  position: absolute;
+  top: 100px;
+  height: 180px;
+  left: 50px;
+}
+.games-container .grass-bottom-right {
+  position: absolute;
+  top: 400px;
+  height: 200px;
+  left: 50px;
+}
+
+.games-container-flex {
+  width: 100%;
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,45 +55,52 @@
 }
 
 .games-container .middle-container {
-  width: 70%;
-  height: 80%;
-  border-radius: 12px;
-  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
-  background-image: url("/backgrounds/dark-background.jpg");
-  background-size: cover;
-  background-position: center;
   padding: 20px;
+  position: relative;
+  width: 66%;
+  height: 90%;
+  background-color: var(--light-brown);
+  border-radius: 16px;
+  -webkit-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
 }
+.games-container .games-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
+  align-items: center;
+}
 .games-container .games-cards-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 50px;
 }
 
 .games-container .card {
   width: 200px;
   height: 250px;
-  background-color: rgb(231, 231, 225);
+  background-color: rgb(250, 245, 233);
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  box-shadow: -10px 16px 31px -6px rgba(0, 0, 0, 0.75);
-  border: 2px solid rgb(6, 15, 46);
-
+  gap: 20px;
+  -webkit-box-shadow: 0px 0px 6px 0px rgb(146, 146, 120);
+  -moz-box-shadow: 0px 0px 6px 0px rgb(146, 141, 120);
+  box-shadow: 0px 0px 6px 0px rgb(146, 141, 120);
   /* Effets */
   transform-origin: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: rgb(13, 24, 88);
+  color: var(--dark-green);
 }
 
 .games-container .card:hover {
-  transform: scale(1.08); /* zoom + flottement */
-  box-shadow: -5px 12px 40px -4px rgba(0, 0, 0, 0.8);
+  transform: scale(1.06); /* zoom + flottement */
 }
 
 .games-container .games-cards-container .card img {
@@ -62,14 +113,24 @@
   align-items: center;
   justify-content: center;
 }
-
+.games-container h1 {
+  padding: 10px;
+  font-size: 32px;
+  line-height: 8px;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    var(--text-brown) 50%,
+    var(--medium-green) 50%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .games-container .games-text p {
-  color: rgb(232, 244, 248);
+  color: var(--text-brown);
   font-size: 1.3rem;
 
-  font-family: "Quicksand", sans-serif;
-  font-weight: 800;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
 }
 
 .games-container .games-text img {
@@ -86,8 +147,7 @@
   margin-top: 20px;
 }
 .games-container .games-cards h3 {
-  font-family: "Quicksand", sans-serif;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1.4rem;
 }
 @keyframes float-random {

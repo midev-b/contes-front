@@ -1,0 +1,33 @@
+.progress-bar-root {
+  width: 100%;
+  height: 16px;
+  background: rgb(158, 129, 93);
+  border-radius: 10px;
+  position: relative;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.progress-bar-root::after {
+  content: "";
+  display: block;
+  height: 50px;
+  width: 75px;
+  background-image: url("/public/GAMES/games/leaf.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+}
+
+.progress-bar-indicator {
+  height: 50%;
+  background-color: #9fb962;
+  transition: width 0.7s ease;
+  position: absolute;
+  border-radius: 10px;
+  top: 25%;
+  left: 1%;
+}

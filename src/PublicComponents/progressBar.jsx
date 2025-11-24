@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
+import "./progressBar.css";
 
-export function ProgressBar() {
+export function ProgressBar({ category }) {
   const [error, setError] = useState();
-  const [gamesInfo, setGamesInfo] = useState([]); // tableau vide par défaut
-  const [width, setWidth] = useState(0); // largeur de la barre
+  const [gamesInfo, setGamesInfo] = useState([]);
+  const [completedGamesCount, setCompletedGamesCount] = useState(0);
 
-  // 1️⃣ Récupération des données de progression depuis le backend
   useEffect(() => {
     const fetchGameProgress = async () => {
       try {
@@ -14,7 +14,7 @@ export function ProgressBar() {
           {
             method: "GET",
             headers: { "Content-Type": "application/json" },
-            credentials: "include", // envoie le cookie avec le token
+            credentials: "include",
           }
         );
 
@@ -23,55 +23,40 @@ export function ProgressBar() {
         }
 
         const data = await response.json();
-        setGamesInfo(data.categories || []); // récupère le tableau des catégories
+        setGamesInfo(data);
       } catch (err) {
         setError(err.message);
       }
     };
 
     fetchGameProgress();
-  }, []);
+  }, []); // ⬅️ on fetch uniquement au premier rendu
 
-  // 2️⃣ Calcul de la largeur de la barre
-  const getGamesInfo = () => {
-    if (!gamesInfo || gamesInfo.length === 0) return;
+  // Calcul de la progression dès que gamesInfo change
+  useEffect(() => {
+    let progress = 0;
 
-    let completedCount = 0;
-
-    gamesInfo.forEach((cat) => {
-      completedCount += cat.games.filter((g) => g.completed).length;
+    gamesInfo.forEach((item) => {
+      item.categories.forEach((cat) => {
+        if (cat.name === category) {
+          progress = cat.games.filter((g) => g.completed).length * 50;
+        }
+      });
     });
 
-    setWidth(completedCount * 50); // mise à jour de la largeur
-  };
+    setCompletedGamesCount(progress);
+  }, [gamesInfo, category]); // ⬅️ recalcul seulement quand jeux ou catégorie changent
 
-  // 3️⃣ Mettre à jour width dès que gamesInfo change
-  useEffect(() => {
-    getGamesInfo();
-  }, [gamesInfo]);
-
-  // 4️⃣ JSX
   return (
     <div>
       {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <div
-        style={{
-          width: "300px",
-          height: "20px",
-          background: "#ddd",
-          borderRadius: "10px",
-          overflow: "hidden",
-          marginTop: "10px",
-        }}
-      >
+      <div className="progress-bar-root">
         <div
           style={{
-            width: `${width}px`,
-            height: "100%",
-            background: "green",
-            transition: "width 0.5s ease",
+            width: `${completedGamesCount - 2}%`, // ⬅️ pourcentage (pas pixels)
           }}
+          className="progress-bar-indicator"
         ></div>
       </div>
     </div>

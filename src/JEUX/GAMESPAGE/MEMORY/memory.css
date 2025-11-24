@@ -1,36 +1,76 @@
+:root {
+  --dark-green: #637f52;
+  --light-green: #d8d5bc;
+  --dark-brown: #5c422b;
+  --text-brown: #6b5842;
+  --medium-green: #b4c29c;
+  --light-brown: #f9eeda;
+  --red: #b63131;
+  --yellow: #ddbe6c;
+}
+
+/* 🌿 Fond général */
 .memory-container {
-  background-image: url("/backgrounds/pastel-background2.png");
   width: 100vw;
   height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #f3e4d6;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+
+.memory-container .global-container {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Conteneur principal */
-.memory-container .middle-container {
-  width: 70%;
-  height: 85%;
-  max-width: 1200px;
-  border-radius: 12px;
-  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
-  background-color: rgb(219, 219, 211);
-  background-size: cover;
-  background-position: center;
-  padding: 20px;
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+/* 🌱 Décors */
+.memory-container .grass-left {
+  position: absolute;
+  top: 100px;
+  height: 200px;
+  right: 50px;
 }
+.memory-container .grass-bottom-left {
+  position: absolute;
+  top: 350px;
+  height: 200px;
+  right: 50px;
+}
+.memory-container .grass-right {
+  position: absolute;
+  top: 100px;
+  height: 180px;
+  left: 50px;
+}
+.memory-container .grass-bottom-right {
+  position: absolute;
+  top: 400px;
+  height: 200px;
+  left: 50px;
+}
+
+/* 📘 Bloc principal */
+.memory-container .middle-container {
+  position: relative;
+  width: 72%;
+  height: 94%;
+  background-color: var(--light-brown);
+  border-radius: 16px;
+  box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+}
+
+.memory-container .main-nav {
+  padding-top: 20px;
+}
+
 .memory-container .content-container {
   margin-top: 20px;
 }
-/* Bloc trophée */
+
+/* 🏆 Bloc trophée */
 .memory-container .trophy {
   display: flex;
   flex-direction: column;
@@ -38,51 +78,68 @@
   align-items: center;
 }
 
+.memory-container .trophy h2 {
+  color: var(--text-brown);
+  font-size: 26px;
+}
+
+/* ✨ Alignement row pour le texte + barre + trophée */
 .memory-container .trophy-name-img {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 10px;
 }
 
-.memory-container .trophy-name-img p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #12073a;
+.memory-container .trophy-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
+.memory-container .trophy p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: var(--text-brown);
+  line-height: 1.4;
+
+  letter-spacing: 0.2px;
+  font-weight: 550;
+}
+
+/* 🏆 Trophées */
 .memory-container .gold-trophy,
 .memory-container .gray-trophy {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 100%;
 }
 
 .memory-container .gold-trophy {
-  filter: drop-shadow(0px 0px 4px gold);
+  filter: drop-shadow(0px 0px 3px rgb(255, 217, 5));
 }
+
 .memory-container .gray-trophy {
   filter: grayscale(100%);
   opacity: 0.7;
 }
 
-/* Cartes */
+/* 🃏 Cartes */
 .memory-container .memory-cards-container {
   display: flex;
-  gap: 20px;
+  gap: 70px;
   justify-content: center;
   margin-top: 0.8rem;
   flex-wrap: wrap;
+  margin-top: 25px;
 }
 
-/* Carte */
 .memory-container .card {
-  background: #ffffffef;
-  border-radius: 14px;
-  border: 3px solid rgba(240, 239, 245, 0.979);
+  background: var(--light-brown);
+  border-radius: 13px;
+  border: 4px solid var(--light-green);
   width: 230px;
-  height: 300px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -98,19 +155,21 @@
 .memory-container .game-img-container {
   width: 100%;
   height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .memory-container .game-img {
-  width: 100%;
-  height: 100%;
+  width: 96%;
+  height: 96%;
   object-fit: cover;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 10px;
 }
 
-/* Texte */
+/* Texte carte */
 .memory-container .game-content {
-  background: rgba(243, 245, 245, 0.938);
-  color: #04072e;
+  color: var(--text-brown);
   padding: 8px;
   flex: 1;
   display: flex;
@@ -121,27 +180,29 @@
 }
 
 .memory-container .game-content h3 {
-  margin: 4px 0;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
-.memory-container .game-content .game-text {
-  font-size: 0.8rem;
-  line-height: 1.2;
+.memory-container .game-content p {
+  font-size: 13px;
+  font-weight: 450;
 }
 
 .memory-container .game-content button {
   width: 100%;
-  height: 32px;
+  height: 36px;
   margin-top: 6px;
-  background-color: #1a237e;
-  color: white;
+  background-color: var(--medium-green);
+  color: var(--dark-brown);
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .memory-container .game-content button:hover {
-  background-color: #283593;
+  background-color: var(--dark-green);
 }

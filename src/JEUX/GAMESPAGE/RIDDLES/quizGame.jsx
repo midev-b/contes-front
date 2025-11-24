@@ -1,9 +1,18 @@
 import React, { useEffect, useState, useContext } from "react";
 
+import { Link } from "react-router-dom";
+
 import "./quizGame.css";
 import fox2 from "/GAMES/riddles/quiz/fox2.png";
 import { AuthContext } from "../../../App";
 import { sendGameCompletion } from "../../../utils/completedGame.js";
+
+import grass1 from "/backgrounds/grass1.png";
+import grass2 from "/backgrounds/grass2.png";
+import grass3 from "/backgrounds/grass3.png";
+import grass4 from "/backgrounds/grass1.png";
+
+import grassFox2 from "/GAMES/riddles/quiz/grassFox2.png";
 
 export function QuizPage() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -71,36 +80,68 @@ export function QuizPage() {
   };
   return (
     <div className="quiz-global-container">
+      <img src={grass1} alt="herbe gauche" className="grass grass-left" />
+      <img src={grass2} alt="herbe droite" className="grass grass-right" />
+      <img
+        src={grass3}
+        alt="herbe bas gauche"
+        className="grass grass-bottom-left"
+      />
+      <img
+        src={grass4}
+        alt="herbe bas droite"
+        className="grass grass-bottom-right"
+      />
+
       <div className="quiz-middle-container">
-        <div className="title-img">
-          <h3>QUIZ</h3>
-          <img src={fox2} alt="renard" />
-        </div>
-
-        <div className={`message ${message === "" ? "" : "message--visible"}`}>
-          <p>{message}</p>
-        </div>
-        {/* 
-        {error && <div style={{ color: "red" }}>{error}</div>} */}
-
-        {getQuizQuestions.length > 0 ? (
-          <div className="questions-container">
-            <h4>{getQuizQuestions[currentIndex].questionText}</h4>
-            {getQuizQuestions[currentIndex].options.map((option, i) => (
-              <div
-                key={i}
-                className={`option ${
-                  selectedOptionIndex === i ? addClass : ""
-                }`}
-                onClick={() => handleAnswerClick(option.isCorrect, i)}
-              >
-                {option.text}
-              </div>
-            ))}
+        <div className="quiz-content">
+          <p className="quiz-question-game">Clique sur la bonne réponse</p>
+          <div className="quiz-header">
+            <Link to="/Jeux/Enigmes">
+              <img
+                className=" quiz-back"
+                src="/GAMES/games/back-to-games.png"
+              />
+            </Link>
+            <div
+              className={`quiz-message ${
+                message === "" ? "" : "quiz-message--visible"
+              }`}
+            >
+              {message}
+            </div>
+            <div className=" quiz-fox-grass">
+              <img src={fox2} alt="renard" className="quiz-fox" />
+              <img src={grassFox2} alt="herbes" className="grass-fox2" />
+            </div>
           </div>
-        ) : (
-          <div>Chargement des questions...</div>
-        )}
+          <div className="quiz-questions-container">
+            {error && <p className="quiz-error">{error}</p>}
+
+            {getQuizQuestions.length > 0 ? (
+              <div className="quiz-box">
+                <h4 className="quiz-question">
+                  {getQuizQuestions[currentIndex].questionText}
+                </h4>
+
+                {getQuizQuestions[currentIndex].options.map((option, i) => (
+                  <button
+                    key={i}
+                    className={`quiz-option ${
+                      selectedOptionIndex === i ? addClass : ""
+                    }`}
+                    onClick={() => handleAnswerClick(option.isCorrect, i)}
+                    disabled={isDisabled}
+                  >
+                    {option.text}
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <div className="quiz-loading">Chargement des questions...</div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

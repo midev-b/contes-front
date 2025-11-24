@@ -1,36 +1,72 @@
+:root {
+  --dark-green: #637f52;
+  --light-green: #d8d5bc;
+  --dark-brown: #5c422b;
+  --text-brown: #6b5842;
+  --medium-green: #b4c29c;
+  --light-brown: #f9eeda;
+  --red: #b63131;
+  --yellow: #ddbe6c;
+}
+
 .puzzle1-container {
-  background-image: url("/backgrounds/pastel-background2.png");
   width: 100vw;
   height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+  background-color: #f3e4d6;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-family: "Poppins", sans-serif;
 }
 
-/* Middle Container */
+.puzzle1-container .grass-left {
+  position: absolute;
+  top: 100px;
+  height: 200px;
+  right: 50px;
+}
+.puzzle1-container .grass-bottom-left {
+  position: absolute;
+  top: 350px;
+  height: 200px;
+  right: 50px;
+}
+.puzzle1-container .grass-right {
+  position: absolute;
+  top: 100px;
+  height: 180px;
+  left: 50px;
+}
+
+.puzzle1-container .grass-bottom-right {
+  position: absolute;
+  top: 400px;
+  height: 200px;
+  left: 50px;
+}
+
 .puzzle1-container .middle-container {
+  width: 68%;
+  height: 94%;
+  background-color: var(--light-brown);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75%;
-  height: 90%;
-  background-color: rgb(219, 219, 211);
-  background-image: url("/backgrounds/middle-background.jpg");
-  border-radius: 12px;
-  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
-  padding: 20px;
-}
 
+  border-radius: 16px;
+  -webkit-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+}
 /* Game Container : grille principale */
 .puzzle1-container .game-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   width: 80%;
-  height: 80%;
+  height: 82%;
 }
 
 /* Partie gauche */
@@ -47,18 +83,18 @@
   height: 200px;
   border-radius: 10px;
   grid-column-start: 1;
-  border: 2px solid white;
 }
 
 /* 6 pièces sous l’image (2 lignes de 3) */
 .puzzle1-container .pieces-under-img {
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(2, 100px);
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(2, 80px);
   gap: 10px;
   justify-content: center;
   border-radius: 10px;
   column-gap: 30px;
+  row-gap: 30px;
 }
 
 /* Partie droite */
@@ -75,10 +111,12 @@
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
-  gap: 3px;
+
   justify-content: center;
-  border: 2px solid rgb(219, 139, 20);
-  border-radius: 15px;
+  gap: 0px;
+  -webkit-box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
 }
 .puzzle1-container .completed-puzzle {
   transform: scale(1.1);

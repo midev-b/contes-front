@@ -16,6 +16,8 @@ export function DraggablePiece({ id, src }) {
     margin: "5px",
     cursor: "grab",
     touchAction: "none",
+    boxShadow: "0px 0px 20px -11px rgba(66, 68, 90, 1)",
+    border: "0.2px solid black",
   };
 
   return (

@@ -9,7 +9,7 @@ export function DroppableCell({ id, children, width, height }) {
   const style = {
     width,
     height,
-    border: isOver ? "1px dashed green" : "2px solid #aaa0",
+    border: isOver ? "0.2px dashed green" : "0.2px solid #aaa",
     borderRadius: "5px",
     display: "flex",
     justifyContent: "center",
