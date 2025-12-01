@@ -48,8 +48,9 @@
 }
 
 .puzzle1-container .middle-container {
-  width: 68%;
+  width: 70%;
   height: 94%;
+  position: relative;
   background-color: var(--light-brown);
   display: flex;
   justify-content: center;
@@ -60,12 +61,21 @@
   -moz-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
   box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
 }
+.puzzle1-container .back {
+  position: absolute;
+  right: 5px;
+  bottom: 0px;
+  width: 150px;
+  height: 180px;
+
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
+}
 /* Game Container : grille principale */
 .puzzle1-container .game-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  width: 80%;
+  width: 76%;
   height: 82%;
 }
 
@@ -80,9 +90,14 @@
 
 .puzzle1-container .img-reference img {
   width: 200px;
-  height: 200px;
+  height: 220px;
   border-radius: 10px;
   grid-column-start: 1;
+
+  -webkit-box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
+  border: 3px solid white;
 }
 
 /* 6 pièces sous l’image (2 lignes de 3) */
@@ -111,7 +126,7 @@
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
-
+  border-radius: 10px;
   justify-content: center;
   gap: 0px;
   -webkit-box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
@@ -141,15 +156,15 @@
 /* 3 pièces sous la grille (1 ligne) */
 .puzzle1-container .pieces-under-grid {
   display: grid;
-  grid-template-columns: repeat(3, 100px);
+  grid-template-columns: repeat(3, 90px);
   gap: 10px;
   justify-content: center;
 }
 
 .puzzle1-container .pieces-under-img img,
 .puzzle1-container .pieces-under-grid img {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   cursor: grab;
   border-radius: 10px;
   color: rgba(206, 210, 214, 0.705);

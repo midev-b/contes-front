@@ -1,178 +1,184 @@
-/* register.css */
+/* 🎨 Couleurs globales */
+:root {
+  --dark-green: #637f52;
+  --light-green: #d8d5bc;
+  --dark-brown: #5c422b;
+  --text-brown: #6b5842;
+  --medium-green: #b4c29c;
+  --light-brown: #f9eeda;
+  --red: #b63131;
+  --yellow: #ddbe6c;
+}
+
+/* 🌿 Fond général */
 .register-container {
-  background-image: url("/backgrounds/pastel-background2.png");
   width: 100vw;
   height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: var(--light-brown);
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  font-family: "Poppins", sans-serif;
 }
 
+/* 🌱 Décors */
+.register-container img.grass {
+  position: absolute;
+  pointer-events: none;
+}
+
+.register-container .grass-left {
+  top: 100px;
+  right: 50px;
+  height: 200px;
+}
+.register-container .grass-bottom-left {
+  top: 350px;
+  right: 50px;
+  height: 200px;
+}
+.register-container .grass-right {
+  top: 100px;
+  left: 50px;
+  height: 180px;
+}
+.register-container .grass-bottom-right {
+  top: 400px;
+  left: 50px;
+  height: 200px;
+}
+
+/* 🟤 Conteneur central */
 .register-container .middle-container {
   position: relative;
-  background-color: rgb(18, 29, 61);
-  background-position: center;
-  background-size: 100% 100%;
-  border-radius: 12px;
-  width: 60%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
-  border-radius: 15px;
-  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
+  width: 70%;
+  height: 96%;
+  background-color: var(--light-brown);
+  border-radius: 16px;
+  -webkit-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
 }
-.register-container .main .user-name {
+
+.register-container .main-nav {
+  padding-top: 20px;
+  margin: auto;
+}
+
+/* 🐦 Bloc inscription */
+.register-container .info-container {
+  background-color: var(--light-green);
+  border: 3px solid var(--dark-green);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 35px 45px;
+  width: 80%;
+  color: var(--text-brown);
+  text-align: center;
+  position: relative;
+  margin: auto;
+  margin-top: 40px;
+}
+
+/* 🐦 Oiseau */
+.register-container .bird {
+  width: 110px;
   position: absolute;
-  right: 2px;
-  border-radius: 50% 50%;
+  top: -60px;
+  right: 50%;
+  transform: translateX(50%);
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* 📝 Titre */
+.register-container .info-container h2 {
+  margin-top: 45px;
+  color: var(--dark-brown);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+/* 🔤 Inputs */
+.register-container .info-container form div {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.register-container .info-container label {
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--dark-brown);
   padding: 5px;
 }
-.register-container .main {
-  margin-top: 10px;
-  margin-left: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-.register-container .main a {
-  color: rgb(234, 235, 245);
-}
 
-.register-container .info-container {
-  position: relative;
+.register-container .info-container input {
   width: 100%;
-
-  height: 100%;
-
-  left: -45px;
-  top: 30px;
-
-  background-color: rgba(214, 214, 204, 0.952);
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  font-family: "Georgia", serif;
-  color: #2f2f2f;
-  z-index: 2;
+  padding: 10px 13px;
+  font-size: 15px;
+  border: 2px solid var(--medium-green);
+  border-radius: 8px;
+  outline: none;
+  background-color: white;
+  transition: 0.25s;
+  color: var(--dark-brown);
 }
 
-.register-container h2 {
-  text-align: center;
-  color: #3a4c5c;
-  margin-bottom: 20px;
+.register-container .info-container input:focus {
+  border-color: var(--dark-green);
+  box-shadow: 0 0 6px var(--medium-green);
 }
 
-.register-container label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: bold;
-  color: #405466;
-}
-
-.register-container input[type="text"],
-.register-container input[type="email"],
-.register-container input[type="password"] {
+/* 🔘 Bouton */
+.register-container .info-container button {
   width: 100%;
   padding: 10px;
-  border: 1px solid #cdd7d6;
-  border-radius: 10px;
-  background-color: #fdfdfd;
-  font-size: 14px;
-}
-
-.register-container button[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  background-color: #3a5a80;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-family: "Georgia", serif;
-  margin-top: 25px;
-}
-
-.register-container button[type="submit"]:hover {
-  background-color: #2f4968;
-}
-
-.register-container p {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 15px;
-}
-.register-container .switch-login {
-  margin-top: 20px;
   font-size: 16px;
-  text-align: center;
-  color: #35434e;
-  font-family: "Comic Sans MS", "Fredoka", cursive;
+  margin-top: 6px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  color: var(--dark-brown);
+  font-weight: bold;
+  background-color: var(--medium-green);
+  transition: 0.3s;
+}
+
+.register-container .info-container button:hover {
+  background-color: var(--dark-green);
+}
+
+/* 📩 Messages */
+.register-container .register-message {
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--dark-green);
+  font-size: 14px;
+}
+
+.register-container .error-message {
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--red);
+  font-size: 16px;
+}
+
+/* 🔗 Lien connexion */
+.register-container .switch-login {
+  margin-top: 18px;
+  font-size: 15px;
+  color: var(--text-brown);
 }
 
 .register-container .login-link {
-  color: #50b9ff;
-  text-decoration: none;
   font-weight: bold;
-  margin-left: 5px;
-  background-color: #eefcff;
-  padding: 6px 12px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  display: inline-block;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: var(--dark-brown);
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .register-container .login-link:hover {
-  background-color: #547e88;
-  color: #e8e9f3;
-  transform: scale(1.05);
-  text-decoration: none;
-}
-.register-container .error-message,
-.register-container .register-message {
-  margin-top: 5px;
-  font-size: 14px;
-  text-align: center;
-  font-weight: 500;
-
-  font-family: "Comic Sans MS", "Fredoka", cursive;
-}
-.register-container .register-message {
-  color: rgb(28, 87, 62);
-}
-.register-container .error-message {
-  color: rgb(212, 43, 43);
-}
-/* images */
-.register-container .bird {
-  position: absolute;
-  width: 88px;
-  height: 88px;
-  top: -50px;
-  right: -40px;
-}
-.register-container .grass1 {
-  position: absolute;
-  width: 60px;
-  height: 400px;
-  right: 10px;
-  bottom: -8px;
-  z-index: 3;
-}
-.register-container .grass2 {
-  position: absolute;
-  width: 50px;
-  height: 350px;
-  left: -45px;
-  bottom: -18px;
-  z-index: 3;
+  color: var(--dark-brown);
 }

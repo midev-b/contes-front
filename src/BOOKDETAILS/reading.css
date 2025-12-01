@@ -64,9 +64,12 @@
   bottom: 120px;
   left: 22px;
   height: 310px;
+
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
 }
 .reading .main-nav {
   padding-top: 20px;
+  margin: auto;
 }
 .reading .content-container {
   display: flex;
@@ -116,10 +119,14 @@
   font-size: 15px;
   font-weight: 550;
   color: var(--text-brown);
+
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
 }
 .reading .reading-message img {
   height: 23px;
   height: 23px;
+
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
 }
 .reading .book-title-name {
   width: 50%;

@@ -38,7 +38,7 @@ export function GamesPage() {
             <div className="games-cards-container">
               <Link to="/Jeux/Enigmes" className="card riddles-card">
                 <img src={riddles} alt="énigmes" />
-                <h3>ENIGMES</h3>
+                <h3>ÉNIGMES</h3>
               </Link>
 
               <Link to="/Jeux/Puzzles" className="card puzzles-card">
@@ -48,7 +48,7 @@ export function GamesPage() {
 
               <Link to="/Jeux/Memoire" className="card memory-card">
                 <img src={memory} alt="mémoire" />
-                <h3>MEMOIRE</h3>
+                <h3>MÉMOIRE</h3>
               </Link>
             </div>
           </div>

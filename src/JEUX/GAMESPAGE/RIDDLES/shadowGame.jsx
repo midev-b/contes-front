@@ -3,6 +3,8 @@ import { DraggableImage } from "./draggableImg";
 import { DroppableImage } from "./droppableImg";
 import React, { useEffect, useState, useContext } from "react";
 
+import { FinishedGame } from "../../../PublicComponents/finishedGame.jsx";
+
 import { Link } from "react-router-dom";
 import "./shadowGame.css";
 
@@ -26,6 +28,8 @@ export function ShadowPage() {
   const [currentIndex, setCurrentIndex] = useState(0); // index du niveau en cours
   const [matched, setMatched] = useState({}); // ombres validées
   const [message, setMessage] = useState(""); // message Bravo/Faux
+
+  const [finished, setFinished] = useState(false);
 
   // Charger les niveaux depuis l’API
   useEffect(() => {
@@ -53,7 +57,9 @@ export function ShadowPage() {
     if (active.id === over.id) {
       // ✅ correspondance correcte
       setMatched((prev) => ({ ...prev, [over.id]: true }));
-      setMessage(" ✔️ Bravo !");
+      setTimeout(() => {
+        setMessage(" ✔️ Bravo !");
+      }, 1000);
 
       // attendre un peu avant de passer au niveau suivant
       setTimeout(() => {
@@ -62,14 +68,24 @@ export function ShadowPage() {
           setCurrentIndex((prev) => prev + 1); // prochain niveau
           setMatched({}); // reset matched
         } else {
-          setMessage("🏆 Jeu terminé !");
-
-          sendGameCompletion("Enigme", "shadow", isAuthenticated);
+          setTimeout(() => {
+            setMessage("🏆 Jeu terminé !");
+            setFinished(true);
+          }, 1000);
+          sendGameCompletion(
+            "riddles",
+            "shadow",
+            isAuthenticated,
+            "Maitres des Énigmes "
+          );
         }
       }, 1500);
     } else {
       // ❌ mauvaise correspondance
-      setMessage("❌ Faux ! Réessaie...");
+      setTimeout(() => {
+        setMessage("❌ Faux ! Réessaie...");
+      }, 1000);
+
       setTimeout(() => setMessage(""), 1000);
     }
   };
@@ -84,6 +100,14 @@ export function ShadowPage() {
 
   return (
     <div className="shadow-game">
+      {finished ? (
+        <Link to="/Jeux/Enigmes">
+          <FinishedGame />{" "}
+        </Link>
+      ) : (
+        ""
+      )}
+
       <img src={grass1} alt="herbe gauche" className="grass grass-left" />
       <img src={grass2} alt="herbe droite" className="grass grass-right" />
       <img
@@ -107,44 +131,47 @@ export function ShadowPage() {
           <img src={back} alt="retour " className="back" />
         </Link>
         {/* Contexte DnD */}
-        <div className="colored-black-img">
-          <DndContext onDragEnd={handleDragEnd}>
-            {/* Message Bravo/Faux */}
-            <div className="message-images">
-              <div className="message-answer">
-                {message && <div className="message">{message}</div>}
 
-                {/* --- SLOT DRAGGABLE --- */}
-                <div className="draggable-slot">
-                  {matched[currentLevel.correct] ? (
-                    // ✅ Place vide si déjà posée
-                    <div className="empty-place" />
-                  ) : (
-                    // 👉 Sinon on montre l'image draggable
-                    <DraggableImage
-                      id={currentLevel.id}
-                      src={currentLevel.colored}
-                    />
-                  )}
+        <div key={currentIndex} className="shadow-transition">
+          <div className="colored-black-img">
+            <DndContext onDragEnd={handleDragEnd}>
+              {/* Message Bravo/Faux */}
+              <div className="message-images">
+                <div className="message-answer">
+                  {message && <div className="message">{message}</div>}
+
+                  {/* --- SLOT DRAGGABLE --- */}
+                  <div className="draggable-slot">
+                    {matched[currentLevel.correct] ? (
+                      // ✅ Place vide si déjà posée
+                      <div className="empty-place" />
+                    ) : (
+                      // 👉 Sinon on montre l'image draggable
+                      <DraggableImage
+                        id={currentLevel.id}
+                        src={currentLevel.colored}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* --- OMBRES --- */}
-            <div className="shadows">
-              {currentLevel.shadows.map((shadow) => (
-                <DroppableImage
-                  key={shadow.id}
-                  id={shadow.id}
-                  src={
-                    matched[shadow.id] && shadow.id === currentLevel.correct
-                      ? currentLevel.colored // si bon match → image colorée
-                      : shadow.src // sinon → ombre normale
-                  }
-                />
-              ))}
-            </div>
-          </DndContext>
+              {/* --- OMBRES --- */}
+              <div className="shadows">
+                {currentLevel.shadows.map((shadow) => (
+                  <DroppableImage
+                    key={shadow.id}
+                    id={shadow.id}
+                    src={
+                      matched[shadow.id] && shadow.id === currentLevel.correct
+                        ? currentLevel.colored // si bon match → image colorée
+                        : shadow.src // sinon → ombre normale
+                    }
+                  />
+                ))}
+              </div>
+            </DndContext>
+          </div>
         </div>
       </div>
     </div>

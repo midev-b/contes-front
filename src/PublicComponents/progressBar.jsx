@@ -24,6 +24,7 @@ export function ProgressBar({ category }) {
 
         const data = await response.json();
         setGamesInfo(data);
+        console.log("info", data);
       } catch (err) {
         setError(err.message);
       }

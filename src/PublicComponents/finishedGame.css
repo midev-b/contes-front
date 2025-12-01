@@ -1,2 +1,44 @@
+.accomplished {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 77;
 
+  background-color: rgba(8, 8, 8, 0.61);
+}
+.accomplished img {
+  margin-top: -25px;
+  width: 400px;
+  height: 380px;
 
+  animation: bounceDown 1.6s ease-in-out;
+}
+
+@keyframes bounceDown {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(25px);
+  } /* 1er gros rebond */
+  45% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(15px);
+  } /* rebond plus petit */
+  75% {
+    transform: translateY(0);
+  }
+  88% {
+    transform: translateY(6px);
+  } /* dernier petit rebond */
+  100% {
+    transform: translateY(0);
+  }
+}

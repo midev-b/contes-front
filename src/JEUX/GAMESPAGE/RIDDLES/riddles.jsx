@@ -46,7 +46,7 @@ export function RiddlesPage() {
                       Termine tous les jeux et remporte{" "}
                       <strong>Maître des Énigmes</strong>
                     </p>
-                    <ProgressBar category="Enigme" />
+                    <ProgressBar category="riddles" />
                   </div>
                   <img src={trophy} alt="trophée" className="gold-trophy" />
                 </div>

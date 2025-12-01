@@ -4,13 +4,17 @@ import { DraggablePiece } from "./draggablePiece";
 import { DroppableCell } from "./droppableCell";
 import "./puzzle1.css";
 
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../App";
 import { sendGameCompletion } from "../../../utils/completedGame.js";
+
+import { FinishedGame } from "../../../PublicComponents/finishedGame.jsx";
 
 import grass1 from "/backgrounds/grass1.png";
 import grass2 from "/backgrounds/grass2.png";
 import grass3 from "/backgrounds/grass3.png";
 import grass4 from "/backgrounds/grass1.png";
+import back from "/GAMES/puzzles/puzzle2/back.png";
 
 export function Puzzle1Page() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -18,6 +22,8 @@ export function Puzzle1Page() {
   const [placedPieces, setPlacedPieces] = useState({});
   const [message, setMessage] = useState("");
   const [addClass, setAddclass] = useState("");
+
+  const [finished, setFinished] = useState(false);
 
   useEffect(() => {
     const fetchPuzzle = async () => {
@@ -45,8 +51,16 @@ export function Puzzle1Page() {
 
         if (Object.keys(newPlaced).length === puzzle.pieces.length) {
           setAddclass("completed-puzzle");
-          setMessage("Bravo 🎉");
-          sendGameCompletion("Puzzles", "puzzle1", isAuthenticated);
+
+          sendGameCompletion(
+            "puzzles",
+            "puzzle1",
+            isAuthenticated,
+            "Puzzle Magique"
+          );
+          setTimeout(() => {
+            setFinished(true);
+          }, 1000);
         }
 
         return newPlaced;
@@ -62,6 +76,13 @@ export function Puzzle1Page() {
 
   return (
     <div className="puzzle1-container">
+      {finished ? (
+        <Link to="/Jeux/Puzzles">
+          <FinishedGame />{" "}
+        </Link>
+      ) : (
+        ""
+      )}
       <img src={grass1} alt="herbe gauche" className="grass grass-left" />
       <img src={grass2} alt="herbe droite" className="grass grass-right" />
       <img
@@ -76,6 +97,9 @@ export function Puzzle1Page() {
       />
       <DndContext onDragEnd={handleDragEnd}>
         <div className="middle-container">
+          <Link to="/Jeux/Puzzles">
+            <img className="back" src={back} alt="retour" />
+          </Link>
           <div className="message">{message}</div>
           <div className="game-container">
             {/* --- Partie gauche --- */}

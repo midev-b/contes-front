@@ -1,22 +1,61 @@
+:root {
+  --dark-green: #637f52;
+  --light-green: #d8d5bc;
+  --dark-brown: #5c422b;
+  --text-brown: #6b5842;
+  --medium-green: #b4c29c;
+  --light-brown: #f9eeda;
+  --red: #b63131;
+  --yellow: #ddbe6c;
+}
+
 .memory2-container {
-  background-image: url("/backgrounds/pastel-background2.png");
   width: 100vw;
   height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+  background-color: #f3e4d6;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-family: "Poppins", sans-serif;
 }
 
+.memory2-container .grass-left {
+  position: absolute;
+  top: 100px;
+  height: 200px;
+  right: 50px;
+}
+.memory2-container .grass-bottom-left {
+  position: absolute;
+  top: 350px;
+  height: 200px;
+  right: 50px;
+}
+.memory2-container .grass-right {
+  position: absolute;
+  top: 100px;
+  height: 180px;
+  left: 50px;
+}
+
+.memory2-container .grass-bottom-right {
+  position: absolute;
+  top: 400px;
+  height: 200px;
+  left: 50px;
+}
 /* Conteneur principal */
 .memory2-container .middle-container {
   width: 70%;
   height: 85%;
   max-width: 1200px;
-  border-radius: 12px;
-  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
+
+  border-radius: 16px;
+  -webkit-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
   background-image: url("/GAMES/memory/memory2/sea.jpg");
   background-size: cover;
   background-position: center;
@@ -26,6 +65,17 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  position: relative;
+}
+.memory2-container .middle-container .back {
+  position: absolute;
+  width: 210px;
+  height: 150px;
+  bottom: 0px;
+  left: 650px;
+
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
+  z-index: 5;
 }
 .memory2-container .game-container {
   position: relative;
@@ -126,12 +176,12 @@
 .memory2-container .questions-bubbles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
   justify-items: center;
   align-items: center;
 
-  width: 450px;
-  height: 280px;
+  width: 380px;
+  height: 310px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
 
@@ -145,17 +195,59 @@
   width: 80px;
   height: 80px;
 }
+.memory2-container .correct {
+  border: #629740 solid 3px;
+
+  animation: correct-pulse 0.5s ease forwards;
+}
+.memory2-container .incorrect {
+  border: #b63131 solid 3px;
+
+  animation: small-shake 0.3s ease;
+}
+@keyframes correct-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0px rgba(0, 255, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0px rgba(0, 255, 0, 0);
+  }
+}
+@keyframes small-shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .memory2-container .questions-bubbles .question-bubble img {
   width: 100%;
   height: 100%;
+  border-radius: 50% 50%;
 }
 
 .memory2-container .questions-bubbles p {
   text-align: center;
   grid-column: 1/-1;
   padding: 10px;
-  color: rgb(9, 9, 78);
-  font-family: "Charm";
+  color: var(--text-brown);
   font-weight: 700;
 }
 

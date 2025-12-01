@@ -85,7 +85,7 @@ export function Main() {
             <span>Déconnexion</span>
           </Link>
           <Link to="/dashboard" className="menu-btn profile-btn">
-            <img src={profile} alt="Profil" />
+            {/* <img src={profile} alt="Profil" /> */}
             <span>{getInitialsLetters()}</span>
           </Link>
         </>

@@ -1,177 +1,177 @@
+/* 🎨 Couleurs globales */
+:root {
+  --dark-green: #637f52;
+  --light-green: #d8d5bc;
+  --dark-brown: #5c422b;
+  --text-brown: #6b5842;
+  --medium-green: #b4c29c;
+  --light-brown: #f9eeda;
+  --red: #b63131;
+  --yellow: #ddbe6c;
+}
+
+/* 🌿 Fond général */
 .login {
-  background-image: url("/backgrounds/pastel-background2.png");
   width: 100vw;
   height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: var(--light-brown);
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  font-family: "Poppins", sans-serif;
 }
 
+/* 🌱 Décors */
+.login img.grass {
+  position: absolute;
+  pointer-events: none;
+}
+
+.login .grass-left {
+  top: 100px;
+  right: 50px;
+  height: 200px;
+}
+.login .grass-bottom-left {
+  top: 350px;
+  right: 50px;
+  height: 200px;
+}
+.login .grass-right {
+  top: 100px;
+  left: 50px;
+  height: 180px;
+}
+.login .grass-bottom-right {
+  top: 400px;
+  left: 50px;
+  height: 200px;
+}
+
+/* 🟤 Conteneur central */
 .login .middle-container {
   position: relative;
-  background-color: rgb(18, 29, 61);
-  background-position: center;
-  background-size: 100% 100%;
-  border-radius: 12px;
-  width: 60%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
-  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.75);
+  width: 70%;
+  height: 96%;
+  background-color: var(--light-brown);
+  border-radius: 16px;
+  -webkit-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+}
+.login .main-nav {
+  padding-top: 20px;
+  margin: auto;
 }
 
-.login .main {
-  margin-top: 5px;
-  margin-left: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.login .main a {
-  color: rgb(234, 235, 245);
-}
-
+/* 📌 Bloc login */
 .login .info-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  left: -45px;
-  top: 30px;
-
-  background-color: rgba(236, 237, 241, 0.952);
+  background-color: var(--light-green);
+  border: 3px solid var(--dark-green);
   border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  font-family: "Georgia", serif;
-  color: #2f2f2f;
-  z-index: 2;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 35px 45px;
+  width: 80%;
+  color: var(--text-brown);
+  text-align: center;
+  position: relative;
+  margin: auto;
+  margin-top: 40px;
 }
 
-.login h2 {
-  text-align: center;
-  color: #3a4c5c;
+/* 🐦 Image oiseau */
+.login .bird {
+  width: 120px;
+  position: absolute;
+  top: -70px;
+  right: 50%;
+  transform: translateX(50%);
+
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* 📝 Titre */
+.login .info-container h2 {
+  margin-top: 55px;
+  color: var(--dark-brown);
+  font-size: 28px;
   margin-bottom: 20px;
 }
 
-.login label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: bold;
-  color: #405466;
+/* 🔤 Inputs */
+.login .info-container form div {
+  margin-bottom: 18px;
+  text-align: left;
 }
 
-.login input[type="text"],
-.login input[type="email"],
-.login input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #cdd7d6;
-  border-radius: 10px;
-  background-color: #fdfdfd;
-  font-size: 14px;
+.login .info-container label {
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--dark-brown);
+  padding: 5px;
 }
 
-.login button[type="submit"] {
+.login .info-container input {
   width: 100%;
-  padding: 10px;
-  background-color: #3a5a80;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
+  padding: 10px 13px;
+  font-size: 15px;
+  border: 2px solid var(--medium-green);
+  border-radius: 8px;
+  outline: none;
+  background-color: white;
+  transition: 0.25s;
+  color: var(--dark-brown);
+}
+
+.login .info-container input:focus {
+  border-color: var(--dark-green);
+  box-shadow: 0 0 6px var(--medium-green);
+}
+
+/* 🔘 Bouton */
+.login .info-container button {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  margin-top: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-family: "Georgia", serif;
-  margin-top: 25px;
+  border-radius: 8px;
+  border: none;
+  color: var(--dark-brown);
+  font-weight: bold;
+  background-color: var(--medium-green);
+  transition: 0.3s;
 }
 
-.login button[type="submit"]:hover {
-  background-color: #2f4968;
+.login .info-container button:hover {
+  background-color: var(--dark-green);
 }
 
-/* images */
-.login .bird {
-  position: absolute;
-  width: 88px;
-  height: 88px;
-  top: -50px;
-  right: -40px;
-}
-.login .grass1 {
-  position: absolute;
-  width: 60px;
-  height: 400px;
-  right: 10px;
-  bottom: 0px;
-  z-index: 3;
-}
-.login .grass2 {
-  position: absolute;
-  width: 50px;
-  height: 350px;
-  left: -45px;
-  bottom: -18px;
-  z-index: 3;
-}
-.login .switch-register {
-  margin-top: 20px;
+/* 📩 Message de connexion */
+.login .message-connexion {
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--dark-green);
   font-size: 16px;
-  text-align: center;
-  color: #35434e;
-  font-family: "Comic Sans MS", "Fredoka", cursive;
+}
+
+/* 🔗 Lien inscription */
+.login .switch-register {
+  margin-top: 18px;
+  font-size: 15px;
+  color: var(--text-brown);
 }
 
 .login .register-link {
-  color: #50b9ff;
-  text-decoration: none;
   font-weight: bold;
-  margin-left: 5px;
-  background-color: #eefcff;
-  padding: 6px 12px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  display: inline-block;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: var(--dark-brown);
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .login .register-link:hover {
-  background-color: #547588;
-  color: #e8e9f3;
-  transform: scale(1.05);
-  text-decoration: none;
-}
-.login .message-connexion {
-  margin-top: 15px;
-  padding: 10px 15px;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 500;
-  text-align: center;
-  font-family: "Comic Sans MS", "Fredoka", cursive;
-  background-color: #fff0f5; /* fond doux rose clair */
-  color: #4ac2d7; /* rouge doux */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.5s ease-in-out;
-  max-width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  color: var(--dark-brown);
 }

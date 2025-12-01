@@ -49,7 +49,7 @@ export function MemoryPage() {
                       Termine tous les jeux et remporte{" "}
                       <strong>Mémoire d’or</strong>
                     </p>
-                    <ProgressBar category="Memoire" />
+                    <ProgressBar category="memory" />
                   </div>
                   <img src={trophy} alt="trophée" className="gold-trophy" />
                 </div>

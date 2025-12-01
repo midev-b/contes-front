@@ -1,8 +1,9 @@
 .main-nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  width: 70%;
+  /* width: 72%; */
+  gap: 30px;
 }
 
 /* 🔸 Boutons du menu */
@@ -56,13 +57,13 @@
   /* position: relative; */
   width: 50px;
   height: 50px;
-  border-radius: 40%;
+  border-radius: 50%;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  border: 1px solid #63503b; /* 🌿 bordure vert sauge */
-  background: #e8e0d5;
-  color: #4b3e2b;
+  border: 2px solid #63503b; /* 🌿 bordure vert sauge */
+  background: var(--light-green);
+  color: var(--brown-text);
   transition: transform 0.25s ease, background-color 0.25s ease,
     box-shadow 0.25s ease, border-color 0.25s ease;
   position: absolute;

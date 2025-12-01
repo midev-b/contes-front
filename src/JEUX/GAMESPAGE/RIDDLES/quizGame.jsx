@@ -7,6 +7,8 @@ import fox2 from "/GAMES/riddles/quiz/fox2.png";
 import { AuthContext } from "../../../App";
 import { sendGameCompletion } from "../../../utils/completedGame.js";
 
+import { FinishedGame } from "../../../PublicComponents/finishedGame.jsx";
+
 import grass1 from "/backgrounds/grass1.png";
 import grass2 from "/backgrounds/grass2.png";
 import grass3 from "/backgrounds/grass3.png";
@@ -24,6 +26,9 @@ export function QuizPage() {
   const [message, setMessage] = useState("");
   const [addClass, setAddClass] = useState("");
   const [error, setError] = useState("");
+  const [anim, setAnim] = useState(false);
+
+  const [finished, setFinished] = useState(false);
 
   // Récupération des questions
   useEffect(() => {
@@ -54,16 +59,26 @@ export function QuizPage() {
 
       setTimeout(() => {
         const nextIndex = currentIndex + 1;
+        setAnim(true);
 
         if (nextIndex >= getQuizQuestions.length) {
           setMessage("Félicitations! Quiz terminé!");
-          sendGameCompletion("Enigme", "quiz", isAuthenticated);
+          sendGameCompletion(
+            "riddles",
+            "quiz",
+            isAuthenticated,
+            "Maitre des Énigmes"
+          );
+          setTimeout(() => {
+            setFinished(true);
+          }, 1000);
         } else {
           setCurrentIndex(nextIndex);
           setMessage("");
           setSelectedOptionIndex(null);
           setAddClass("");
           setIsDisabled(false);
+          setAnim(true);
         }
       }, 1500);
     } else {
@@ -80,6 +95,13 @@ export function QuizPage() {
   };
   return (
     <div className="quiz-global-container">
+      {finished ? (
+        <Link to="/Jeux/Enigmes">
+          <FinishedGame />{" "}
+        </Link>
+      ) : (
+        ""
+      )}
       <img src={grass1} alt="herbe gauche" className="grass grass-left" />
       <img src={grass2} alt="herbe droite" className="grass grass-right" />
       <img
@@ -119,7 +141,10 @@ export function QuizPage() {
             {error && <p className="quiz-error">{error}</p>}
 
             {getQuizQuestions.length > 0 ? (
-              <div className="quiz-box">
+              <div
+                key={currentIndex}
+                className={`quiz-box ${anim ? "question-slide" : ""}`}
+              >
                 <h4 className="quiz-question">
                   {getQuizQuestions[currentIndex].questionText}
                 </h4>

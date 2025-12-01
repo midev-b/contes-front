@@ -1,7 +1,8 @@
 export const sendGameCompletion = async (
   categoryName,
   gameName,
-  isAuthenticated
+  isAuthenticated,
+  trophy
 ) => {
   if (!isAuthenticated) return;
 
@@ -15,6 +16,7 @@ export const sendGameCompletion = async (
         gameName: gameName,
 
         completed: true,
+        trophy: trophy,
       }),
     });
 

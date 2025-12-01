@@ -85,7 +85,7 @@ export function BookList() {
       <div className="global-container">
         <div className="middle-container">
           <header className="header-actions">
-            <Main />
+            <Main className="main" />
             <div className="bar-search">
               <input
                 type="text"

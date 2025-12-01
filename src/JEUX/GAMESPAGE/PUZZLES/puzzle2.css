@@ -1,35 +1,81 @@
+:root {
+  --dark-green: #637f52;
+  --light-green: #d8d5bc;
+  --dark-brown: #5c422b;
+  --text-brown: #6b5842;
+  --medium-green: #b4c29c;
+  --light-brown: #f9eeda;
+  --red: #b63131;
+  --yellow: #ddbe6c;
+}
+
 .puzzle2-container {
-  background-image: url("/backgrounds/pastel-background2.png");
   width: 100vw;
   height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+  background-color: #f3e4d6;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-family: "Poppins", sans-serif;
 }
 
-/* Middle Container */
+.puzzle2-container .grass-left {
+  position: absolute;
+  top: 100px;
+  height: 200px;
+  right: 50px;
+}
+.puzzle2-container .grass-bottom-left {
+  position: absolute;
+  top: 350px;
+  height: 200px;
+  right: 50px;
+}
+.puzzle2-container .grass-right {
+  position: absolute;
+  top: 100px;
+  height: 180px;
+  left: 50px;
+}
+
+.puzzle2-container .grass-bottom-right {
+  position: absolute;
+  top: 400px;
+  height: 200px;
+  left: 50px;
+}
+
 .puzzle2-container .middle-container {
+  width: 72%;
+  height: 94%;
+  background-color: var(--light-brown);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75%;
-  height: 90%;
-  background-color: rgb(219, 219, 211);
-  border-radius: 12px;
-  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
-  padding: 20px;
+  position: relative;
+  border-radius: 16px;
+  -webkit-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
 }
+.puzzle2-container .back {
+  position: absolute;
+  right: 5px;
+  bottom: 0px;
+  width: 150px;
+  height: 180px;
 
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
+}
 /* Game Container : grille principale */
 .puzzle2-container .game-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  width: 80%;
-  height: 80%;
+  width: 76%;
+  height: 82%;
 }
 
 /* Partie gauche */
@@ -43,21 +89,24 @@
 
 .puzzle2-container .img-reference img {
   width: 200px;
-  height: 200px;
+  height: 220px;
   border-radius: 10px;
   grid-column-start: 1;
-  border: 2px solid white;
+  border: 3px solid white;
+
+  -webkit-box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
 }
 
-/* 8 pièces sous l’image (2 lignes de 4) */
+/* 6 pièces sous l’image (2 lignes de 3) */
 .puzzle2-container .pieces-under-img {
   display: grid;
-  grid-template-columns: repeat(4, 80px);
-  grid-template-rows: repeat(2, 80px);
-  gap: 10px;
+  grid-template-columns: repeat(4, 70px);
+  grid-template-rows: repeat(2, 70px);
+  gap: 15px;
   justify-content: center;
   border-radius: 10px;
-  column-gap: 20px;
 }
 
 /* Partie droite */
@@ -69,25 +118,21 @@
   gap: 10px;
 }
 
-/* Zone du puzzle (4x4 = 16 pièces) */
+/* Zone du puzzle */
 .puzzle2-container .puzzle-zone {
   display: grid;
   grid-template-columns: repeat(4, 80px);
   grid-template-rows: repeat(4, 80px);
-  gap: 3px;
+  border-radius: 10px;
   justify-content: center;
-  border: 2px solid rgb(129, 20, 219);
-  border-radius: 15px;
+  gap: 0px;
+  -webkit-box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 20px -14px rgba(66, 68, 90, 1);
 }
-.puzzle2-container .puzzle-zone img {
-  width: 80px !important;
-  height: 80px !important;
-}
-/* Effet puzzle complété */
 .puzzle2-container .completed-puzzle {
   transform: scale(1.1);
 }
-
 .completed-puzzle {
   transform: scale(1.1);
   transition: transform 0.6s ease, box-shadow 0.6s ease;
@@ -105,22 +150,19 @@
   }
 }
 
-/* 8 pièces sous la grille (2 lignes de 4) */
+/* 3 pièces sous la grille (1 ligne) */
 .puzzle2-container .pieces-under-grid {
   display: grid;
-  grid-template-columns: repeat(4, 80px);
-  grid-template-rows: repeat(2, 80px);
+  grid-template-columns: repeat(4, 70px);
   gap: 10px;
   justify-content: center;
 }
 
-/* Style des pièces draggable */
 .puzzle2-container .pieces-under-img img,
 .puzzle2-container .pieces-under-grid img {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   cursor: grab;
-  gap: 20px;
   border-radius: 10px;
-  color: rgba(206, 210, 214, 0.705);
+  /* color: rgba(206, 210, 214, 0.705); */
 }

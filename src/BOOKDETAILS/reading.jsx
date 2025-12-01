@@ -173,7 +173,7 @@ export function ReadingBook() {
               <img src={bookIcone} alt="icone-livre" />
               <p>
                 {" "}
-                Une nouvelle aventure vous attend… découvrez le héros du jour..
+                Une nouvelle aventure t'attend… découvre le héros du jour...
               </p>
             </div>
           </div>

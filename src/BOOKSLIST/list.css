@@ -74,6 +74,7 @@
   scrollbar-width: thin;
   scrollbar-color: var(--light-green) transparent;
 }
+.book-list 
 
 /* Scrollbar (Chrome / Edge / Safari) */
 .book-list .middle-container::-webkit-scrollbar {
@@ -93,10 +94,11 @@
 .book-list .header-actions {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding-top: 20px;
   margin-bottom: 25px;
+  gap: 20px;
 }
 
 .book-list .bar-search {

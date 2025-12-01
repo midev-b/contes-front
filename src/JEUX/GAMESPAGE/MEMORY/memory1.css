@@ -1,47 +1,102 @@
+:root {
+  --dark-green: #637f52;
+  --light-green: #d8d5bc;
+  --dark-brown: #5c422b;
+  --text-brown: #6b5842;
+  --medium-green: #b4c29c;
+  --light-brown: #f9eeda;
+  --red: #b63131;
+  --yellow: #ddbe6c;
+}
+
 .memory1-container {
-  background-image: url("/backgrounds/pastel-background2.png");
   width: 100vw;
   height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+  background-color: #f3e4d6;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-family: "Poppins", sans-serif;
 }
 
-/* Conteneur principal */
-.memory1-container .middle-container {
-  width: 70%;
-  height: 85%;
-  max-width: 1200px;
-  border-radius: 12px;
-  box-shadow: 1px 8px 79px -2px rgba(0, 0, 0, 0.5);
-  background-image: url("/backgrounds/middle-background.jpg");
-  background-size: cover;
-  background-position: center;
-  padding: 20px;
-  box-sizing: border-box;
+.memory1-container .grass-left {
+  position: absolute;
+  top: 100px;
+  height: 200px;
+  right: 50px;
+}
+.memory1-container .grass-bottom-left {
+  position: absolute;
+  top: 350px;
+  height: 200px;
+  right: 50px;
+}
+.memory1-container .grass-right {
+  position: absolute;
+  top: 100px;
+  height: 180px;
+  left: 50px;
+}
 
+.memory1-container .grass-bottom-right {
+  position: absolute;
+  top: 400px;
+  height: 200px;
+  left: 50px;
+}
+
+.memory1-container .middle-container-flex {
+  width: 64%;
+  height: 90%;
+  background-color: var(--light-brown);
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
+
+  border-radius: 16px;
+  -webkit-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+}
+.memory1-container .tree-decoration {
+  width: 260px;
+  height: 220px;
+}
+.memory1-container .back {
+  width: 220px;
+  height: 80px;
+  margin-top: -60px;
+  margin-left: 50px;
+
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
+}
+.memory1-container .middle-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--light-brown);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 16px;
 }
 
 .memory1-container .game-container {
-  width: 85%;
-  height: 85%;
+  /* width: 85%; */
+  /* height: 85%; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 /* Chaque carte */
 .memory1-container .game-container .cards {
-  width: 100px;
-  height: 100px;
+  width: 105px;
+  height: 105px;
   position: relative;
   perspective: 1000px; /* effet 3D */
   cursor: pointer;
@@ -66,7 +121,7 @@
 .memory1-container .game-container .cards .front-content img {
   height: 100%;
   width: 100%;
-  border: solid 1px red;
+
   border-radius: 10px;
 }
 

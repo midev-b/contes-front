@@ -67,7 +67,6 @@
 .home .main-flex {
   display: flex;
   justify-content: center;
-  gap: 5px;
 }
 .home .content-container-flex {
   width: 100%;
@@ -111,6 +110,8 @@
 .home .intro-message img {
   width: 470px;
   height: 220px;
+
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
 }
 /* Livre */
 .home .books-title-container {

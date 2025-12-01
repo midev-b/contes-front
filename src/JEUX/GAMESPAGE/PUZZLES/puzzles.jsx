@@ -50,7 +50,7 @@ export function PuzzlesPage() {
                       Termine tous les puzzles et remporte le{" "}
                       <strong>Puzzle d’or</strong>
                     </p>
-                    <ProgressBar category="Puzzles" />
+                    <ProgressBar category="puzzles" />
                   </div>
                   <img src={trophy} alt="trophée" className="gold-trophy" />
                 </div>

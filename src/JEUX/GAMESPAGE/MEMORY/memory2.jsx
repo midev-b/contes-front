@@ -1,8 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
+
+import { Link } from "react-router-dom";
 import "./memory2.css";
 
 import { AuthContext } from "../../../App";
 import { sendGameCompletion } from "../../../utils/completedGame.js";
+
+import { FinishedGame } from "../../../PublicComponents/finishedGame.jsx";
+import grass1 from "/backgrounds/grass1.png";
+import grass2 from "/backgrounds/grass2.png";
+import grass3 from "/backgrounds/grass3.png";
+import grass4 from "/backgrounds/grass1.png";
+import back from "/GAMES/memory/memory2/back.png";
 export function Memory2Page() {
   const { isAuthenticated } = useContext(AuthContext);
   const [memoBubbles, setMemoBubbles] = useState([]);
@@ -12,7 +21,8 @@ export function Memory2Page() {
   const [questionsBubbles, setQuestionsBubbles] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
-  const [bubbleClass, setBubbleClass] = useState();
+  const [finished, setFinished] = useState(false);
+  const [bubbleClass, setBubbleClass] = useState({});
   useEffect(() => {
     if (memoBubbles.length === 0) return;
     setDisplayBubbles(memoBubbles[currentIndex].cards);
@@ -28,7 +38,13 @@ export function Memory2Page() {
 
   const handleBubbles = (bubbleId) => {
     const present = displayBubblesNew.find((el) => el.id === bubbleId);
-
+    console.log(present);
+    console.log(displayBubbles, "bubbles");
+    console.log(displayBubblesNew, "neew");
+    setBubbleClass((prev) => ({
+      ...prev,
+      [bubbleId]: present ? "correct" : "incorrect",
+    }));
     if (present && !answers.includes(present)) {
       setAnswers((prev) => {
         const newAnswers = [...prev, present];
@@ -36,15 +52,25 @@ export function Memory2Page() {
         if (newAnswers.length === displayBubblesNew.length) {
           setTimeout(() => {
             if (currentIndex === memoBubbles.length - 1) {
-              sendGameCompletion("Memoire", "jeu de bulles", isAuthenticated);
+              sendGameCompletion(
+                "memory",
+                "jeu de bulles",
+                isAuthenticated,
+                "Mémoire d'or"
+              );
+              setFinished(true);
+              setDisplayBubblesNew([]);
+              setDisplayBubbles([]);
+              setAnswers([]);
+              return; // STOP ici, on n’incrémente pas currentIndex
             }
+
+            // Sinon on passe au niveau suivant
             setCurrentIndex(currentIndex + 1);
+            setBubbleClass({});
             setDisplayBubblesNew([]);
             setDisplayBubbles([]);
             setAnswers([]);
-            console.log(newAnswers, "bb");
-
-            return [];
           }, 1000);
         }
         return newAnswers;
@@ -66,10 +92,35 @@ export function Memory2Page() {
 
     fetchMemoryBubbles();
   }, []);
+
   return (
     <div className="memory2-container">
+      {finished ? (
+        <Link to="/Jeux/Memoire">
+          <FinishedGame />{" "}
+        </Link>
+      ) : (
+        ""
+      )}
+      <img src={grass1} alt="herbe gauche" className="grass grass-left" />
+      <img src={grass2} alt="herbe droite" className="grass grass-right" />
+      <img
+        src={grass3}
+        alt="herbe bas gauche"
+        className="grass grass-bottom-left"
+      />
+      <img
+        src={grass4}
+        alt="herbe bas droite"
+        className="grass grass-bottom-right"
+      />
+
       <div className="middle-container">
+        <Link to="/Jeux/Memoire">
+          <img src={back} className="back" alt="retour" />
+        </Link>
         <div className="game-container">
+          {/* Bulles décoratives flottantes */}
           <div className="background-bubbles-container">
             <div className="background-bubbles">
               {Array.from({ length: 20 }).map((_, i) => (
@@ -86,12 +137,13 @@ export function Memory2Page() {
               ))}
             </div>
           </div>
+
+          {/* Bulles à mémoriser */}
           <div className="display-bubbles-container">
             <div className="display-bubbles-flex">
               {displayBubbles.length > 0 &&
                 displayBubbles.map((bubble, index) => {
                   const delay = (Math.random() * 2) / 2;
-
                   const duration = memoBubbles[currentIndex].time / 1000;
 
                   return (
@@ -109,7 +161,9 @@ export function Memory2Page() {
                 })}
             </div>
           </div>
-          {displayBubbles.length === 0 && (
+
+          {/* Bulles de questions ou message fin */}
+          {displayBubbles.length === 0 && !finished && (
             <div className="questions-bubbles-container">
               <div className="questions-bubbles">
                 <p>Clique sur les animaux que tu as vus</p>
@@ -119,7 +173,11 @@ export function Memory2Page() {
                     className="question-bubble"
                     onClick={() => handleBubbles(bubble.id)}
                   >
-                    <img src={bubble.src} alt={`bubble-${index}`} />
+                    <img
+                      className={bubbleClass[bubble.id] || ""}
+                      src={bubble.src}
+                      alt={`bubble-${index}`}
+                    />
                   </div>
                 ))}
               </div>
@@ -127,6 +185,12 @@ export function Memory2Page() {
           )}
         </div>
       </div>
+
+      {/* {finished && (
+        <Link to="Jeux/Memoire">
+          <FinishedGame />
+        </Link>
+      )} */}
     </div>
   );
 }
