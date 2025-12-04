@@ -1,0 +1,233 @@
+:root {
+  --dark-green: #637f52;
+  --light-green: #d8d5bc;
+  --dark-brown: #5c422b;
+  --text-brown: #6b5842;
+  --medium-green: #b4c29c;
+  --light-brown: #f9eeda;
+  --red: #b63131;
+  --yellow: #ddbe6c;
+}
+
+.dashboard-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #f3e4d6;
+
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 🌱 Décors */
+.dashboard-container .grass-left {
+  position: absolute;
+  top: 100px;
+  height: 200px;
+  right: 50px;
+}
+.dashboard-container .grass-bottom-left {
+  position: absolute;
+  top: 350px;
+  height: 200px;
+  right: 50px;
+}
+.dashboard-container .grass-right {
+  position: absolute;
+  top: 100px;
+  height: 180px;
+  left: 50px;
+}
+.dashboard-container .grass-bottom-right {
+  position: absolute;
+  top: 400px;
+  height: 200px;
+  left: 50px;
+}
+.dashboard-container .middle-container {
+  position: relative;
+  width: 70%;
+  height: 98%;
+  background-color: var(--light-brown);
+  border-radius: 16px;
+  -webkit-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+  box-shadow: 1px 3px 25px -8px rgba(66, 68, 90, 1);
+}
+.dashboard-container .main-nav {
+  margin-top: 20px;
+}
+.dashboard-container .content-container img {
+  filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.2));
+}
+.dashboard-container .content-container {
+  width: 100%;
+  border: solid 1px black;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 88%;
+  margin-top: 10px;
+}
+/* books */
+.dashboard-container .favorite-books {
+  display: flex;
+  flex-direction: row;
+  height: 38%;
+  gap: 50px;
+}
+.dashboard-container .books-container {
+  width: 160px;
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: white;
+  padding: 5px;
+
+  -webkit-box-shadow: 0px 0px 25px -14px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 25px -14px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 25px -14px rgba(66, 68, 90, 1);
+  border-radius: 8px;
+}
+.dashboard-container .books-img {
+  display: flex;
+  align-items: flex-start;
+}
+.dashboard-container .content-container img {
+  height: 130px;
+  width: 220px;
+}
+.dashboard-container .display-books {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+  gap: 50px;
+  width: 100%;
+  height: 100%;
+}
+.dashboard-container .display-books img {
+  width: 130px;
+  height: 110px;
+
+  -webkit-box-shadow: 0px 0px 25px -14px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 25px -14px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 25px -14px rgba(66, 68, 90, 1);
+  border-radius: 5px;
+}
+.dashboard-container .display-books p {
+  font-size: 12px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--text-brown);
+}
+/* GAMES AND TROPHIES SECTION */
+.dashboard-container .games-and-trophies {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  height: 62%;
+  border: 2px blue solid;
+}
+/* games */
+.dashboard-container .accomplished-games {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  border: 2px red solid;
+  height: 100%;
+  gap: 10px;
+}
+.dashboard-container .display-games {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+
+  width: 100%;
+  height: 100%;
+}
+.dashboard-container .games-container {
+  width: 120px;
+  height: 88px;
+
+  padding: 2px;
+  background-color: white;
+  gap: 6px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: 0px 0px 25px -14px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 25px -14px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 25px -14px rgba(66, 68, 90, 1);
+  border-radius: 8px;
+}
+
+.dashboard-container .games-container img {
+  width: 60px;
+  height: 40px;
+}
+.dashboard-container .games-container p {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-brown);
+}
+/* TROPHIES */
+.dashboard-container .trophies {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* justify-content: flex-end; */
+  width: 48%;
+  border: 2px solid red;
+  gap: 10px;
+}
+.dashboard-container .trophies-container {
+  /* width: 100%;
+  height: 100%; */
+  display: flex;
+
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 130px;
+  gap: 8px;
+
+  -webkit-box-shadow: 0px 0px 25px -14px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 0px 25px -14px rgba(66, 68, 90, 1);
+  box-shadow: 0px 0px 25px -14px rgba(66, 68, 90, 1);
+  border-radius: 8px;
+}
+
+.dashboard-container .display-trophies {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+  gap: 20px;
+}
+.dashboard-container .display-trophies img {
+  width: 70px;
+  height: 80px;
+}
+.dashboard-container .trophies-container p {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-brown);
+  text-align: center;
+}

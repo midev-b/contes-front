@@ -18,7 +18,7 @@ import { Memory1Page } from "./JEUX/GAMESPAGE/MEMORY/memory1.jsx";
 import { Memory2Page } from "./JEUX/GAMESPAGE/MEMORY/memory2.jsx";
 
 import { Puzzle2Page } from "./JEUX/GAMESPAGE/PUZZLES/puzzle2.jsx";
-// import { Dashboard } from "./DASHBOARD/dashboard.jsx";
+import { Dashboard } from "./DASHBOARD/dashboard.jsx";
 // 👉 Ajout du style Toastify
 import "react-toastify/dist/ReactToastify.css";
 // 👉 Import du conteneur Toast
@@ -53,7 +53,7 @@ function App() {
           <Route path="/verify/:token" element={<VerifyEmailPage />} />
           <Route path="/login" element={<Login />} />
 
-          {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </AuthContext.Provider>
     </BrowserRouter>
