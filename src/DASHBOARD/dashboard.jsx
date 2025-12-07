@@ -12,6 +12,8 @@ import myTrophies from "/dashboard/trophies.png";
 
 export function Dashboard() {
   const [books, setBooks] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const [gamesTrophies, setGamesTrophies] = useState([]);
   const [error, setError] = useState();
 
@@ -33,7 +35,7 @@ export function Dashboard() {
 
         const data = await response.json();
         console.log("dash", data);
-
+        console.log({ data });
         setBooks(data.stories);
         setGamesTrophies(data.completedGames);
       } catch (err) {
@@ -43,6 +45,42 @@ export function Dashboard() {
 
     fetchUserActivities();
   }, []);
+  const visibleBooks =
+    books && books.length > 0
+      ? books.slice(currentIndex, currentIndex + 3)
+      : [];
+
+  const nextBooks = () => {
+    if (currentIndex + 3 < books.length) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  const prevBooks = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+  const deleteBook = async (bookTitle) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5001/api/removeBook/${bookTitle}`,
+        {
+          method: "PUT",
+
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+        }
+      );
+
+      const data = await response.json();
+
+      setBooks(data);
+      console.log("new", data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="dashboard-container">
@@ -72,14 +110,51 @@ export function Dashboard() {
 
             <div className="display-books">
               {books && books.length > 0 ? (
-                books.map((book, index) => (
-                  <div key={index} className="books-container">
-                    <img src={book.cover} />
-                    <p>{book.title}</p>
-                  </div>
-                ))
+                <>
+                  {/* Flèche précédente */}
+                  {books.length > 3 ? (
+                    <img
+                      onClick={prevBooks}
+                      className="previous"
+                      src="/dashboard/back.png"
+                      alt="previous"
+                    />
+                  ) : (
+                    ""
+                  )}
+
+                  {/* Livres visibles */}
+                  {visibleBooks.map((book, index) => (
+                    <div key={index} className="books-container ">
+                      <img
+                        onClick={() => {
+                          deleteBook(book.title);
+                        }}
+                        className="close"
+                        src="/dashboard/close.png"
+                        alt="fermer"
+                      />
+                      <img src={book.cover} alt={book.title} />
+                      <p>{book.title}</p>
+                    </div>
+                  ))}
+
+                  {/* Flèche suivante */}
+                  {books.length > 3 ? (
+                    <img
+                      onClick={nextBooks}
+                      src="/dashboard/next.png"
+                      className="next"
+                      alt="next"
+                    />
+                  ) : (
+                    ""
+                  )}
+                </>
               ) : (
-                <p>Aucun livre trouvé</p>
+                <p className="no-result">
+                  Tu n'as pas encore de livres favoris
+                </p>
               )}
             </div>
           </div>
@@ -94,15 +169,22 @@ export function Dashboard() {
               <div className="display-games">
                 {gamesTrophies && gamesTrophies.length > 0 ? (
                   gamesTrophies.map((item, index) =>
-                    item.completedGames.map((itm) => (
-                      <div key={index} className="games-container">
+                    item.completedGames.map((itm, i) => (
+                      <div key={`${index}-${i}`} className="games-container">
+                        <img
+                          className="close"
+                          src="/dashboard/close.png"
+                          alt="fermer"
+                        />
+                        <img src="/dashboard/game.png" alt="jeu" />
                         <p>{itm}</p>
-                        <img src="/dashboard/game.png" />
                       </div>
                     ))
                   )
                 ) : (
-                  <p>Aucun jeu accompli</p>
+                  <p className="no-result">
+                    Tu n'as aucun jeu accompli pour le moment{" "}
+                  </p>
                 )}
               </div>
             </div>
@@ -110,14 +192,24 @@ export function Dashboard() {
             {/* ----------- TROPHIES ---------- */}
             <div className="trophies">
               <div className="trophies-img">
-                <img src={myTrophies} alt="Trophées gagnés" />
+                <img
+                  className="tree-trophy"
+                  src={myTrophies}
+                  alt="Trophées gagnés"
+                />
               </div>
+
               <div className="display-trophies">
                 {gamesTrophies && gamesTrophies.length > 0 ? (
                   gamesTrophies.map((item, index) =>
                     item.trophy ? (
                       <div key={index} className="trophies-container">
-                        <img src={item.image} alt="trophée " />
+                        <img
+                          className="close"
+                          src="/dashboard/close.png"
+                          alt="fermer"
+                        />
+                        <img src={item.image} alt="trophée" />
                         <p>{item.trophy}</p>
                       </div>
                     ) : (
@@ -125,7 +217,9 @@ export function Dashboard() {
                     )
                   )
                 ) : (
-                  <p> Aucun trophée </p>
+                  <p className="no-result">
+                    Tu n'as gagné aucun trophée pour le moment{" "}
+                  </p>
                 )}
               </div>
             </div>
